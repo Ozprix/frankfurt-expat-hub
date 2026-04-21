@@ -140,16 +140,19 @@ const HomePage = () => {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="max-w-4xl text-balance text-5xl font-black leading-[1.05] tracking-tight text-[#0f172a] sm:text-6xl lg:text-7xl"
+              className="max-w-4xl text-5xl font-black leading-[1.05] tracking-tight text-[#0f172a] sm:text-6xl lg:text-7xl"
             >
-              Settle in Frankfurt.{' '}
-              <span className="text-[#0f766e]">
+              {/* Static line — never reflowed */}
+              <span className="block">Settle in Frankfurt.</span>
+              {/* Typewriter line — min-h reserves space even when erased,
+                  preventing layout shift in the elements below */}
+              <span className="block min-h-[1.1em] text-[#0f766e]">
                 <TypeWriter
                   strings={[
                     'Faster.',
                     'Smarter.',
-                    'With the right experts.',
-                    'Without the paperwork chaos.',
+                    'Confidently.',
+                    'Stress-free.',
                   ]}
                 />
               </span>
