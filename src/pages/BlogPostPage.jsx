@@ -3,17 +3,18 @@ import SEOHead from '@/components/SEOHead';
 import { schemaArticle, schemaHowTo } from '@/utils/structuredData';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, CalendarDays } from '@/lib/icons';
-import { blogPosts, getBlogPostBySlug } from '@/data/blogPosts';
+import { blogPosts as staticBlogPosts, getBlogPostBySlug } from '@/data/blogPosts';
+import { fetchPostBySlug, fetchAllPosts } from '@/services/contentful';
 import { supabaseClient } from '@/config/supabaseClient';
 import PartnerOffersSection from '@/components/PartnerOffersSection';
 import { findPartnerSlugsForText } from '@/utils/partnerReferrals';
 
 /* ── Related posts: same-category first, up to 4 total ──────────────────── */
-const getRelatedPosts = (post, count = 4) => {
-  const sameCategory = blogPosts.filter(
+const getRelatedPosts = (post, allPosts, count = 4) => {
+  const sameCategory = allPosts.filter(
     (p) => p.slug !== post.slug && p.category === post.category
   );
-  const others = blogPosts.filter(
+  const others = allPosts.filter(
     (p) => p.slug !== post.slug && p.category !== post.category
   );
   return [...sameCategory, ...others].slice(0, count);
@@ -27,8 +28,27 @@ const CHECKLIST_SLUGS = new Set([
 
 const BlogPostPage = () => {
   const { slug } = useParams();
-  const post = getBlogPostBySlug(slug);
+  const [post, setPost] = React.useState(() => getBlogPostBySlug(slug));
+  const [allPosts, setAllPosts] = React.useState(staticBlogPosts);
+  const [loadingPost, setLoadingPost] = React.useState(true);
   const [partners, setPartners] = React.useState([]);
+
+  // Try Contentful first; fall back to static data
+  React.useEffect(() => {
+    let cancelled = false;
+    setLoadingPost(true);
+    Promise.all([fetchPostBySlug(slug), fetchAllPosts()]).then(([ctfPost, ctfAll]) => {
+      if (cancelled) return;
+      if (ctfPost) setPost(ctfPost);
+      if (ctfAll && ctfAll.length > 0) {
+        const ctfSlugs = new Set(ctfAll.map((p) => p.slug));
+        const staticOnly = staticBlogPosts.filter((p) => !ctfSlugs.has(p.slug));
+        setAllPosts([...ctfAll, ...staticOnly]);
+      }
+      setLoadingPost(false);
+    });
+    return () => { cancelled = true; };
+  }, [slug]);
 
   React.useEffect(() => {
     if (!post) return undefined;
@@ -71,11 +91,20 @@ const BlogPostPage = () => {
     };
   }, [post]);
 
+  // Still loading from Contentful — show spinner, avoid premature redirect
+  if (!post && loadingPost) {
+    return (
+      <div className="flex min-h-[60vh] items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#dbe1d8] border-t-[#0f766e]" />
+      </div>
+    );
+  }
+
   if (!post) {
     return <Navigate to="/blog" replace />;
   }
 
-  const relatedPosts = getRelatedPosts(post);
+  const relatedPosts = getRelatedPosts(post, allPosts);
   const isChecklist = CHECKLIST_SLUGS.has(post.slug);
 
   return (

@@ -1,8 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CalendarDays } from '@/lib/icons';
-import { blogPosts } from '@/data/blogPosts';
+import { blogPosts as staticBlogPosts } from '@/data/blogPosts';
+import { fetchAllPosts } from '@/services/contentful';
 
 /* ── Category tabs config ─────────────────────────────────────────────────── */
 const CATEGORIES = [
@@ -64,11 +65,29 @@ const FeaturedCard = ({ post }) => (
 /* ── Main component ───────────────────────────────────────────────────────── */
 const BlogPage = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [posts, setPosts] = useState(staticBlogPosts);
+  const [loadingCms, setLoadingCms] = useState(true);
+
+  // Attempt to hydrate from Contentful; fall back silently to static data
+  useEffect(() => {
+    let cancelled = false;
+    fetchAllPosts().then((livePosts) => {
+      if (!cancelled && livePosts && livePosts.length > 0) {
+        // Merge: Contentful posts first, then any static posts whose slug
+        // isn't already in Contentful (keeps existing URLs working)
+        const ctfSlugs = new Set(livePosts.map((p) => p.slug));
+        const staticOnly = staticBlogPosts.filter((p) => !ctfSlugs.has(p.slug));
+        setPosts([...livePosts, ...staticOnly]);
+      }
+      if (!cancelled) setLoadingCms(false);
+    });
+    return () => { cancelled = true; };
+  }, []);
 
   const filteredPosts = useMemo(() => {
-    if (activeCategory === 'all') return blogPosts;
-    return blogPosts.filter((p) => p.category === activeCategory);
-  }, [activeCategory]);
+    if (activeCategory === 'all') return posts;
+    return posts.filter((p) => p.category === activeCategory);
+  }, [posts, activeCategory]);
 
   const featuredPost = filteredPosts[0];
   const remainingPosts = filteredPosts.slice(1);
@@ -96,10 +115,10 @@ const BlogPage = () => {
                   Step-by-step guides for registration, housing, tax, and everyday setup, written for international residents.
                 </p>
               </div>
-              {isAllView && blogPosts[0] && (
+              {isAllView && posts[0] && (
                 <img
-                  src={blogPosts[0].imageUrl}
-                  alt={blogPosts[0].imageAlt}
+                  src={posts[0].imageUrl}
+                  alt={posts[0].imageAlt}
                   className="h-72 w-full rounded-lg object-cover shadow-sm"
                 />
               )}
