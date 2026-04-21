@@ -52,6 +52,7 @@ export const Filter = LucideIcons.Filter;
 export const Flame = LucideIcons.Flame;
 export const Globe = LucideIcons.Globe;
 export const Handshake = LucideIcons.Handshake;
+export const HelpCircle = LucideIcons.HelpCircle;
 export const Heart = LucideIcons.Heart;
 export const Home = LucideIcons.Home;
 export const Image = LucideIcons.Image;

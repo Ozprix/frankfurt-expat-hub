@@ -18,6 +18,8 @@ const debugTransforms = () => ({
 export default defineConfig({
   plugins: [debugTransforms(), react()],
   server: {
+    port: 3000,
+    host: '127.0.0.1',
     cors: true,
     headers: {
       'Cross-Origin-Embedder-Policy': 'credentialless',

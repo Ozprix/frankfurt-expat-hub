@@ -1,5 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require('tailwindcss/plugin');
+const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette');
+
+// Exposes every Tailwind colour as a CSS custom property, e.g. var(--teal-600).
+// Required by the AuroraBackground component which references these vars in its
+// inline gradient strings so Tailwind's JIT doesn't need to know about them.
+function addVariablesForColors({ addBase, theme }) {
+  const allColors = flattenColorPalette(theme('colors'));
+  const newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+  addBase({ ':root': newVars });
+}
 
 const animationPlugin = plugin(({ addUtilities }) => {
 	addUtilities({
@@ -113,12 +125,19 @@ module.exports = {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: 0 },
 				},
+				// Aurora background animation — slow pan across the gradient
+				aurora: {
+					from: { backgroundPosition: '50% 50%, 50% 50%' },
+					to:   { backgroundPosition: '350% 50%, 350% 50%' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
+				// 60 s linear loop matches the original Aceternity design
+				aurora: 'aurora 60s linear infinite',
 			},
 		},
 	},
-	plugins: [animationPlugin],
+	plugins: [animationPlugin, addVariablesForColors],
 };

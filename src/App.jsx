@@ -108,8 +108,10 @@ function App() {
                 {/* Feature Routes (Public/Hybrid) */}
                 <Route path="/features" element={<FeaturesOverviewPage />} />
                 <Route path="/forum" element={<ForumPage />} />
-                <Route path="/forum/:categorySlug" element={<ForumCategoryPage />} />
+                {/* More-specific forum routes MUST come before /forum/:categorySlug */}
+                <Route path="/forum/post/:id" element={<ForumPostDetailPage />} />
                 <Route path="/forum/create" element={<ProtectedRoute><ForumCreatePostPage /></ProtectedRoute>} />
+                <Route path="/forum/:categorySlug" element={<ForumCategoryPage />} />
                 <Route path="/tutorials" element={<VideoTutorialsPage />} />
                 <Route path="/apartments" element={<ApartmentFinderPage />} />
 
@@ -125,8 +127,7 @@ function App() {
                 <Route path="/budget/create" element={<ProtectedRoute><BudgetEditorPage /></ProtectedRoute>} />
                 <Route path="/budget/:id/edit" element={<ProtectedRoute><BudgetEditorPage /></ProtectedRoute>} />
 
-                {/* Feature Detail Routes (Placeholders) */}
-                <Route path="/forum/post/:id" element={<ForumPostDetailPage />} />
+                {/* Feature Detail Routes */}
                 <Route path="/tutorials/:id" element={<VideoTutorialsPage />} />
                 <Route path="/apartments/:id" element={<ApartmentFinderPage />} />
 
