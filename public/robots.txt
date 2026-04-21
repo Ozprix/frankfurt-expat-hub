@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+# Private / authenticated pages — no indexing needed
+Disallow: /dashboard
+Disallow: /onboarding
+Disallow: /plan
+Disallow: /tasks
+Disallow: /documents
+Disallow: /account
+Disallow: /profile
+Disallow: /progress
+Disallow: /templates
+Disallow: /notification-preferences
+Disallow: /cost-calculator
+Disallow: /budget
+Disallow: /calendar/settings
+Disallow: /admin/
+Disallow: /checkout-success
+Disallow: /checkout-cancel
+Disallow: /database-status
+
+# Auth pages — indexable via canonical but crawlers needn't store them
+Disallow: /login
+Disallow: /signup
+Disallow: /reset-password
+
+Sitemap: https://frankfurtexpatservices.com/sitemap.xml

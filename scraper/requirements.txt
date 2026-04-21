@@ -1,0 +1,8 @@
+streamlit
+scrapegraphai
+playwright
+beautifulsoup4
+duckduckgo-search
+openai
+python-dotenv
+requests

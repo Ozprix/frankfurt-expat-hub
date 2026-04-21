@@ -1,0 +1,43 @@
+# ── OS & editors ──────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Dependencies ──────────────────────────────────────────────────────────────
+node_modules/
+.npm-cache/
+
+# ── Environment variables (never commit secrets) ───────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Build output ──────────────────────────────────────────────────────────────
+dist/
+build/
+.vite/
+
+# ── Archives & artefacts ──────────────────────────────────────────────────────
+*.zip
+*.timestamp-*.mjs
+
+# ── Test coverage ─────────────────────────────────────────────────────────────
+coverage/
+*.lcov
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+
+# ── Local scraping workspace ─────────────────────────────────────────────────
+scraper/outputs/
+blog-drafts/
+__pycache__/
+*.pyc
+
+# ── Claude Code workspace ─────────────────────────────────────────────────────
+.claude/

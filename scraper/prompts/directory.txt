@@ -1,0 +1,25 @@
+Extract public directory candidates for Frankfurt expats.
+
+Return JSON only. Use this shape:
+{
+  "partners": [
+    {
+      "name": "Business or professional name",
+      "category": "Tax & Accounting | Housing & Relocation | Banking & Financial Planning | Legal & Visa Support | Insurance | Healthcare & Wellbeing | Other",
+      "summary": "One concise sentence about the service",
+      "services": ["service one", "service two", "service three"],
+      "languages": ["English", "German"],
+      "location": "Frankfurt or service area",
+      "url": "canonical public URL",
+      "contact": "public email or phone if clearly shown",
+      "pricing": "public pricing detail if clearly shown",
+      "evidence": "short note about where this information appeared"
+    }
+  ]
+}
+
+Rules:
+- Use only information visible on the public page.
+- Do not infer private contact details.
+- Do not include login-only, paywalled, or personal data.
+- If a field is not public, use an empty string or empty array.
