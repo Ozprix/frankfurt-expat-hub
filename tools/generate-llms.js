@@ -5,6 +5,7 @@ import path from 'path';
 import { blogPosts } from '../src/data/blogPosts.js';
 import { directoryCategories } from '../src/data/directoryCategories.js';
 import { toolLandingPages } from '../src/data/toolLandingPages.js';
+import { reviewedKnowledgePages } from '../src/data/knowledgeTopics.js';
 
 const BASE_URL = 'https://frankfurtexpatservices.com';
 const OUTPUT_DIR = path.join(process.cwd(), 'public');
@@ -66,6 +67,20 @@ const corePages = [
     description: 'Practical relocation guides for Anmeldung, housing, tax, health insurance, banking, visa, and first-month setup.',
     changefreq: 'weekly',
     priority: '0.8',
+  },
+  {
+    path: '/answers',
+    title: 'Verified Frankfurt Answers',
+    description: 'Source-linked Frankfurt relocation answers with visible review dates and correction paths.',
+    changefreq: 'weekly',
+    priority: '0.9',
+  },
+  {
+    path: '/answers/methodology',
+    title: 'How Frankfurt Answers Are Verified',
+    description: 'Our sourcing, review dates, corrections process, and partner-independence standards for Frankfurt answer pages.',
+    changefreq: 'monthly',
+    priority: '0.7',
   },
   {
     path: '/pricing',
@@ -144,6 +159,10 @@ function escapeXml(value) {
     .replace(/'/g, '&apos;');
 }
 
+function escapeHtml(value) {
+  return escapeXml(value);
+}
+
 function normalizePath(urlPath) {
   return urlPath === '/' ? '/' : `/${urlPath.replace(/^\/+|\/+$/g, '')}`;
 }
@@ -179,14 +198,31 @@ function getPublicPages() {
     lastmod: post.date,
   }));
 
-  return [...corePages, ...directoryPages, ...toolPages, ...blogPages, ...legalPages];
+  // A knowledge topic does not appear here until an editor has explicitly
+  // reviewed it. This prevents the sitemap and llms.txt from promoting a
+  // research backlog as authoritative public information.
+  const answerPages = reviewedKnowledgePages.map((topic) => ({
+    path: `/answers/${topic.id}`,
+    title: topic.title,
+    description: topic.description || `A source-linked Frankfurt answer about ${topic.title}.`,
+    // sitemaps.org allows only a fixed set of changefreq values; a topic
+    // cadence like 'quarterly' is invalid and Search Console rejects it.
+    changefreq: ['always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never'].includes(topic.cadence)
+      ? topic.cadence
+      : 'monthly',
+    priority: '0.8',
+    lastmod: topic.lastVerified || TODAY,
+    answer: topic,
+  }));
+
+  return [...corePages, ...directoryPages, ...toolPages, ...blogPages, ...answerPages, ...legalPages];
 }
 
 function writeLlmsTxt(pages) {
   const priorityGroups = [
     {
       heading: 'Core Pages',
-      pages: pages.filter((page) => ['/', '/frankfurt-first-30-days-checklist', '/directory', '/tools', '/partners', '/blog', '/forum', '/apartments'].includes(page.path)),
+      pages: pages.filter((page) => ['/', '/frankfurt-first-30-days-checklist', '/directory', '/tools', '/partners', '/blog', '/answers', '/forum', '/apartments'].includes(page.path)),
     },
     {
       heading: 'Directory Categories',
@@ -201,6 +237,10 @@ function writeLlmsTxt(pages) {
       pages: pages.filter((page) => page.path.startsWith('/blog/')),
     },
     {
+      heading: 'Verified Frankfurt Answers',
+      pages: pages.filter((page) => page.path.startsWith('/answers/')),
+    },
+    {
       heading: 'Legal',
       pages: pages.filter((page) => ['/privacy-policy', '/terms', '/imprint'].includes(page.path)),
     },
@@ -213,12 +253,108 @@ function writeLlmsTxt(pages) {
     '',
     ...priorityGroups.flatMap((group) => [
       `## ${group.heading}`,
-      ...group.pages.map((page) => `- [${page.title}](${page.path}): ${page.description}`),
+      ...group.pages.map((page) => `- [${page.title}](${toAbsoluteUrl(page.path)}): ${page.description}`),
       '',
     ]),
   ].join('\n');
 
   fs.writeFileSync(path.join(OUTPUT_DIR, 'llms.txt'), content, 'utf8');
+}
+
+function writeAnswerPages(pages) {
+  const answerPages = pages.filter((page) => page.answer);
+
+  const styles = `
+    :root { color: #172033; background: #f3f4ef; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+    body { margin: 0; line-height: 1.65; }
+    main { max-width: 760px; margin: 0 auto; padding: 48px 24px 72px; }
+    a { color: #0f766e; } .eyebrow { color: #0f766e; font-size: .85rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.05; margin: .5rem 0 1.25rem; } h2 { margin-top: 2.25rem; }
+    .card { background: #fff; border: 1px solid #dbe1d8; border-radius: 16px; padding: 24px; margin: 20px 0; }
+    .meta { color: #526071; font-size: .92rem; } .notice { border-left: 4px solid #d97706; background: #fffbeb; padding: 14px 16px; }
+    .cta { display: inline-block; background: #0f766e; color: white; border-radius: 10px; font-weight: 800; padding: 12px 16px; text-decoration: none; }
+  `;
+
+  const indexItems = answerPages.map((page) => (
+    `<li><a href="${escapeHtml(page.path)}">${escapeHtml(page.title)}</a><br><span>${escapeHtml(page.description)}</span></li>`
+  )).join('');
+  const libraryHtml = `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verified Frankfurt Answers | Frankfurt Expat Services</title><meta name="description" content="Source-linked, reviewed Frankfurt relocation answers."><link rel="canonical" href="${BASE_URL}/answers/"><style>${styles}</style></head>
+<body><main><p class="eyebrow">Frankfurt Answer Library</p><h1>Verified Frankfurt answers</h1><p>Practical answers with official sources, a visible review date, and a correction path. These are general guides, not individual professional advice.</p><div class="card"><ul>${indexItems}</ul></div><p><a href="/answers/methodology">How we verify Frankfurt answers</a></p><p class="meta">Last library build: ${TODAY}. <a href="/contact">Report a correction</a>.</p></main></body></html>`;
+  const libraryDirectory = path.join(OUTPUT_DIR, 'answers');
+  fs.mkdirSync(libraryDirectory, { recursive: true });
+  fs.writeFileSync(path.join(libraryDirectory, 'index.html'), libraryHtml, 'utf8');
+
+  const methodologyDirectory = path.join(libraryDirectory, 'methodology');
+  const methodologyHtml = `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Frankfurt Answers Are Verified | Frankfurt Expat Services</title><meta name="description" content="How Frankfurt Expat Services sources, reviews, corrects, and monetises its answer library."><link rel="canonical" href="${BASE_URL}/answers/methodology"><style>${styles}</style></head>
+<body><main><p class="eyebrow"><a href="/answers/">Frankfurt Answer Library</a></p><h1>How we verify Frankfurt answers</h1><p>Frankfurt relocation information changes. We publish only source-linked answers that have a visible review date and a scheduled next review.</p>
+<div class="card"><h2>Source order</h2><ol><li>Government offices, laws, and statutory sources.</li><li>Official forms, PDFs, and service portals.</li><li>Written provider confirmation, clearly labelled as such.</li><li>Dated community experience, never presented as an official rule.</li></ol></div>
+<div class="card"><h2>What we publish</h2><p>Every answer must show its scope, official sources, last-verified date, and next review. Appointment availability, office hours, processing observations, and other volatile facts are reviewed more frequently.</p></div>
+<div class="card"><h2>Corrections and commercial independence</h2><p>Readers can report an error through our contact page. Partner or referral relationships are labelled; payment does not change factual claims, editorial inclusion, or organic ordering.</p></div>
+<div class="notice"><strong>Important:</strong> Our guides are general information, not individual legal, tax, insurance, or medical advice. Where a situation needs professional judgment, we say so.</div>
+<p class="meta"><a href="/contact">Report a correction or source change</a>.</p></main></body></html>`;
+  fs.mkdirSync(methodologyDirectory, { recursive: true });
+  fs.writeFileSync(path.join(methodologyDirectory, 'index.html'), methodologyHtml, 'utf8');
+
+  answerPages.forEach((page) => {
+    const answer = page.answer;
+    const directory = path.join(OUTPUT_DIR, 'answers', answer.id);
+    const canonical = toAbsoluteUrl(page.path);
+    const sourceLinks = (answer.sources || []).map((source) => (
+      `<li><a href="${escapeHtml(source.url)}" rel="noopener noreferrer">${escapeHtml(source.title || source.url)}</a></li>`
+    )).join('');
+    const steps = (answer.steps || []).map((step) => `<li>${escapeHtml(step)}</li>`).join('');
+    const documents = (answer.documents || []).map((document) => `<li>${escapeHtml(document)}</li>`).join('');
+    const trackingPath = answer.cta
+      ? `${answer.cta.path}${answer.cta.path.includes('?') ? '&' : '?'}source=answer_library&topic=${encodeURIComponent(answer.id)}&cta=${encodeURIComponent(answer.primaryCta || 'next_step')}`
+      : null;
+    const cta = answer.cta
+      ? `<div class="card"><h2>Next step</h2><p>Use the related Frankfurt Expat Services resource when you are ready.</p><a class="cta" href="${escapeHtml(trackingPath)}">${escapeHtml(answer.cta.label)}</a></div>`
+      : '';
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: answer.title,
+      description: page.description,
+      url: canonical,
+      dateModified: page.lastmod,
+      author: { '@type': 'Organization', name: 'Frankfurt Expat Services' },
+    };
+
+    const html = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${escapeHtml(page.title)} | Frankfurt Expat Services</title>
+    <meta name="description" content="${escapeHtml(page.description)}">
+    <link rel="canonical" href="${canonical}">
+    <script type="application/ld+json">${JSON.stringify(schema)}</script>
+    <style>${styles}</style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow"><a href="/answers/">Frankfurt Answer Library</a></p>
+      <h1>${escapeHtml(page.title)}</h1>
+      <p>${escapeHtml(answer.answer || page.description)}</p>
+      <div class="notice"><strong>Scope:</strong> ${escapeHtml(answer.scope || 'General guidance; check the official source for your case.')}</div>
+      <div class="card"><p class="meta"><strong>Last verified:</strong> ${escapeHtml(answer.lastVerified || page.lastmod)} &nbsp; <strong>Next review:</strong> ${escapeHtml(answer.nextReview || 'Scheduled editorial review')}</p></div>
+      <h2>What to do</h2><ol>${steps}</ol>
+      <h2>Documents and terms</h2><ul>${documents}</ul>
+      ${cta}
+      <h2>Official sources</h2>
+      <ul>${sourceLinks}</ul>
+      <p class="meta">This information is general guidance, not individual legal, tax, insurance, or medical advice. <a href="/contact">Report a correction</a>.</p>
+    </main>
+  </body>
+</html>`;
+
+    fs.mkdirSync(directory, { recursive: true });
+    fs.writeFileSync(path.join(directory, 'index.html'), html, 'utf8');
+  });
 }
 
 function writeSitemap(pages) {
@@ -249,6 +385,7 @@ function main() {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   const pages = getPublicPages();
 
+  writeAnswerPages(pages);
   writeLlmsTxt(pages);
   writeSitemap(pages);
 
