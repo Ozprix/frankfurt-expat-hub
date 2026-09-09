@@ -15,6 +15,7 @@ const footerLinks = [
       { label: 'Currency Converter', to: '/tools#currency' },
       { label: 'QR Code Generator', to: '/tools#qr' },
       { label: 'Password Generator', to: '/tools#password' },
+      { label: 'Creator Taxes', to: '/creator-taxes' },
     ],
   },
   {

@@ -28,6 +28,7 @@ Frankfurt Expat Services helps international residents settle in Frankfurt with 
 - [Secure Password Generator](https://frankfurtexpatservices.com/tools/password-generator): Free secure password generator. Create strong random passwords for German government portals, banking, and insurance accounts. Runs entirely in your browser — no data sent to servers.
 
 ## Guides
+- [Content creator taxes in Germany: what expats need to track](https://frankfurtexpatservices.com/blog/content-creator-taxes-germany-expats): How gifted PR products, brand deals, and platform income are treated for German tax, and what records creators should keep before seeing a Steuerberater.
 - [Can I do Anmeldung from temporary housing in Frankfurt?](https://frankfurtexpatservices.com/blog/anmeldung-temporary-housing-frankfurt): How to check whether a furnished apartment, serviced flat, sublet, or temporary stay can be used for Anmeldung in Frankfurt.
 - [Frankfurt renter packet checklist for newcomers](https://frankfurtexpatservices.com/blog/frankfurt-renter-packet-checklist-newcomers): The documents and short explanation newcomers should prepare before applying for apartments in Frankfurt.
 - [Tax ID did not arrive after Anmeldung: what to do](https://frankfurtexpatservices.com/blog/tax-id-did-not-arrive-after-anmeldung): A practical troubleshooting guide for newcomers whose German tax ID letter has not arrived after registering in Frankfurt.

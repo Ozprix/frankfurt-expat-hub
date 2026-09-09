@@ -1,5 +1,44 @@
 export const blogPosts = [
   {
+    slug: 'content-creator-taxes-germany-expats',
+    title: 'Content creator taxes in Germany: what expats need to track',
+    description:
+      'How gifted PR products, brand deals, and platform income are treated for German tax, and what records creators should keep before seeing a Steuerberater.',
+    category: 'Tax',
+    date: '2026-09-09',
+    readingTime: '6 min read',
+    imageUrl:
+      'https://images.unsplash.com/photo-1554774853-aae0a22c8aa4?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Creator filming content with a phone and ring light',
+    sections: [
+      {
+        heading: 'Why creators get caught out',
+        body:
+          'If you make content in Germany, the tax office can treat more than your cash payouts as income. Brand deals, affiliate revenue, and platform payments are the obvious part. The part that surprises people is that gifted products and PR samples received in exchange for content can also count, often at their market value. This article explains what to record. It does not calculate tax, decide how anything is treated, or replace advice from a qualified Steuerberater.',
+      },
+      {
+        heading: 'The four things to track all year',
+        body:
+          'Keep a running record of: cash income (brand deals, platform payouts, affiliate); samples and benefits (gifted products, free trips, comped services) with an estimated value and who sent them; business expenses (equipment, software, a home-office share, travel to shoots); and evidence (invoices, contracts, screenshots of collaboration terms). Logging these as they happen is far easier than reconstructing a whole year the week before a deadline.',
+      },
+      {
+        heading: 'Gifted products and PR samples',
+        body:
+          'A common question is whether a free product is really taxable. Often it is, when it was given in exchange for promotion or content. Some brands settle the tax at source under a flat-rate scheme and will tell you if they did. Either way, note what you received, from whom, roughly what it was worth, and whether any content was expected in return. That record is what your advisor needs to decide the treatment.',
+      },
+      {
+        heading: 'Get organized before you pay for advice',
+        body:
+          'A Steuerberater charges for their time, so handing over a clean, categorized pack of income, samples, and expenses means less back-and-forth and usually a lower bill. Our free Creator Records tool lets you log all four categories in plain English and export a preparation pack, and the Creator Taxes page can match you with an English-speaking advisor who works with creators.',
+      },
+    ],
+    links: [
+      { label: 'Organize your creator records (free)', href: '/creator-taxes' },
+      { label: 'Open the Creator Records tool', href: '/creator-records' },
+      { label: 'Find English-speaking tax advisors', href: '/directory/tax-advisors-frankfurt' },
+    ],
+  },
+  {
     slug: 'anmeldung-temporary-housing-frankfurt',
     title: 'Can I do Anmeldung from temporary housing in Frankfurt?',
     description:
