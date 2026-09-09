@@ -26,8 +26,13 @@ const createMotionComponent = (tag) =>
     return React.createElement(tag, { ...domProps, ref }, children);
   });
 
+// Cache one component per tag so motion.div returns a STABLE identity across
+// renders. Without this, every render created a new component type, remounting
+// the whole subtree and dropping focus from inputs on each keystroke.
+const componentCache = {};
+
 export const motion = new Proxy({}, {
-  get: (_target, tag) => createMotionComponent(tag),
+  get: (_target, tag) => (componentCache[tag] ??= createMotionComponent(tag)),
 });
 
 export const AnimatePresence = ({ children }) => React.createElement(React.Fragment, null, children);
