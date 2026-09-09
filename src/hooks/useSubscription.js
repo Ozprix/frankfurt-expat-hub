@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { supabaseClient } from '@/config/supabaseClient';
 
@@ -13,7 +13,7 @@ export const useSubscription = () => {
     error: null
   });
 
-  const fetchSubscription = async () => {
+  const fetchSubscription = useCallback(async () => {
     if (!user) {
       setSubscription(prev => ({ ...prev, loading: false }));
       return;
@@ -55,7 +55,7 @@ export const useSubscription = () => {
       console.error('Subscription fetch error:', err);
       setSubscription(prev => ({ ...prev, loading: false, error: err }));
     }
-  };
+  }, [user]);
 
   useEffect(() => {
     fetchSubscription();
@@ -63,7 +63,7 @@ export const useSubscription = () => {
     // Refresh every 5 minutes (TTL)
     const interval = setInterval(fetchSubscription, 5 * 60 * 1000);
     return () => clearInterval(interval);
-  }, [user]);
+  }, [fetchSubscription]);
 
   const isPro = subscription.tier === 'Pro' || subscription.tier === 'Move-In Pack';
   const isMoveInPack = subscription.tier === 'Move-In Pack';

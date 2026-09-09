@@ -19,11 +19,69 @@ export const validateImageFile = (file) => {
   return { isValid: true };
 };
 
-export const compressImage = async (file) => {
-  // Basic mock compression - in a real app, use a canvas or library like browser-image-compression
-  // This just returns the file as-is for now but preserves the async interface
+export const getAvatarResizeDimensions = (width, height, maxSize = 512) => {
+  if (!width || !height || width <= maxSize && height <= maxSize) {
+    return { width, height };
+  }
+
+  const scale = Math.min(maxSize / width, maxSize / height);
+  return {
+    width: Math.round(width * scale),
+    height: Math.round(height * scale),
+  };
+};
+
+const createObjectUrlImage = (file) => new Promise((resolve, reject) => {
+  const objectUrl = URL.createObjectURL(file);
+  const image = new Image();
+
+  image.onload = () => {
+    URL.revokeObjectURL(objectUrl);
+    resolve(image);
+  };
+
+  image.onerror = () => {
+    URL.revokeObjectURL(objectUrl);
+    reject(new Error('Could not load image for compression.'));
+  };
+
+  image.src = objectUrl;
+});
+
+export const compressImage = async (file, { maxSize = 512, quality = 0.82 } = {}) => {
+  if (
+    typeof document === 'undefined' ||
+    typeof Image === 'undefined' ||
+    typeof URL === 'undefined' ||
+    typeof File === 'undefined'
+  ) {
+    return file;
+  }
+
+  const image = await createObjectUrlImage(file);
+  const { width, height } = getAvatarResizeDimensions(image.naturalWidth, image.naturalHeight, maxSize);
+
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+
+  const context = canvas.getContext('2d');
+  if (!context) return file;
+
+  context.drawImage(image, 0, 0, width, height);
+
   return new Promise((resolve) => {
-    setTimeout(() => resolve(file), 100);
+    canvas.toBlob((blob) => {
+      if (!blob) {
+        resolve(file);
+        return;
+      }
+
+      const outputType = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
+      const extension = outputType === 'image/png' ? 'png' : 'jpg';
+      const baseName = file.name.replace(/\.[^.]+$/, '') || 'avatar';
+      resolve(new File([blob], `${baseName}.${extension}`, { type: outputType, lastModified: Date.now() }));
+    }, file.type === 'image/png' ? 'image/png' : 'image/jpeg', quality);
   });
 };
 

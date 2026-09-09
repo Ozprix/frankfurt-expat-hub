@@ -1,15 +1,16 @@
-
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { AuthProvider, useAuth } from '@/context/AuthContext';
 import { Toaster } from '@/components/ui/toaster';
 import Layout from '@/components/layout/Layout';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import ScrollToTop from '@/components/ScrollToTop';
+import AnswerAttributionTracker from '@/components/AnswerAttributionTracker';
 import DatabaseErrorBoundary from '@/components/DatabaseErrorBoundary';
 
 // Public Pages
 const HomePage = lazy(() => import('@/pages/HomePage'));
+const RelocationHelpPage = lazy(() => import('@/pages/RelocationHelpPage'));
 const HowItWorksPage = lazy(() => import('@/pages/HowItWorksPage'));
 const PricingPage = lazy(() => import('@/pages/PricingPage'));
 const FAQPage = lazy(() => import('@/pages/FAQPage'));
@@ -55,6 +56,8 @@ const DashboardPage = lazy(() => import('@/pages/DashboardPage'));
 const PlanPage = lazy(() => import('@/pages/PlanPage'));
 const TasksPage = lazy(() => import('@/pages/TasksPage'));
 const DocumentsPage = lazy(() => import('@/pages/DocumentsPage'));
+const TaxPrepPage = lazy(() => import('@/pages/TaxPrepPage'));
+const CreatorRecordsPage = lazy(() => import('@/pages/CreatorRecordsPage'));
 const AccountPage = lazy(() => import('@/pages/AccountPage'));
 const UserProfilePage = lazy(() => import('@/pages/UserProfilePage'));
 const TasksRegistryEditor = lazy(() => import('@/components/TasksRegistryEditor'));
@@ -72,6 +75,14 @@ const PageFallback = () => (
   </div>
 );
 
+// Wraps every route in the site chrome (Header/Footer). The standalone
+// /relocation-help ad landing page is mounted outside this on purpose.
+const LayoutShell = () => (
+  <Layout>
+    <Outlet />
+  </Layout>
+);
+
 const RedirectIfAuthenticated = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
   if (loading) return null;
@@ -83,10 +94,15 @@ function App() {
     <DatabaseErrorBoundary>
       <AuthProvider>
         <Router>
+          <AnswerAttributionTracker />
           <ScrollToTop />
-          <Layout>
-            <Suspense fallback={<PageFallback />}>
-              <Routes>
+          <Suspense fallback={<PageFallback />}>
+            <Routes>
+              {/* Standalone ad landing page — no Header/Footer chrome */}
+              <Route path="/relocation-help" element={<RelocationHelpPage />} />
+
+              {/* Everything else renders inside the site chrome */}
+              <Route element={<LayoutShell />}>
                 {/* Public Routes */}
                 <Route path="/" element={<HomePage />} />
                 <Route path="/how-it-works" element={<HowItWorksPage />} />
@@ -150,6 +166,8 @@ function App() {
                 <Route path="/plan" element={<ProtectedRoute><PlanPage /></ProtectedRoute>} />
                 <Route path="/tasks" element={<ProtectedRoute><TasksPage /></ProtectedRoute>} />
                 <Route path="/documents" element={<ProtectedRoute><DocumentsPage /></ProtectedRoute>} />
+                <Route path="/tax-prep" element={<ProtectedRoute><TaxPrepPage /></ProtectedRoute>} />
+                <Route path="/creator-records" element={<ProtectedRoute><CreatorRecordsPage /></ProtectedRoute>} />
                 <Route path="/account" element={<ProtectedRoute><AccountPage /></ProtectedRoute>} />
                 
                 {/* Profile Routes */}
@@ -170,9 +188,9 @@ function App() {
                 <Route path="/admin/analytics" element={<ProtectedRoute><AnalyticsDashboardPage /></ProtectedRoute>} />
 
                 <Route path="*" element={<Navigate to="/" replace />} />
-              </Routes>
-            </Suspense>
-          </Layout>
+              </Route>
+            </Routes>
+          </Suspense>
           <Toaster />
         </Router>
       </AuthProvider>

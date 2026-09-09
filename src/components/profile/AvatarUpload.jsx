@@ -2,7 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { Camera, Upload, X, Loader2 } from '@/lib/icons';
 import { useToast } from '@/components/ui/use-toast';
-import { validateImageFile } from '@/utils/avatarUtils';
+import { compressImage, validateImageFile } from '@/utils/avatarUtils';
 
 const AvatarUpload = ({ currentAvatarUrl, onUpload, onRemove, loading = false }) => {
   const [isDragging, setIsDragging] = useState(false);
@@ -33,7 +33,7 @@ const AvatarUpload = ({ currentAvatarUrl, onUpload, onRemove, loading = false })
     processFile(file);
   };
 
-  const processFile = (file) => {
+  const processFile = async (file) => {
     const validation = validateImageFile(file);
     if (!validation.isValid) {
       toast({
@@ -44,13 +44,20 @@ const AvatarUpload = ({ currentAvatarUrl, onUpload, onRemove, loading = false })
       return;
     }
 
-    // Create preview
-    const objectUrl = URL.createObjectURL(file);
-    setPreview(objectUrl);
+    try {
+      const compressedFile = await compressImage(file);
+      const objectUrl = URL.createObjectURL(compressedFile);
+      setPreview(objectUrl);
 
-    // Trigger upload
-    if (onUpload) {
-      onUpload(file);
+      if (onUpload) {
+        onUpload(compressedFile);
+      }
+    } catch (error) {
+      toast({
+        title: "Image Processing Failed",
+        description: error.message || "Please try another image.",
+        variant: "destructive"
+      });
     }
   };
 

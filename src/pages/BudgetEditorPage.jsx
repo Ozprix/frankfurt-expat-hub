@@ -1,8 +1,9 @@
 
 import React, { useEffect, useState, useMemo } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { useCostCalculator } from '@/hooks/useCostCalculator';
+import { useBudgetTemplates } from '@/hooks/useBudgetTemplates';
 import BudgetItemRow from '@/components/budget/BudgetItemRow';
 import AddItemForm from '@/components/budget/AddItemForm';
 import BudgetSummary from '@/components/budget/BudgetSummary';
@@ -31,7 +32,9 @@ import { useToast } from '@/components/ui/use-toast';
 const BudgetEditorPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const { toast } = useToast();
+  const { saveAsTemplate } = useBudgetTemplates();
   const { 
     fetchBudget, 
     updateBudget, 
@@ -49,36 +52,63 @@ const BudgetEditorPage = () => {
   const [loading, setLoading] = useState(true);
   const [items, setItems] = useState([]);
   const [isSaving, setIsSaving] = useState(false);
+  const isCreateMode = location.pathname === '/budget/create' || !id;
 
   useEffect(() => {
     const loadData = async () => {
-      if (id === 'create') {
+      setLoading(true);
+
+      if (isCreateMode) {
         setBudget({ name: 'My Frankfurt Budget', total_monthly_budget: 2500, currency: 'EUR' });
         setItems([]);
         setLoading(false);
-      } else {
-        const data = await fetchBudget(id);
-        if (data) {
-          setBudget(data);
-          setItems(data.user_budget_items || []);
-        }
-        setLoading(false);
+        return;
       }
+
+      const data = await fetchBudget(id);
+      if (data) {
+        setBudget(data);
+        setItems(data.user_budget_items || []);
+      } else {
+        navigate('/cost-calculator', { replace: true });
+      }
+      setLoading(false);
     };
     loadData();
-  }, [id, fetchBudget]);
+  }, [id, isCreateMode, fetchBudget, navigate]);
 
   const groupedItems = useMemo(() => {
     const groups = {};
     costCategories.forEach(cat => { groups[cat.id] = { ...cat, items: [] }; });
-    items.forEach(item => { if (groups[item.category_id]) groups[item.category_id].items.push(item); });
-    return Object.values(groups).filter(g => g.items.length > 0);
+    const uncategorizedItems = [];
+
+    items.forEach(item => {
+      if (groups[item.category_id]) {
+        groups[item.category_id].items.push(item);
+        return;
+      }
+
+      uncategorizedItems.push(item);
+    });
+
+    const visibleGroups = Object.values(groups).filter(g => g.items.length > 0);
+
+    if (uncategorizedItems.length > 0) {
+      visibleGroups.push({
+        id: 'uncategorized',
+        name: 'Uncategorized',
+        icon: '?',
+        items: uncategorizedItems,
+      });
+    }
+
+    return visibleGroups;
   }, [items, costCategories]);
 
   const handleSaveMeta = async () => {
     setIsSaving(true);
     try {
-      if (id === 'create') {
+      if (isCreateMode) {
         const newBudget = await createBudget(budget);
         if (newBudget) navigate(`/budget/${newBudget.id}/edit`, { replace: true });
       } else {
@@ -91,7 +121,7 @@ const BudgetEditorPage = () => {
   };
 
   const handleAddItem = async (itemData) => {
-    if (id === 'create') {
+    if (isCreateMode) {
       toast({ title: "Action Required", description: "Save the budget first to add items.", variant: "warning" });
       return;
     }
@@ -110,6 +140,18 @@ const BudgetEditorPage = () => {
     setItems(items.filter(i => i.id !== itemId));
   };
 
+  const handleSaveAsTemplate = async () => {
+    if (isCreateMode || !budget?.id) {
+      toast({ title: "Action Required", description: "Create the budget before saving it as a blueprint.", variant: "warning" });
+      return;
+    }
+
+    const templateName = window.prompt('Save this budget as a reusable blueprint:', budget.name);
+    if (!templateName?.trim()) return;
+
+    await saveAsTemplate(budget.id, templateName.trim());
+  };
+
   if (loading) return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white">
       <Loader2 className="w-10 h-10 animate-spin text-teal-600 mb-4" />
@@ -120,7 +162,7 @@ const BudgetEditorPage = () => {
   return (
     <>
       <Helmet>
-        <title>{id === 'create' ? 'Create Budget' : budget.name} | Budget Planner</title>
+        <title>{isCreateMode ? 'Create Budget' : budget.name} | Budget Planner</title>
         <meta name="robots" content="noindex,nofollow" />
       </Helmet>
 
@@ -154,10 +196,10 @@ const BudgetEditorPage = () => {
             <div className="flex items-center gap-2">
               <Button onClick={handleSaveMeta} disabled={isSaving} className="bg-teal-600 hover:bg-teal-700 text-white shadow-lg shadow-teal-100">
                 {isSaving ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Save className="w-4 h-4 mr-2" />}
-                {id === 'create' ? 'Create' : 'Save'}
+                {isCreateMode ? 'Create' : 'Save'}
               </Button>
               
-              {id !== 'create' && (
+              {!isCreateMode && (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button variant="outline" size="icon" className="rounded-lg">
@@ -165,6 +207,9 @@ const BudgetEditorPage = () => {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-48">
+                    <DropdownMenuItem onClick={handleSaveAsTemplate}>
+                      <Sparkles className="w-4 h-4 mr-2" /> Save as Blueprint
+                    </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => exportPDF(budget)}>
                       <Download className="w-4 h-4 mr-2" /> PDF Export
                     </DropdownMenuItem>
@@ -173,7 +218,11 @@ const BudgetEditorPage = () => {
                     </DropdownMenuItem>
                     <DropdownMenuItem className="text-red-600" onClick={() => {
                         if(confirm('Delete this budget permanently?')) {
-                            deleteBudget(budget.id).then(() => navigate('/cost-calculator'));
+                            deleteBudget(budget.id).then((wasDeleted) => {
+                              if (wasDeleted) {
+                                navigate('/cost-calculator');
+                              }
+                            });
                         }
                     }}>
                       <Trash2 className="w-4 h-4 mr-2" /> Delete

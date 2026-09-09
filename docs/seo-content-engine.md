@@ -18,6 +18,7 @@ Every new guide should link to:
 2. One directory category.
 3. One forum category.
 4. The Frankfurt First 30 Days Checklist when relevant.
+5. The protected Tax Prep Hub when the reader is preparing for a tax return or advisor consultation.
 
 ## Indexing Rules
 
@@ -31,13 +32,14 @@ Noindex:
 
 1. Empty or thin forum pages.
 2. Account, dashboard, onboarding, and checkout flows.
-3. Draft, admin, testing, and internal status pages.
+3. Protected Tax Prep Hub workflows.
+4. Draft, admin, testing, and internal status pages.
 
 ## First Clusters To Expand
 
 1. Anmeldung: appointment timing, landlord confirmation, temporary housing, mailbox issues, tax ID follow-up.
 2. Housing: renter packet, Schufa alternatives, viewing questions, cold vs warm rent, deposit protection.
-3. Tax: tax class, Steuer-ID, side business basics, VAT ID vs tax ID, when to use a Steuerberater.
+3. Tax: tax class, Steuer-ID, tax-prep documents, side business basics, VAT ID vs tax ID, when to use a Steuerberater.
 4. Healthcare: public/private decision, first job insurance choice, finding doctors, dental, liability insurance.
 5. Visa: Blue Card, residence appointment documents, family reunification, permanent residence planning.
 6. Banking: account before Anmeldung, salary IBAN, credit cards, blocked accounts, everyday payments.
@@ -45,3 +47,7 @@ Noindex:
 ## Quality Guardrails
 
 Keep posts practical and Frankfurt-specific. Avoid copying official text. Summarize processes in plain English, link to official sources where needed, and include a clear note when readers should verify current requirements or speak with a qualified professional.
+
+## Answer Library Rule
+
+High-stakes or volatile pages must use the Frankfurt Answer Library workflow in `docs/knowledge-refinery-operating-system.md`. Do not index a topic from the knowledge backlog until its source-linked claims are reviewed, dated, and assigned a next review.

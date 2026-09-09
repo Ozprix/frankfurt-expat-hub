@@ -1,6 +1,6 @@
 # Live Supabase Launch Checklist
 
-Use this after every production deploy that touches auth, retention, forum, or reminder state.
+Use this after every production deploy that touches auth, retention, forum, reminder state, document checklist state, or Tax Prep Hub state.
 
 ## Scope
 
@@ -10,7 +10,7 @@ Stripe is shelved for the current traffic and directory growth phase. Do not dep
 2. `supabase/functions/create-portal-session`
 3. `supabase/functions/stripe-webhook`
 
-The live launch path is Supabase Auth, public content data, contact capture, checklist delivery, first-month reminders, forum state, and conversion tracking.
+The live launch path is Supabase Auth, public content data, Contentful blog hydration, optional blog automation, contact capture, checklist delivery, first-month reminders, document checklist state, Tax Prep Hub state, forum state, and conversion tracking.
 
 ## Auth
 
@@ -35,6 +35,7 @@ For a fresh Supabase project, run `src/database/schema.sql` first, then the laun
 5. `src/database/conversion_events.sql`
 6. `src/database/checklist_delivery_requests.sql`
 7. `src/database/contact_messages_schema.sql`
+8. `src/database/blog_automation.sql`
 
 Quick live checks:
 
@@ -46,6 +47,7 @@ select to_regclass('public.reminder_email_events') as reminder_email_events;
 select to_regclass('public.conversion_events') as conversion_events;
 select to_regclass('public.checklist_delivery_requests') as checklist_delivery_requests;
 select to_regclass('public.contact_messages') as contact_messages;
+select to_regclass('public.blog_topic_queue') as blog_topic_queue;
 
 select tablename, policyname
 from pg_policies
@@ -58,11 +60,14 @@ where schemaname = 'public'
     'conversion_events',
     'checklist_delivery_requests',
     'contact_messages',
+    'blog_topic_queue',
     'forum_posts',
     'forum_replies'
   )
 order by tablename, policyname;
 ```
+
+`public.user_document_checklist` is shared by the relocation document tracker and the Tax Prep Hub MVP. Tax Prep rows use `document_id` values prefixed with `taxprep-`.
 
 ## Edge Functions
 
@@ -72,6 +77,7 @@ Deploy the non-payment Edge Functions:
 supabase functions deploy contact-form
 supabase functions deploy send-checklist
 supabase functions deploy first-month-reminders
+supabase functions deploy generate-blog-post
 ```
 
 Supabase provides `SUPABASE_URL`, `SUPABASE_ANON_KEY`, and `SUPABASE_SERVICE_ROLE_KEY` in the Edge Function runtime. Set these secrets for launch:
@@ -84,6 +90,26 @@ supabase secrets set CHECKLIST_FROM_EMAIL="Frankfurt Expat Services <hello@frank
 supabase secrets set REMINDER_FROM_EMAIL="Frankfurt Expat Services <hello@frankfurtexpatservices.com>"
 ```
 
+Optional blog automation secrets:
+
+```bash
+supabase secrets set ANTHROPIC_API_KEY=...
+supabase secrets set ANTHROPIC_MODEL=claude-3-5-sonnet-20241022
+supabase secrets set CONTENTFUL_SPACE_ID=...
+supabase secrets set CONTENTFUL_ENVIRONMENT=master
+supabase secrets set CONTENTFUL_MGMT_TOKEN=...
+supabase secrets set BLOG_GENERATION_SECRET=...
+supabase secrets set BLOG_AUTO_PUBLISH=false
+supabase secrets set BLOG_MAX_DAILY_POSTS=1
+```
+
+Keep Contentful Delivery API variables in Netlify, not Supabase:
+
+```bash
+VITE_CONTENTFUL_SPACE_ID=...
+VITE_CONTENTFUL_ACCESS_TOKEN=...
+```
+
 Optional rate-limit controls for `contact-form`:
 
 ```bash
@@ -94,7 +120,7 @@ supabase secrets set CONTACT_RATE_LIMIT_MAX_PER_EMAIL=3
 
 ## Reminder Emails
 
-Schedule a daily POST to the function from Supabase scheduled functions, Vercel Cron, or another trusted scheduler. The function uses the service role key from the Supabase runtime and only sends queued reminders for users who opted in.
+Schedule a daily POST to the function from Supabase scheduled functions, Netlify scheduled functions, or another trusted scheduler. The function uses the service role key from the Supabase runtime and only sends queued reminders for users who opted in.
 
 ## Smoke Test
 
@@ -103,10 +129,14 @@ Schedule a daily POST to the function from Supabase scheduled functions, Vercel 
 3. Request the first 30 days checklist and confirm a `checklist_delivery_requests` row moves to `sent`.
 4. Complete onboarding.
 5. Open `/dashboard`.
-6. Toggle first-month reminders on.
-7. Confirm `notification_preferences.first_month_reminders = true`.
-8. Confirm `reminder_email_events` has queued rows for the user.
-9. Run `first-month-reminders` manually and confirm queued events move to `sent`, `skipped`, or `failed`.
+6. Open `/tax-prep`, mark one tax document ready, add a note, refresh, and confirm the state persists.
+7. Confirm a `user_document_checklist` row exists for the user with a `taxprep-` prefixed `document_id`.
+8. Export the Tax Prep CSV and confirm it downloads.
+9. If blog automation is enabled, call `generate-blog-post` once with `BLOG_GENERATION_SECRET` and confirm a Contentful draft or published entry is created from `blog_topic_queue`.
+10. Toggle first-month reminders on.
+11. Confirm `notification_preferences.first_month_reminders = true`.
+12. Confirm `reminder_email_events` has queued rows for the user.
+13. Run `first-month-reminders` manually and confirm queued events move to `sent`, `skipped`, or `failed`.
 
 ## Deployment Gate
 
@@ -117,4 +147,7 @@ The Supabase setup is launch-ready only when:
 3. Signup works without requiring email confirmation.
 4. Contact and checklist emails either send through Resend or fail with rows stored for follow-up.
 5. Reminder queueing works from the dashboard preference toggle.
-6. No checkout route, button, or email asks users to pay during the shelved Stripe phase.
+6. Tax Prep Hub state persists through `user_document_checklist` and CSV export works.
+7. Contentful Delivery API variables are set in Netlify if Contentful should hydrate `/blog`.
+8. Blog automation is either deliberately disabled or tested with `BLOG_AUTO_PUBLISH=false`.
+9. No checkout route, button, or email asks users to pay during the shelved Stripe phase.

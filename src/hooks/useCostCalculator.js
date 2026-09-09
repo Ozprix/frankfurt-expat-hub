@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { supabase } from '@/lib/customSupabaseClient';
 import { useToast } from '@/components/ui/use-toast';
 import { generateBudgetPDF } from '@/utils/budgetUtils';
@@ -10,11 +10,16 @@ const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 export const useCostCalculator = () => {
   const [budgets, setBudgets] = useState([]);
   const [costCategories, setCostCategories] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [lastFetch, setLastFetch] = useState(0);
+  const lastFetchRef = useRef(0);
+  const budgetsRef = useRef([]);
   const { toast } = useToast();
   const { user } = useAuth();
+
+  useEffect(() => {
+    budgetsRef.current = budgets;
+  }, [budgets]);
 
   // Fetch Categories (Reference Data)
   const fetchCategories = useCallback(async () => {
@@ -34,9 +39,10 @@ export const useCostCalculator = () => {
   const fetchUserBudgets = useCallback(async (force = false) => {
     if (!user) return;
     const now = Date.now();
-    if (!force && now - lastFetch < CACHE_TTL && budgets.length > 0) return;
+    if (!force && now - lastFetchRef.current < CACHE_TTL && budgetsRef.current.length > 0) return;
 
     setLoading(true);
+    setError(null);
     try {
       const { data, error } = await supabase
         .from('user_budgets')
@@ -46,7 +52,7 @@ export const useCostCalculator = () => {
 
       if (error) throw error;
       setBudgets(data);
-      setLastFetch(now);
+      lastFetchRef.current = now;
     } catch (err) {
       setError(err.message);
       toast({
@@ -57,10 +63,10 @@ export const useCostCalculator = () => {
     } finally {
       setLoading(false);
     }
-  }, [user, lastFetch, budgets.length, toast]);
+  }, [user, toast]);
 
   // Fetch Single Budget
-  const fetchBudget = async (budgetId) => {
+  const fetchBudget = useCallback(async (budgetId) => {
     try {
       const { data, error } = await supabase
         .from('user_budgets')
@@ -75,7 +81,7 @@ export const useCostCalculator = () => {
       toast({ title: "Error", description: "Could not load budget details", variant: "destructive" });
       return null;
     }
-  };
+  }, [toast]);
 
   // CRUD Operations
   const createBudget = async (budgetData) => {
@@ -88,7 +94,8 @@ export const useCostCalculator = () => {
         .single();
 
       if (error) throw error;
-      setBudgets([data, ...budgets]);
+      setBudgets((currentBudgets) => [data, ...currentBudgets]);
+      lastFetchRef.current = Date.now();
       toast({ title: "Success", description: "Budget created successfully" });
       return data;
     } catch (err) {
@@ -107,7 +114,8 @@ export const useCostCalculator = () => {
         .single();
 
       if (error) throw error;
-      setBudgets(budgets.map(b => b.id === budgetId ? { ...b, ...data } : b));
+      setBudgets((currentBudgets) => currentBudgets.map((b) => (b.id === budgetId ? { ...b, ...data } : b)));
+      lastFetchRef.current = Date.now();
       return data;
     } catch (err) {
       toast({ title: "Error", description: err.message, variant: "destructive" });
@@ -123,10 +131,13 @@ export const useCostCalculator = () => {
         .eq('id', budgetId);
 
       if (error) throw error;
-      setBudgets(budgets.filter(b => b.id !== budgetId));
+      setBudgets((currentBudgets) => currentBudgets.filter((b) => b.id !== budgetId));
+      lastFetchRef.current = Date.now();
       toast({ title: "Success", description: "Budget deleted" });
+      return true;
     } catch (err) {
       toast({ title: "Error", description: err.message, variant: "destructive" });
+      return false;
     }
   };
 
@@ -186,7 +197,7 @@ export const useCostCalculator = () => {
       if (error) throw error;
       
       // Optimistic update for list view if needed, or rely on refetch
-      const updatedBudgets = budgets.map(b => {
+      const updatedBudgets = budgetsRef.current.map(b => {
         if (b.id === budgetId) {
           const items = b.user_budget_items || [];
           return { ...b, user_budget_items: [...items, data] };
@@ -194,6 +205,7 @@ export const useCostCalculator = () => {
         return b;
       });
       setBudgets(updatedBudgets);
+      lastFetchRef.current = Date.now();
       return data;
     } catch (err) {
       toast({ title: "Error", description: "Failed to add item", variant: "destructive" });
@@ -227,7 +239,7 @@ export const useCostCalculator = () => {
 
       if (error) throw error;
       
-      const updatedBudgets = budgets.map(b => {
+      const updatedBudgets = budgetsRef.current.map(b => {
         if (b.id === budgetId) {
           return { 
             ...b, 
@@ -237,6 +249,7 @@ export const useCostCalculator = () => {
         return b;
       });
       setBudgets(updatedBudgets);
+      lastFetchRef.current = Date.now();
     } catch (err) {
       toast({ title: "Error", description: "Failed to delete item", variant: "destructive" });
     }
@@ -261,7 +274,9 @@ export const useCostCalculator = () => {
     if (user) {
       fetchCategories();
       fetchUserBudgets();
+      return;
     }
+    setLoading(false);
   }, [user, fetchCategories, fetchUserBudgets]);
 
   return {

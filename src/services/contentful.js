@@ -11,6 +11,7 @@
  *   date         Date        (publish date, ISO)
  *   readingTime  Short text  (e.g. "5 min read")
  *   heroImage    Media       (image asset)
+ *   unsplashPhotoId Short text — optional fallback image ID for generated posts
  *   imageAlt     Short text
  *   sections     JSON Object (array of { heading: string, body: string })
  *   links        JSON Object (array of { label: string, href: string }) — optional
@@ -22,6 +23,7 @@
  */
 
 import { createClient } from 'contentful';
+import { adaptContentfulBlogPost } from '@/utils/contentfulBlogPost';
 
 const SPACE_ID     = import.meta.env.VITE_CONTENTFUL_SPACE_ID;
 const ACCESS_TOKEN = import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN;
@@ -35,31 +37,6 @@ function getClient() {
     _client = createClient({ space: SPACE_ID, accessToken: ACCESS_TOKEN });
   }
   return _client;
-}
-
-// ---------------------------------------------------------------------------
-// Shape adapter — converts a Contentful entry into the blogPosts.js shape
-// so BlogPage / BlogPostPage need zero changes to their rendering logic.
-// ---------------------------------------------------------------------------
-function adaptEntry(entry) {
-  const f = entry.fields;
-  return {
-    slug:        f.slug,
-    title:       f.title,
-    description: f.description,
-    category:    f.category,
-    date:        f.date ? f.date.split('T')[0] : new Date().toISOString().split('T')[0],
-    readingTime: f.readingTime || '5 min read',
-    imageUrl:    f.heroImage?.fields?.file?.url
-                   ? `https:${f.heroImage.fields.file.url}?w=1400&fm=webp&q=80`
-                   : 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80',
-    imageAlt:    f.imageAlt || f.title,
-    sections:    Array.isArray(f.sections) ? f.sections : [],
-    links:       Array.isArray(f.links)    ? f.links    : [],
-    featured:    f.featured === true,
-    // Pass through so BlogPostPage can detect Contentful source
-    _source: 'contentful',
-  };
 }
 
 // ---------------------------------------------------------------------------
@@ -81,7 +58,7 @@ export async function fetchAllPosts({ limit = 200 } = {}) {
       limit,
       include:      2, // resolve linked assets (heroImage)
     });
-    return res.items.map(adaptEntry);
+    return res.items.map(adaptContentfulBlogPost);
   } catch (err) {
     console.error('[Contentful] fetchAllPosts failed:', err.message);
     return null;
@@ -104,7 +81,7 @@ export async function fetchPostBySlug(slug) {
       include: 2,
     });
     if (!res.items.length) return null;
-    return adaptEntry(res.items[0]);
+    return adaptContentfulBlogPost(res.items[0]);
   } catch (err) {
     console.error('[Contentful] fetchPostBySlug failed:', err.message);
     return null;

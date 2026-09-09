@@ -24,7 +24,10 @@ export const directoryCategories = [
     longDescription:
       'German tax obligations are complex for international residents. Between tax classes, Steuererklärung deadlines, cross-border income, and employer payroll rules, most Frankfurt expats benefit from working with a qualified Steuerberater who speaks English and understands international situations. Our listed advisors have been verified for language proficiency, expat client experience, transparent pricing, and responsiveness.',
     features: ['German income tax returns', 'Expat tax class advice', 'US/UK dual-filer support', 'Annual Steuererklärung'],
-    relatedTools: [{ label: 'German Tax Calculator', path: '/tools/german-tax-calculator-frankfurt' }],
+    relatedTools: [
+      { label: 'German Tax Calculator', path: '/tools/german-tax-calculator-frankfurt' },
+      { label: 'Tax Prep Hub', path: '/tax-prep' },
+    ],
     relatedBlog: [
       { label: 'German tax class basics for expats', slug: 'german-tax-class-frankfurt-expats' },
       { label: 'Freelancer tax basics in Frankfurt', slug: 'freelancer-tax-basics-frankfurt' },

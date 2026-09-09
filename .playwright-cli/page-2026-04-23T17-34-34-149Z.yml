@@ -1,0 +1,223 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img [ref=e7]
+        - generic [ref=e9]: New tools available! Check out our Forum, Video Tutorials, and Cost Calculator.
+      - generic [ref=e10]:
+        - link "Explore Features" [ref=e11] [cursor=pointer]:
+          - /url: /features
+        - button [ref=e12] [cursor=pointer]:
+          - img [ref=e13]
+    - banner [ref=e16]:
+      - generic [ref=e17]:
+        - link "F Frankfurt Expat Services" [ref=e18] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e20]: F
+          - generic [ref=e21]:
+            - generic [ref=e22]: Frankfurt
+            - generic [ref=e23]: Expat Services
+        - navigation [ref=e24]:
+          - link "Dashboard" [ref=e646] [cursor=pointer]:
+            - /url: /dashboard
+          - link "Plan" [ref=e647] [cursor=pointer]:
+            - /url: /plan
+          - link "Forum" [ref=e648] [cursor=pointer]:
+            - /url: /forum
+            - img [ref=e649]
+            - text: Forum
+          - link "Videos" [ref=e651] [cursor=pointer]:
+            - /url: /tutorials
+            - img [ref=e652]
+            - text: Videos
+          - link "Budget" [ref=e655] [cursor=pointer]:
+            - /url: /cost-calculator
+            - img [ref=e656]
+            - text: Budget
+          - link "Housing" [ref=e658] [cursor=pointer]:
+            - /url: /apartments
+            - img [ref=e659]
+            - text: Housing
+        - generic [ref=e46]:
+          - link [ref=e662] [cursor=pointer]:
+            - /url: /database-status
+          - link "Budget" [ref=e664] [cursor=pointer]:
+            - /url: /profile
+            - img [ref=e666]
+            - generic [ref=e669]: Budget
+          - button "Log out" [ref=e670] [cursor=pointer]:
+            - img [ref=e671]
+    - navigation "Breadcrumb" [ref=e676]:
+      - list [ref=e677]:
+        - listitem [ref=e678]:
+          - link "Home" [ref=e680] [cursor=pointer]:
+            - /url: /
+            - img [ref=e681]
+            - generic [ref=e684]: Home
+        - listitem [ref=e745]:
+          - generic [ref=e746]:
+            - img [ref=e747]
+            - link "Budget" [ref=e749] [cursor=pointer]:
+              - /url: /budget
+        - listitem [ref=e750]:
+          - generic [ref=e751]:
+            - img [ref=e752]
+            - generic [ref=e754]: Create
+    - main [ref=e49]:
+      - generic [ref=e755]:
+        - generic [ref=e757]:
+          - generic [ref=e758]:
+            - button "Planner" [ref=e759] [cursor=pointer]:
+              - img [ref=e760]
+              - text: Planner
+            - generic [ref=e763]:
+              - textbox [ref=e764]: My Frankfurt Budget
+              - generic [ref=e765]:
+                - text: "Goal:"
+                - spinbutton [ref=e766]: "2500"
+                - text: EUR
+          - button "Create" [ref=e768] [cursor=pointer]:
+            - img [ref=e769]
+            - text: Create
+        - generic [ref=e774]:
+          - generic [ref=e776]:
+            - img [ref=e778]
+            - heading "Build your Frankfurt budget" [level=3] [ref=e780]
+            - paragraph [ref=e781]: Add your expected expenses using the form on the right to start tracking your relocation costs.
+          - generic [ref=e782]:
+            - generic [ref=e783]:
+              - heading "Summary Details" [level=3] [ref=e785]:
+                - img [ref=e786]
+                - text: Summary Details
+              - generic [ref=e789]:
+                - generic [ref=e790]:
+                  - generic [ref=e791]:
+                    - paragraph [ref=e792]: Budget Goal
+                    - paragraph [ref=e793]: €2,500.00
+                  - generic [ref=e794]:
+                    - paragraph [ref=e795]: Total Spent
+                    - paragraph [ref=e796]: €0.00
+                - generic [ref=e798]:
+                  - generic [ref=e799]: 0% OF GOAL REACHED
+                  - generic [ref=e800]: €2,500.00 left
+                - generic [ref=e803]:
+                  - generic [ref=e804]:
+                    - img [ref=e805]
+                    - text: Under Planned
+                  - generic [ref=e808]: €0.00
+            - generic [ref=e809]:
+              - heading "Add Expense Item" [level=3] [ref=e810]:
+                - img [ref=e811]
+                - text: Add Expense Item
+              - generic [ref=e812]:
+                - generic [ref=e813]:
+                  - text: Category
+                  - combobox [ref=e814] [cursor=pointer]:
+                    - generic: Select Category
+                    - img [ref=e815]
+                  - combobox [ref=e817]
+                - generic [ref=e818]:
+                  - text: Item Name
+                  - textbox "e.g. Rent, Groceries" [ref=e819]
+                - generic [ref=e820]:
+                  - generic [ref=e821]:
+                    - text: Est. Cost
+                    - spinbutton [ref=e822]
+                  - generic [ref=e823]:
+                    - text: Act. Cost
+                    - spinbutton [ref=e824]
+                - button "Add Item" [ref=e825] [cursor=pointer]
+            - generic [ref=e826]:
+              - heading "Expat Pro-Tip" [level=4] [ref=e828]
+              - paragraph [ref=e829]: Frankfurt rent usually accounts for 35-45% of an expat's budget. Don't forget to include the 'Nebenkosten' (utilities) separately!
+    - contentinfo [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - link "F Frankfurt Expat Services frankfurtexpatservices.com" [ref=e56] [cursor=pointer]:
+              - /url: /
+              - generic [ref=e58]: F
+              - generic [ref=e59]:
+                - paragraph [ref=e60]: Frankfurt Expat Services
+                - paragraph [ref=e61]: frankfurtexpatservices.com
+            - paragraph [ref=e62]: Free account tools and a vetted English-speaking service directory to help newcomers settle into Frankfurt with confidence.
+            - generic [ref=e63]:
+              - link "Create Free Account" [ref=e64] [cursor=pointer]:
+                - /url: /signup
+              - link "Open Free Tools" [ref=e65] [cursor=pointer]:
+                - /url: /tools
+          - generic [ref=e66]:
+            - paragraph [ref=e67]: Tools
+            - list [ref=e68]:
+              - listitem [ref=e69]:
+                - link "Tax Calculator" [ref=e70] [cursor=pointer]:
+                  - /url: /tools#tax
+              - listitem [ref=e71]:
+                - link "Checklist Tracker" [ref=e72] [cursor=pointer]:
+                  - /url: /frankfurt-first-30-days-checklist
+              - listitem [ref=e73]:
+                - link "Currency Converter" [ref=e74] [cursor=pointer]:
+                  - /url: /tools#currency
+              - listitem [ref=e75]:
+                - link "QR Code Generator" [ref=e76] [cursor=pointer]:
+                  - /url: /tools#qr
+              - listitem [ref=e77]:
+                - link "Password Generator" [ref=e78] [cursor=pointer]:
+                  - /url: /tools#password
+          - generic [ref=e79]:
+            - paragraph [ref=e80]: Platform
+            - list [ref=e81]:
+              - listitem [ref=e82]:
+                - link "Service Directory" [ref=e83] [cursor=pointer]:
+                  - /url: /directory
+              - listitem [ref=e84]:
+                - link "Partner Offers" [ref=e85] [cursor=pointer]:
+                  - /url: /partners
+              - listitem [ref=e86]:
+                - link "Apartment Finder" [ref=e87] [cursor=pointer]:
+                  - /url: /apartments
+              - listitem [ref=e88]:
+                - link "Community Forum" [ref=e89] [cursor=pointer]:
+                  - /url: /forum
+              - listitem [ref=e90]:
+                - link "Video Tutorials" [ref=e91] [cursor=pointer]:
+                  - /url: /tutorials
+              - listitem [ref=e92]:
+                - link "Pricing" [ref=e93] [cursor=pointer]:
+                  - /url: /pricing
+              - listitem [ref=e94]:
+                - link "How It Works" [ref=e95] [cursor=pointer]:
+                  - /url: /how-it-works
+          - generic [ref=e96]:
+            - paragraph [ref=e97]: Company
+            - list [ref=e98]:
+              - listitem [ref=e99]:
+                - link "About Us" [ref=e100] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e101]:
+                - link "Contact" [ref=e102] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e103]:
+                - link "FAQ" [ref=e104] [cursor=pointer]:
+                  - /url: /faq
+              - listitem [ref=e105]:
+                - link "Privacy Policy" [ref=e106] [cursor=pointer]:
+                  - /url: /privacy-policy
+              - listitem [ref=e107]:
+                - link "Terms of Service" [ref=e108] [cursor=pointer]:
+                  - /url: /terms
+              - listitem [ref=e109]:
+                - link "Imprint" [ref=e110] [cursor=pointer]:
+                  - /url: /imprint
+        - generic [ref=e111]:
+          - paragraph [ref=e112]: © 2026 Frankfurt Expat Services · Free Tools · Trusted Directory · Community Focused
+          - generic [ref=e113]:
+            - link "Privacy" [ref=e114] [cursor=pointer]:
+              - /url: /privacy-policy
+            - link "Terms" [ref=e115] [cursor=pointer]:
+              - /url: /terms
+            - link "Imprint" [ref=e116] [cursor=pointer]:
+              - /url: /imprint
+            - button "Cookie Settings" [ref=e117] [cursor=pointer]
+  - region "Notifications (F8)":
+    - list

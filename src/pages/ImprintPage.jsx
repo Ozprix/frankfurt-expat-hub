@@ -40,8 +40,7 @@ const ImprintPage = () => {
             <section>
               <h2 className="text-xl font-black text-[#0f172a]">Contact</h2>
               <p className="mt-3 text-sm leading-relaxed text-[#475569]">
-                Email: hello@frankfurtexpatservices.com<br />
-                {/* ── TODO: Add phone if applicable ── */}
+                Email: hello@frankfurtexpatservices.com
               </p>
             </section>
 

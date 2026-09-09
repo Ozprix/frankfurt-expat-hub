@@ -1,6 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { supabaseClient } from '@/config/supabaseClient';
+
+const isMissingRpcError = (error) =>
+  error?.code === 'PGRST202' ||
+  /could not find the function/i.test(error?.message || '');
 
 export const useUsageTracking = () => {
   const { user } = useAuth();
@@ -10,17 +14,23 @@ export const useUsageTracking = () => {
     loading: true
   });
 
-  const fetchUsage = async () => {
-    if (!user) return;
+  const fetchUsage = useCallback(async () => {
+    if (!user) {
+      setUsage({ plansGenerated: 0, tasksCreated: 0, loading: false });
+      return;
+    }
     try {
         const { data, error } = await supabaseClient.rpc('get_monthly_usage', { target_user_id: user.id });
         if (error) throw error;
         
-        // rpc returns an array of objects
+        const usageByFeature = Object.fromEntries(
+          (data || []).map((row) => [row.feature_name, Number(row.usage_count || 0)])
+        );
+
         if (data && data.length > 0) {
             setUsage({
-                plansGenerated: data[0].plans_generated,
-                tasksCreated: data[0].tasks_created,
+                plansGenerated: usageByFeature.plans_generated || 0,
+                tasksCreated: usageByFeature.tasks_created || 0,
                 loading: false
             });
         } else {
@@ -30,33 +40,56 @@ export const useUsageTracking = () => {
         console.error('Error fetching usage:', err);
         setUsage(prev => ({ ...prev, loading: false }));
     }
+  }, [user]);
+
+  const incrementUsageMetric = async (usageType, stateKey) => {
+    if (!user) return 0;
+
+    const { data, error } = await supabaseClient.rpc('increment_usage', {
+      target_user_id: user.id,
+      usage_type: usageType
+    });
+
+    if (!error) {
+      setUsage(prev => ({ ...prev, [stateKey]: data }));
+      return data;
+    }
+
+    if (!isMissingRpcError(error)) {
+      throw error;
+    }
+
+    const { error: insertError } = await supabaseClient.from('usage_logs').insert({
+      user_id: user.id,
+      feature_name: usageType,
+      action: 'increment',
+      metadata: { source: 'useUsageTracking' }
+    });
+
+    if (insertError) {
+      throw insertError;
+    }
+
+    let nextValue = 0;
+    setUsage((prev) => {
+      nextValue = (prev[stateKey] || 0) + 1;
+      return { ...prev, [stateKey]: nextValue };
+    });
+
+    return nextValue;
   };
 
   const incrementPlansGenerated = async () => {
-    if (!user) return 0;
-    const { data, error } = await supabaseClient.rpc('increment_usage', { 
-        target_user_id: user.id, 
-        usage_type: 'plans_generated' 
-    });
-    if (error) throw error;
-    setUsage(prev => ({ ...prev, plansGenerated: data }));
-    return data;
+    return incrementUsageMetric('plans_generated', 'plansGenerated');
   };
 
   const incrementTasksCreated = async () => {
-    if (!user) return 0;
-    const { data, error } = await supabaseClient.rpc('increment_usage', { 
-        target_user_id: user.id, 
-        usage_type: 'tasks_created' 
-    });
-    if (error) throw error;
-    setUsage(prev => ({ ...prev, tasksCreated: data }));
-    return data;
+    return incrementUsageMetric('tasks_created', 'tasksCreated');
   };
 
   useEffect(() => {
     fetchUsage();
-  }, [user]);
+  }, [fetchUsage]);
 
   return {
     ...usage,

@@ -1,3 +1,23 @@
+export const buildDocumentChecklistTemplate = (documents = []) => {
+  const readyCount = documents.filter((doc) => doc.ready).length;
+  const totalCount = documents.length;
+
+  return {
+    title: 'Frankfurt Document Checklist',
+    category: 'documents',
+    description: `${readyCount} of ${totalCount} documents ready. Use this checklist to track the paperwork needed for your Frankfurt relocation.`,
+    tasks: documents.map((doc) => {
+      const status = doc.ready ? 'Ready' : 'Not ready';
+      const notes = doc.notes?.trim() ? ` Notes: ${doc.notes.trim()}` : '';
+
+      return {
+        title: doc.name,
+        description: `${status} - ${doc.description}${notes}`,
+      };
+    }),
+  };
+};
+
 export const downloadPDF = async (template) => {
   const [{ default: jsPDF }, { default: autoTable }] = await Promise.all([
     import('jspdf'),

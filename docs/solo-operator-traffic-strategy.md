@@ -15,7 +15,7 @@ The live search surface still shows the older "Frankfurt Expat Hub" static copy,
 
 2. Tool-led search
    - Keep tools free and index their landing pages.
-   - Expand tools around high-intent problems: net salary, Anmeldung document checklist, warm rent calculator, moving cost estimator, Schufa alternatives checklist, German tax ID follow-up tracker, Blue Card document checklist.
+   - Expand tools around high-intent problems: net salary, Anmeldung document checklist, tax-prep document organization, warm rent calculator, moving cost estimator, Schufa alternatives checklist, German tax ID follow-up tracker, Blue Card document checklist.
    - Every tool page should capture one email with a useful follow-up, not a generic newsletter pitch.
 
 3. Frankfurt-first guides
@@ -60,6 +60,7 @@ Publish two directory pages and two guides per week. Use this order:
 3. Blue Card appointment document checklist.
 4. Health insurance decision checklist.
 5. German tax ID follow-up checklist.
+6. Tax prep document checklist for employees and freelancers.
 
 Each lead magnet should have one matching article, one tool/interactive checklist, and one directory category CTA.
 

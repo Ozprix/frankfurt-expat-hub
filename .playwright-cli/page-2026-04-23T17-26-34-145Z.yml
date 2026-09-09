@@ -1,0 +1,156 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img [ref=e7]
+        - generic [ref=e9]: New tools available! Check out our Forum, Video Tutorials, and Cost Calculator.
+      - generic [ref=e10]:
+        - link "Explore Features" [ref=e11] [cursor=pointer]:
+          - /url: /features
+        - button [ref=e12] [cursor=pointer]:
+          - img [ref=e13]
+    - banner [ref=e16]:
+      - generic [ref=e17]:
+        - link "F Frankfurt Expat Services" [ref=e18] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e20]: F
+          - generic [ref=e21]:
+            - generic [ref=e22]: Frankfurt
+            - generic [ref=e23]: Expat Services
+        - navigation [ref=e24]:
+          - button "Free Tools" [ref=e26] [cursor=pointer]:
+            - img [ref=e27]
+            - text: Free Tools
+            - img [ref=e29]
+          - link "Directory" [ref=e31] [cursor=pointer]:
+            - /url: /directory
+            - img [ref=e32]
+            - text: Directory
+          - link "Partners" [ref=e34] [cursor=pointer]:
+            - /url: /partners
+          - link "Apartments" [ref=e35] [cursor=pointer]:
+            - /url: /apartments
+            - img [ref=e36]
+            - text: Apartments
+          - link "Forum" [ref=e39] [cursor=pointer]:
+            - /url: /forum
+            - img [ref=e40]
+            - text: Forum
+          - link "Blog" [ref=e42] [cursor=pointer]:
+            - /url: /blog
+            - img [ref=e43]
+            - text: Blog
+          - link "About" [ref=e45] [cursor=pointer]:
+            - /url: /about
+        - generic [ref=e46]:
+          - link "Log in" [ref=e47] [cursor=pointer]:
+            - /url: /login
+          - link "Get Started Free" [ref=e48] [cursor=pointer]:
+            - /url: /signup
+    - main [ref=e49]
+    - contentinfo [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - link "F Frankfurt Expat Services frankfurtexpatservices.com" [ref=e56] [cursor=pointer]:
+              - /url: /
+              - generic [ref=e58]: F
+              - generic [ref=e59]:
+                - paragraph [ref=e60]: Frankfurt Expat Services
+                - paragraph [ref=e61]: frankfurtexpatservices.com
+            - paragraph [ref=e62]: Free account tools and a vetted English-speaking service directory to help newcomers settle into Frankfurt with confidence.
+            - generic [ref=e63]:
+              - link "Create Free Account" [ref=e64] [cursor=pointer]:
+                - /url: /signup
+              - link "Open Free Tools" [ref=e65] [cursor=pointer]:
+                - /url: /tools
+          - generic [ref=e66]:
+            - paragraph [ref=e67]: Tools
+            - list [ref=e68]:
+              - listitem [ref=e69]:
+                - link "Tax Calculator" [ref=e70] [cursor=pointer]:
+                  - /url: /tools#tax
+              - listitem [ref=e71]:
+                - link "Checklist Tracker" [ref=e72] [cursor=pointer]:
+                  - /url: /frankfurt-first-30-days-checklist
+              - listitem [ref=e73]:
+                - link "Currency Converter" [ref=e74] [cursor=pointer]:
+                  - /url: /tools#currency
+              - listitem [ref=e75]:
+                - link "QR Code Generator" [ref=e76] [cursor=pointer]:
+                  - /url: /tools#qr
+              - listitem [ref=e77]:
+                - link "Password Generator" [ref=e78] [cursor=pointer]:
+                  - /url: /tools#password
+          - generic [ref=e79]:
+            - paragraph [ref=e80]: Platform
+            - list [ref=e81]:
+              - listitem [ref=e82]:
+                - link "Service Directory" [ref=e83] [cursor=pointer]:
+                  - /url: /directory
+              - listitem [ref=e84]:
+                - link "Partner Offers" [ref=e85] [cursor=pointer]:
+                  - /url: /partners
+              - listitem [ref=e86]:
+                - link "Apartment Finder" [ref=e87] [cursor=pointer]:
+                  - /url: /apartments
+              - listitem [ref=e88]:
+                - link "Community Forum" [ref=e89] [cursor=pointer]:
+                  - /url: /forum
+              - listitem [ref=e90]:
+                - link "Video Tutorials" [ref=e91] [cursor=pointer]:
+                  - /url: /tutorials
+              - listitem [ref=e92]:
+                - link "Pricing" [ref=e93] [cursor=pointer]:
+                  - /url: /pricing
+              - listitem [ref=e94]:
+                - link "How It Works" [ref=e95] [cursor=pointer]:
+                  - /url: /how-it-works
+          - generic [ref=e96]:
+            - paragraph [ref=e97]: Company
+            - list [ref=e98]:
+              - listitem [ref=e99]:
+                - link "About Us" [ref=e100] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e101]:
+                - link "Contact" [ref=e102] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e103]:
+                - link "FAQ" [ref=e104] [cursor=pointer]:
+                  - /url: /faq
+              - listitem [ref=e105]:
+                - link "Privacy Policy" [ref=e106] [cursor=pointer]:
+                  - /url: /privacy-policy
+              - listitem [ref=e107]:
+                - link "Terms of Service" [ref=e108] [cursor=pointer]:
+                  - /url: /terms
+              - listitem [ref=e109]:
+                - link "Imprint" [ref=e110] [cursor=pointer]:
+                  - /url: /imprint
+        - generic [ref=e111]:
+          - paragraph [ref=e112]: © 2026 Frankfurt Expat Services · Free Tools · Trusted Directory · Community Focused
+          - generic [ref=e113]:
+            - link "Privacy" [ref=e114] [cursor=pointer]:
+              - /url: /privacy-policy
+            - link "Terms" [ref=e115] [cursor=pointer]:
+              - /url: /terms
+            - link "Imprint" [ref=e116] [cursor=pointer]:
+              - /url: /imprint
+            - button "Cookie Settings" [ref=e117] [cursor=pointer]
+    - generic [ref=e119]:
+      - generic [ref=e120]:
+        - img [ref=e122]
+        - generic [ref=e124]:
+          - paragraph [ref=e125]: Privacy choices
+          - paragraph [ref=e126]:
+            - text: We use necessary storage for core site functions and consent records. Analytics, ads, affiliate tracking, or other non-essential cookies stay off unless you allow them. See our
+            - link "Privacy Policy" [ref=e127] [cursor=pointer]:
+              - /url: /privacy-policy
+            - text: .
+      - generic [ref=e128]:
+        - button "Necessary Only" [ref=e129] [cursor=pointer]
+        - button "Allow Analytics & Ads" [ref=e130] [cursor=pointer]:
+          - img [ref=e131]
+          - text: Allow Analytics & Ads
+  - region "Notifications (F8)":
+    - list

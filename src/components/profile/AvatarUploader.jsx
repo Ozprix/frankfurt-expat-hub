@@ -1,10 +1,10 @@
 
-import React, { useState, useCallback } from 'react';
-import { useDropzone } from 'react-dropzone'; // Note: Assuming standard functionality, normally installed, but I'll use standard input if package strictly forbidden. System constraints allowed standard npm, assuming react-dropzone is common or I can implement native. I'll implement NATIVE drag-drop to be safe and dependency-free.
-import { Upload, X, Image as ImageIcon, Check } from '@/lib/icons';
+import React, { useState } from 'react';
+import { X, Image as ImageIcon } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { useToast } from '@/components/ui/use-toast';
+import { compressImage, validateImageFile } from '@/utils/avatarUtils';
 
 const AvatarUploader = ({ currentAvatar, onUpload, onClose }) => {
   const [file, setFile] = useState(null);
@@ -13,33 +13,31 @@ const AvatarUploader = ({ currentAvatar, onUpload, onClose }) => {
   const [progress, setProgress] = useState(0);
   const { toast } = useToast();
 
-  const handleFileSelect = (selectedFile) => {
+  const handleFileSelect = async (selectedFile) => {
     if (!selectedFile) return;
 
-    // Validate type
-    const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
-    if (!validTypes.includes(selectedFile.type)) {
+    const validation = validateImageFile(selectedFile);
+    if (!validation.isValid) {
       toast({
-        title: "Invalid file type",
-        description: "Please upload a JPG, PNG, or WebP image.",
+        title: "Invalid image",
+        description: validation.error,
         variant: "destructive"
       });
       return;
     }
 
-    // Validate size (5MB)
-    if (selectedFile.size > 5 * 1024 * 1024) {
+    try {
+      const compressedFile = await compressImage(selectedFile);
+      setFile(compressedFile);
+      const objectUrl = URL.createObjectURL(compressedFile);
+      setPreview(objectUrl);
+    } catch (error) {
       toast({
-        title: "File too large",
-        description: "Image size must be less than 5MB.",
+        title: "Image processing failed",
+        description: error.message || "Please try another image.",
         variant: "destructive"
       });
-      return;
     }
-
-    setFile(selectedFile);
-    const objectUrl = URL.createObjectURL(selectedFile);
-    setPreview(objectUrl);
   };
 
   const handleDrop = (e) => {

@@ -8,15 +8,10 @@ import { motion } from '@/lib/motion';
 const AnalyticsDashboardPage = () => {
   const { getFeatureStats } = useAnalytics();
   const [stats, setStats] = useState(null);
-  const [charts, setCharts] = useState(null);
 
   useEffect(() => {
     getFeatureStats().then(setStats);
-    import('recharts').then(setCharts).catch((error) => {
-      console.error('Failed to load analytics charts:', error);
-      setCharts(false);
-    });
-  }, []);
+  }, [getFeatureStats]);
 
   const data = [
     { name: 'Mon', users: 400, interactions: 2400 },
@@ -35,17 +30,8 @@ const AnalyticsDashboardPage = () => {
     { name: 'Calculator', value: 30 },
   ];
 
-  const {
-    BarChart,
-    Bar,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    ResponsiveContainer,
-    LineChart,
-    Line,
-  } = charts || {};
+  const maxInteractions = Math.max(...data.map((item) => item.interactions));
+  const maxFeatureUsage = Math.max(...featureUsage.map((item) => item.value));
 
   return (
     <>
@@ -124,44 +110,48 @@ const AnalyticsDashboardPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
               <h3 className="text-lg font-bold text-gray-900 mb-6">User Growth & Activity</h3>
-              <div className="h-80">
-                {charts ? (
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={data}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                      <XAxis dataKey="name" />
-                      <YAxis />
-                      <Tooltip />
-                      <Line type="monotone" dataKey="users" stroke="#4f46e5" strokeWidth={2} />
-                      <Line type="monotone" dataKey="interactions" stroke="#0d9488" strokeWidth={2} />
-                    </LineChart>
-                  </ResponsiveContainer>
-                ) : (
-                  <div className="flex h-full items-center justify-center text-sm text-gray-500">
-                    Loading chart...
+              <div className="flex h-80 items-end gap-3 rounded-lg border border-gray-100 bg-gray-50 p-4">
+                {data.map((item) => (
+                  <div key={item.name} className="flex flex-1 flex-col items-center gap-2">
+                    <div className="flex h-56 w-full items-end justify-center gap-1">
+                      <div
+                        className="w-3 rounded-t bg-indigo-500"
+                        style={{ height: `${Math.max(8, (item.users / 450) * 100)}%` }}
+                        title={`${item.name}: ${item.users} users`}
+                      />
+                      <div
+                        className="w-3 rounded-t bg-teal-600"
+                        style={{ height: `${Math.max(8, (item.interactions / maxInteractions) * 100)}%` }}
+                        title={`${item.name}: ${item.interactions} interactions`}
+                      />
+                    </div>
+                    <span className="text-xs font-medium text-gray-500">{item.name}</span>
                   </div>
-                )}
+                ))}
+              </div>
+              <div className="mt-4 flex items-center gap-4 text-xs font-medium text-gray-500">
+                <span className="inline-flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-sm bg-indigo-500" /> Users</span>
+                <span className="inline-flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-sm bg-teal-600" /> Interactions</span>
               </div>
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
               <h3 className="text-lg font-bold text-gray-900 mb-6">Feature Popularity</h3>
-              <div className="h-80">
-                {charts ? (
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={featureUsage} layout="vertical">
-                      <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#f0f0f0" />
-                      <XAxis type="number" />
-                      <YAxis dataKey="name" type="category" width={100} />
-                      <Tooltip />
-                      <Bar dataKey="value" fill="#0d9488" radius={[0, 4, 4, 0]} barSize={30} />
-                    </BarChart>
-                  </ResponsiveContainer>
-                ) : (
-                  <div className="flex h-full items-center justify-center text-sm text-gray-500">
-                    Loading chart...
+              <div className="space-y-5 rounded-lg border border-gray-100 bg-gray-50 p-4">
+                {featureUsage.map((item) => (
+                  <div key={item.name}>
+                    <div className="mb-2 flex items-center justify-between text-sm">
+                      <span className="font-medium text-gray-700">{item.name}</span>
+                      <span className="font-bold text-teal-700">{item.value}%</span>
+                    </div>
+                    <div className="h-3 overflow-hidden rounded-full bg-white">
+                      <div
+                        className="h-full rounded-full bg-teal-600"
+                        style={{ width: `${(item.value / maxFeatureUsage) * 100}%` }}
+                      />
+                    </div>
                   </div>
-                )}
+                ))}
               </div>
             </div>
           </div>

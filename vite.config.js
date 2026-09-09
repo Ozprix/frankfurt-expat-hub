@@ -21,6 +21,15 @@ export default defineConfig({
     port: 3000,
     host: '127.0.0.1',
     cors: true,
+    watch: {
+      ignored: [
+        '**/.claude/**',
+        '**/.playwright-cli/**',
+        '**/dist/**',
+        '**/frankfurt/**',
+        '**/supabase/.temp/**',
+      ],
+    },
     headers: {
       'Cross-Origin-Embedder-Policy': 'credentialless',
     },

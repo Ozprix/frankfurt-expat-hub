@@ -8,6 +8,7 @@ Migrate from the current static-site setup into the React app while preserving S
 - New React app is extracted in `frankfurt/horizons-export` and now acts as migration target.
 - Critical blockers (auth contract mismatch, broken admin routes, embedded live key fallbacks) have been resolved.
 - Paid checkout is intentionally shelved while the site focuses on traffic, free tools, directory supply, and community adoption.
+- The Tax Prep Hub has been added as a protected account workflow inspired by TaxHacker-style document organization, implemented inside the existing Supabase/React architecture.
 
 ## Phase 1 - Foundation (Done)
 - Align auth API between context and consuming components.
@@ -24,6 +25,7 @@ Migrate from the current static-site setup into the React app while preserving S
 |---|---|---|---|
 | `/` | `index.html` | `src/pages/HomePage.jsx` | In progress - toolkit, beta, and directory CTAs fused |
 | `/tools` | `index.html` tool modals + `assets/js/scripts.js` | `src/pages/ToolsPage.jsx` | Added |
+| `/tax-prep` | N/A | `src/pages/TaxPrepPage.jsx` | Added - protected/noindex |
 | `/directory` | `index.html` service directory + listing form | `src/pages/DirectoryPage.jsx` | Added |
 | `/about` | `about.html` | `src/pages/AboutPage.jsx` | Added |
 | `/contact` | `contact.html` | `src/pages/ContactPage.jsx` | Added |
@@ -39,7 +41,8 @@ Migrate from the current static-site setup into the React app while preserving S
 ## Phase 4 - Functional Migration
 - Move directory inquiry forms and lead capture workflows into React forms.
 - Reconnect analytics events currently fired from static JS forms.
-- Ensure every feature CTA from homepage has a working route target.
+- Ensure every feature CTA from homepage, dashboard, tools, and directory pages has a working route target.
+- Smoke test Tax Prep Hub persistence and CSV export before deploy.
 
 ## Phase 5 - Launch Hardening
 - Generate redirects from old static paths to new SPA routes where needed.
@@ -48,7 +51,7 @@ Migrate from the current static-site setup into the React app while preserving S
 - Deploy with rollback plan and monitor conversion + bounce metrics.
 
 ## Immediate Next Tasks
-1. Finish the live Supabase setup: apply launch SQL, deploy `contact-form`, `send-checklist`, and `first-month-reminders`, configure Resend secrets, and smoke test signup, contact, checklist delivery, and reminder queueing.
+1. Finish the live Supabase setup: apply launch SQL, deploy `contact-form`, `send-checklist`, and `first-month-reminders`, configure Resend secrets, and smoke test signup, contact, checklist delivery, Tax Prep state, and reminder queueing.
 2. Seed production data for forum categories/posts, video tutorials, apartment listings, and starter directory categories.
 3. Refactor `HowItWorksPage` and `PricingPage` to match the new homepage/tools/directory design system.
 4. Run legal review on privacy-policy, terms, and imprint copy before production launch.

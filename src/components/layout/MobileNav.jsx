@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from '@/lib/motion';
-import { X, LogOut, Shield, LineChart, Wrench, User, Home, FileText, CheckSquare, Files, MessageSquare, Video, Calculator } from '@/lib/icons';
+import { X, LogOut, Shield, LineChart, Wrench, User, Home, FileText, CheckSquare, Files, MessageSquare, Video, Calculator, FileCheck, BookOpen, Wallet } from '@/lib/icons';
 
 const MobileNav = ({ isOpen, onClose, user, isAdmin, logout }) => {
   const location = useLocation();
@@ -12,8 +12,11 @@ const MobileNav = ({ isOpen, onClose, user, isAdmin, logout }) => {
     { name: 'Checklist Tracker', path: '/frankfurt-first-30-days-checklist', icon: CheckSquare },
     { name: 'Tasks', path: '/tasks', icon: CheckSquare },
     { name: 'Forum', path: '/forum', icon: MessageSquare },
+    { name: 'Blog', path: '/blog', icon: BookOpen },
     { name: 'Videos', path: '/tutorials', icon: Video },
     { name: 'Budget', path: '/cost-calculator', icon: Calculator },
+    { name: 'Tax Prep', path: '/tax-prep', icon: FileCheck },
+    { name: 'Creator Records', path: '/creator-records', icon: Wallet },
     { name: 'Housing', path: '/apartments', icon: Home },
     { name: 'Documents', path: '/documents', icon: Files },
     { name: 'Profile', path: '/profile', icon: User },

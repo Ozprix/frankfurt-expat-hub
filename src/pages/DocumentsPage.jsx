@@ -4,6 +4,7 @@ import { motion } from '@/lib/motion';
 import { FileText, CheckCircle, Circle, Download } from '@/lib/icons';
 import { useDocuments } from '@/hooks/useDocuments';
 import { useToast } from '@/components/ui/use-toast';
+import { buildDocumentChecklistTemplate, downloadPDF } from '@/utils/pdfGenerator';
 
 const DocumentsPage = () => {
   const { documents, toggleDocumentReady, updateDocument, getReadyCount } = useDocuments();
@@ -12,11 +13,21 @@ const DocumentsPage = () => {
   const readyCount = getReadyCount();
   const progress = Math.round((readyCount / documents.length) * 100);
 
-  const handleExportPDF = () => {
-    toast({
-      title: "PDF export is queued",
-      description: "Your document checklist stays saved here while export access is being prepared.",
-    });
+  const handleExportPDF = async () => {
+    try {
+      await downloadPDF(buildDocumentChecklistTemplate(documents));
+      toast({
+        title: "PDF exported",
+        description: "Your document checklist PDF has been generated.",
+      });
+    } catch (error) {
+      console.error('Document PDF export failed:', error);
+      toast({
+        title: "PDF export failed",
+        description: "Please try again after refreshing the page.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (

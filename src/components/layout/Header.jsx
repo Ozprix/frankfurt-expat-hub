@@ -10,6 +10,8 @@ import {
   MessageSquare,
   Video,
   Calculator,
+  FileCheck,
+  Wallet,
   Home,
   Wrench as Tools,
   BookOpen,
@@ -39,8 +41,11 @@ const Header = ({ onOpenMobileMenu }) => {
     { name: 'Dashboard', path: '/dashboard' },
     { name: 'Plan', path: '/plan' },
     { name: 'Forum', path: '/forum', icon: MessageSquare },
+    { name: 'Blog', path: '/blog', icon: BookOpen },
     { name: 'Videos', path: '/tutorials', icon: Video },
     { name: 'Budget', path: '/cost-calculator', icon: Calculator },
+    { name: 'Tax Prep', path: '/tax-prep', icon: FileCheck },
+    { name: 'Creator Records', path: '/creator-records', icon: Wallet },
     { name: 'Housing', path: '/apartments', icon: Home },
   ];
 
@@ -55,6 +60,7 @@ const Header = ({ onOpenMobileMenu }) => {
     { name: 'All Tools', path: '/tools', desc: 'Tax calculator, QR codes, converters & more' },
     { name: 'Checklist Tracker', path: '/frankfurt-first-30-days-checklist', desc: 'First 30 days setup tracker' },
     { name: 'Salary & Tax', path: '/tools#tax', desc: 'German net pay estimator' },
+    { name: 'Tax Prep Hub', path: '/tax-prep', desc: 'Organize documents for an advisor' },
     { name: 'Currency Converter', path: '/tools#currency', desc: 'Live ECB rates' },
     { name: 'QR Generator', path: '/tools#qr', desc: 'Business cards, Wi-Fi, vCards' },
     { name: 'Password Generator', path: '/tools#password', desc: 'Secure, cryptographic passwords' },

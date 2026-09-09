@@ -1,10 +1,26 @@
-
 -- Add new columns to user_budgets
-ALTER TABLE public.user_budgets 
+ALTER TABLE public.user_budgets
 ADD COLUMN IF NOT EXISTS custom_fields jsonb DEFAULT '[]'::jsonb,
 ADD COLUMN IF NOT EXISTS shared_with jsonb DEFAULT '[]'::jsonb,
 ADD COLUMN IF NOT EXISTS is_template boolean DEFAULT false,
 ADD COLUMN IF NOT EXISTS template_name text;
+
+-- Immutable user-saved blueprint snapshots
+CREATE TABLE IF NOT EXISTS public.user_budget_templates (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+    user_id uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    source_budget_id uuid REFERENCES public.user_budgets(id) ON DELETE SET NULL,
+    name text NOT NULL,
+    description text,
+    total_amount numeric(10, 2) NOT NULL DEFAULT 0,
+    currency text DEFAULT 'EUR',
+    category_breakdown jsonb DEFAULT '[]'::jsonb,
+    created_at timestamp with time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at timestamp with time zone DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS user_budget_templates_user_id_name_idx
+ON public.user_budget_templates (user_id, name);
 
 -- Create budget_templates table for system presets
 CREATE TABLE IF NOT EXISTS public.budget_templates (
@@ -13,21 +29,91 @@ CREATE TABLE IF NOT EXISTS public.budget_templates (
     description text,
     total_amount numeric(10, 2) NOT NULL,
     currency text DEFAULT 'EUR',
-    category_breakdown jsonb DEFAULT '[]'::jsonb, -- Array of objects { category_name, amount, items: [] }
+    category_breakdown jsonb DEFAULT '[]'::jsonb,
     is_preset boolean DEFAULT true,
     created_at timestamp with time zone DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 
+CREATE UNIQUE INDEX IF NOT EXISTS budget_templates_name_idx
+ON public.budget_templates (name);
+
 -- RLS for budget_templates
 ALTER TABLE public.budget_templates ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.user_budget_templates ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY "Public can view budget templates" 
-ON public.budget_templates FOR SELECT USING (true);
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM pg_policies
+        WHERE schemaname = 'public'
+          AND tablename = 'budget_templates'
+          AND policyname = 'Public can view budget templates'
+    ) THEN
+        CREATE POLICY "Public can view budget templates"
+        ON public.budget_templates FOR SELECT USING (true);
+    END IF;
+END $$;
+
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM pg_policies
+        WHERE schemaname = 'public'
+          AND tablename = 'user_budget_templates'
+          AND policyname = 'Users can view own budget templates'
+    ) THEN
+        CREATE POLICY "Users can view own budget templates"
+        ON public.user_budget_templates FOR SELECT
+        USING (auth.uid() = user_id);
+    END IF;
+END $$;
+
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM pg_policies
+        WHERE schemaname = 'public'
+          AND tablename = 'user_budget_templates'
+          AND policyname = 'Users can insert own budget templates'
+    ) THEN
+        CREATE POLICY "Users can insert own budget templates"
+        ON public.user_budget_templates FOR INSERT
+        WITH CHECK (auth.uid() = user_id);
+    END IF;
+END $$;
+
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM pg_policies
+        WHERE schemaname = 'public'
+          AND tablename = 'user_budget_templates'
+          AND policyname = 'Users can update own budget templates'
+    ) THEN
+        CREATE POLICY "Users can update own budget templates"
+        ON public.user_budget_templates FOR UPDATE
+        USING (auth.uid() = user_id);
+    END IF;
+END $$;
+
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM pg_policies
+        WHERE schemaname = 'public'
+          AND tablename = 'user_budget_templates'
+          AND policyname = 'Users can delete own budget templates'
+    ) THEN
+        CREATE POLICY "Users can delete own budget templates"
+        ON public.user_budget_templates FOR DELETE
+        USING (auth.uid() = user_id);
+    END IF;
+END $$;
 
 -- Seed Preset Templates
 INSERT INTO public.budget_templates (name, description, total_amount, category_breakdown) VALUES
 (
-    'Student Budget', 
+    'Student Budget',
     'Optimized for university students with shared housing and student discounts.',
     1200.00,
     '[
@@ -40,7 +126,7 @@ INSERT INTO public.budget_templates (name, description, total_amount, category_b
     ]'::jsonb
 ),
 (
-    'Young Professional', 
+    'Young Professional',
     'Balanced lifestyle for early career professionals in Frankfurt.',
     2500.00,
     '[
@@ -52,7 +138,7 @@ INSERT INTO public.budget_templates (name, description, total_amount, category_b
     ]'::jsonb
 ),
 (
-    'Family of Three', 
+    'Family of Three',
     'Comprehensive budget for a small family including childcare.',
     4000.00,
     '[
@@ -64,7 +150,7 @@ INSERT INTO public.budget_templates (name, description, total_amount, category_b
     ]'::jsonb
 ),
 (
-    'Minimalist', 
+    'Minimalist',
     'Frugal living focusing on essentials and high savings rate.',
     800.00,
     '[
@@ -76,7 +162,7 @@ INSERT INTO public.budget_templates (name, description, total_amount, category_b
     ]'::jsonb
 ),
 (
-    'Comfortable Expat', 
+    'Comfortable Expat',
     'High-end lifestyle with travel and convenience.',
     3500.00,
     '[
@@ -86,4 +172,5 @@ INSERT INTO public.budget_templates (name, description, total_amount, category_b
         {"category_name": "Transport", "items": [{"name": "Car Share/Rental", "estimated_cost": 200}]},
         {"category_name": "Shopping", "items": [{"name": "Clothing & Gadgets", "estimated_cost": 200}]}
     ]'::jsonb
-);
+)
+ON CONFLICT (name) DO NOTHING;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { supabaseClient } from '@/config/supabaseClient';
 import { useAuth } from '@/context/AuthContext';
 import { useToast } from '@/components/ui/use-toast';
@@ -9,9 +9,13 @@ export const useAchievements = () => {
   const [achievements, setAchievements] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const checkNewAchievements = async () => {
-    if (!user) return;
+  const checkNewAchievements = useCallback(async () => {
+    if (!user) {
+      setLoading(false);
+      return [];
+    }
 
+    setLoading(true);
     try {
       // Call RPC to check and insert new ones
       const { data, error } = await supabaseClient.rpc('check_achievements', { target_user_id: user.id });
@@ -31,10 +35,15 @@ export const useAchievements = () => {
         // Refresh local list if needed
         return data;
       }
+
+      return [];
     } catch (err) {
       console.error('Error checking achievements:', err);
+      return [];
+    } finally {
+      setLoading(false);
     }
-  };
+  }, [toast, user]);
 
   return {
     checkNewAchievements,

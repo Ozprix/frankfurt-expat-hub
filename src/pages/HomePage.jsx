@@ -193,6 +193,15 @@ const HomePage = () => {
                   Use Free Tools
                 </Link>
               </HoverGlowBorder>
+              <HoverGlowBorder radius={12} className="inline-flex">
+                <Link
+                  to="/relocation-help"
+                  className="inline-flex items-center gap-2 rounded-xl border border-[#1e293b]/20 bg-white/90 px-7 py-3.5 text-sm font-bold text-[#1e293b] backdrop-blur-sm transition hover:border-[#0f766e]/40 hover:bg-white"
+                >
+                  Need personal help?
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </HoverGlowBorder>
             </motion.div>
 
             {/* Trust stats */}

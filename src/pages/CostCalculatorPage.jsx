@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { useCostCalculator } from '@/hooks/useCostCalculator';
@@ -26,11 +26,7 @@ import { formatCurrency, calculatePercentageUsed } from '@/utils/budgetUtils';
 
 const CostCalculatorPage = () => {
   const navigate = useNavigate();
-  const { budgets, fetchUserBudgets, deleteBudget, loading } = useCostCalculator();
-
-  useEffect(() => {
-    fetchUserBudgets();
-  }, [fetchUserBudgets]);
+  const { budgets, deleteBudget, loading, error, fetchUserBudgets } = useCostCalculator();
 
   return (
     <>
@@ -70,6 +66,19 @@ const CostCalculatorPage = () => {
                 <div key={i} className="bg-white h-64 rounded-3xl animate-pulse shadow-sm border border-gray-100" />
               ))}
             </div>
+          ) : error ? (
+            <div className="text-center py-24 bg-white rounded-[40px] border border-red-100 shadow-sm flex flex-col items-center">
+              <div className="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mb-6">
+                <Wallet className="w-10 h-10 text-red-500" />
+              </div>
+              <h3 className="text-2xl font-black text-gray-900 mb-3 tracking-tight">Planner temporarily unavailable</h3>
+              <p className="text-gray-500 mb-8 max-w-md font-medium leading-relaxed">
+                We could not load your budgets right now. Please retry before creating a new plan.
+              </p>
+              <Button onClick={() => fetchUserBudgets(true)} size="lg" className="bg-gray-900 hover:bg-black text-white rounded-2xl h-14 font-bold px-8">
+                Retry Loading Budgets
+              </Button>
+            </div>
           ) : budgets.length === 0 ? (
             <div className="text-center py-32 bg-white rounded-[40px] border-2 border-dashed border-gray-100 shadow-sm flex flex-col items-center">
               <div className="w-24 h-24 bg-teal-50 rounded-full flex items-center justify-center mb-8">
@@ -107,7 +116,7 @@ const CostCalculatorPage = () => {
                             <DropdownMenuItem onClick={() => navigate(`/budget/${budget.id}/edit`)}>
                               <Edit2 className="w-4 h-4 mr-2" /> Edit Details
                             </DropdownMenuItem>
-                            <DropdownMenuItem className="text-red-600" onClick={() => { if(confirm('Permanently delete?')) deleteBudget(budget.id) }}>
+                            <DropdownMenuItem className="text-red-600" onClick={async () => { if (confirm('Permanently delete?')) await deleteBudget(budget.id); }}>
                               <Trash2 className="w-4 h-4 mr-2" /> Delete
                             </DropdownMenuItem>
                           </DropdownMenuContent>

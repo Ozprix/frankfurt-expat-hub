@@ -186,6 +186,25 @@ create table if not exists public.conversion_events (
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
 
+create table if not exists public.blog_topic_queue (
+  id uuid default uuid_generate_v4() primary key,
+  topic text not null,
+  category text not null check (category in ('Bureaucracy', 'Housing', 'Banking', 'Tax', 'Healthcare', 'Insurance', 'Visa')),
+  focus_keywords text default '' not null,
+  priority integer default 100 not null,
+  status text default 'queued' not null check (status in ('queued', 'processing', 'generated', 'published', 'failed')),
+  used boolean default false not null,
+  attempts integer default 0 not null,
+  locked_at timestamp with time zone,
+  generated_at timestamp with time zone,
+  generated_slug text,
+  contentful_entry_id text,
+  error_message text,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null,
+  updated_at timestamp with time zone default timezone('utc'::text, now()) not null,
+  unique (topic)
+);
+
 -- -----------------------------------------------------------------------------
 -- 7. Documents (User uploaded files)
 -- -----------------------------------------------------------------------------
@@ -213,6 +232,7 @@ alter table public.user_checklist_state enable row level security;
 alter table public.user_document_checklist enable row level security;
 alter table public.reminder_email_events enable row level security;
 alter table public.conversion_events enable row level security;
+alter table public.blog_topic_queue enable row level security;
 alter table public.documents enable row level security;
 
 -- -----------------------------------------------------------------------------
@@ -262,6 +282,7 @@ drop policy if exists "Users can view own reminder email events" on public.remin
 drop policy if exists "Service role manages reminder email events" on public.reminder_email_events;
 drop policy if exists "Clients can insert consented conversion events" on public.conversion_events;
 drop policy if exists "Service role can view conversion events" on public.conversion_events;
+drop policy if exists "Service role manages blog topic queue" on public.blog_topic_queue;
 
 -- Documents
 drop policy if exists "Users can view their own documents" on public.documents;
@@ -405,6 +426,11 @@ create policy "Service role can view conversion events"
   on public.conversion_events for select
   using (auth.role() = 'service_role');
 
+create policy "Service role manages blog topic queue"
+  on public.blog_topic_queue for all
+  using (auth.role() = 'service_role')
+  with check (auth.role() = 'service_role');
+
 -- 7. Documents Policies
 -- Users can only see/edit their own documents
 create policy "Users can view their own documents" 
@@ -442,6 +468,8 @@ create unique index if not exists idx_reminder_email_events_once_per_subject
 create index if not exists idx_conversion_events_name_created on public.conversion_events(event_name, created_at desc);
 create index if not exists idx_conversion_events_visitor_created on public.conversion_events(visitor_id, created_at desc);
 create index if not exists idx_conversion_events_user_created on public.conversion_events(user_id, created_at desc);
+create index if not exists idx_blog_topic_queue_next on public.blog_topic_queue(used, status, attempts, priority, created_at);
+create index if not exists idx_blog_topic_queue_generated_at on public.blog_topic_queue(generated_at desc) where generated_at is not null;
 create index if not exists idx_documents_user_id on public.documents(user_id);
 
 create or replace function public.queue_first_month_reminders()

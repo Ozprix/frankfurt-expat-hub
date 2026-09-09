@@ -1,0 +1,353 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img [ref=e7]
+        - generic [ref=e9]: New tools available! Check out our Forum, Video Tutorials, and Cost Calculator.
+      - generic [ref=e10]:
+        - link "Explore Features" [ref=e11] [cursor=pointer]:
+          - /url: /features
+        - button [ref=e12] [cursor=pointer]:
+          - img [ref=e13]
+    - banner [ref=e16]:
+      - generic [ref=e17]:
+        - link "F Frankfurt Expat Services" [ref=e18] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e20]: F
+          - generic [ref=e21]:
+            - generic [ref=e22]: Frankfurt
+            - generic [ref=e23]: Expat Services
+        - navigation [ref=e24]:
+          - link "Dashboard" [ref=e229] [cursor=pointer]:
+            - /url: /dashboard
+          - link "Plan" [ref=e230] [cursor=pointer]:
+            - /url: /plan
+          - link "Forum" [ref=e231] [cursor=pointer]:
+            - /url: /forum
+            - img [ref=e232]
+            - text: Forum
+          - link "Videos" [ref=e234] [cursor=pointer]:
+            - /url: /tutorials
+            - img [ref=e235]
+            - text: Videos
+          - link "Budget" [ref=e238] [cursor=pointer]:
+            - /url: /cost-calculator
+            - img [ref=e239]
+            - text: Budget
+          - link "Housing" [ref=e241] [cursor=pointer]:
+            - /url: /apartments
+            - img [ref=e242]
+            - text: Housing
+        - generic [ref=e46]:
+          - link [ref=e245] [cursor=pointer]:
+            - /url: /database-status
+          - link "Budget" [ref=e247] [cursor=pointer]:
+            - /url: /profile
+            - img [ref=e249]
+            - generic [ref=e252]: Budget
+          - button "Log out" [ref=e253] [cursor=pointer]:
+            - img [ref=e254]
+    - navigation "Breadcrumb" [ref=e259]:
+      - list [ref=e260]:
+        - listitem [ref=e261]:
+          - link "Home" [ref=e263] [cursor=pointer]:
+            - /url: /
+            - img [ref=e264]
+            - generic [ref=e267]: Home
+        - listitem [ref=e268]:
+          - generic [ref=e269]:
+            - img [ref=e270]
+            - generic [ref=e272]: Dashboard
+    - main [ref=e49]:
+      - generic [ref=e274]:
+        - generic [ref=e275]:
+          - generic [ref=e276]:
+            - heading "Welcome, Budget QA! 👋" [level=1] [ref=e277]
+            - generic [ref=e279]:
+              - img [ref=e280]
+              - text: Free Plan
+          - link "Explore Vetted Services" [ref=e282] [cursor=pointer]:
+            - /url: /directory
+            - img [ref=e283]
+            - text: Explore Vetted Services
+        - generic [ref=e285]:
+          - generic [ref=e287]:
+            - generic [ref=e288]:
+              - paragraph [ref=e289]: Your Account
+              - heading "Start with the essentials" [level=2] [ref=e290]
+              - paragraph [ref=e291]: Use this dashboard to keep your relocation plan, tools, forum activity, and profile in one place.
+            - link "View Profile" [ref=e292] [cursor=pointer]:
+              - /url: /profile
+              - img [ref=e293]
+              - text: View Profile
+          - generic [ref=e296]:
+            - paragraph [ref=e297]: Signed in as
+            - paragraph [ref=e298]: budgetqa20260423a@example.com
+            - paragraph [ref=e299]: "Next best action: Confirm your address and mailbox name"
+            - generic [ref=e300]:
+              - link "Edit profile" [ref=e301] [cursor=pointer]:
+                - /url: /profile/edit
+              - link "Notifications" [ref=e302] [cursor=pointer]:
+                - /url: /notification-preferences
+        - generic [ref=e303]:
+          - generic [ref=e304]:
+            - generic [ref=e305]:
+              - heading "Budgets Created" [level=3] [ref=e306]
+              - img [ref=e307]
+            - generic [ref=e309]:
+              - generic [ref=e310]: "0"
+              - paragraph [ref=e311]: Financial scenarios
+          - generic [ref=e312]:
+            - generic [ref=e313]:
+              - heading "Forum Activity" [level=3] [ref=e314]
+              - img [ref=e315]
+            - generic [ref=e317]:
+              - generic [ref=e318]: "0"
+              - paragraph [ref=e319]: Posts created
+          - generic [ref=e320]:
+            - generic [ref=e321]:
+              - heading "Saved Homes" [level=3] [ref=e322]
+              - img [ref=e323]
+            - generic [ref=e326]:
+              - generic [ref=e327]: "0"
+              - paragraph [ref=e328]: Watchlisted items
+          - generic [ref=e329]:
+            - generic [ref=e330]:
+              - heading "Learning" [level=3] [ref=e331]
+              - img [ref=e332]
+            - generic [ref=e335]:
+              - generic [ref=e336]: "0"
+              - paragraph [ref=e337]: Tutorials completed
+        - generic [ref=e338]:
+          - generic [ref=e339]:
+            - generic [ref=e340]:
+              - generic [ref=e341]:
+                - paragraph [ref=e342]: First 30 Days
+                - heading "Complete your Frankfurt setup" [level=2] [ref=e343]
+                - paragraph [ref=e344]: Start with Anmeldung and insurance.
+              - generic [ref=e345]:
+                - paragraph [ref=e346]: 0%
+                - paragraph [ref=e347]: 0/5 done
+            - generic [ref=e349]:
+              - button "Confirm your address and mailbox name Days 1-3 · Housing" [ref=e350] [cursor=pointer]:
+                - img [ref=e352]
+                - generic [ref=e355]:
+                  - generic [ref=e356]: Confirm your address and mailbox name
+                  - generic [ref=e357]: Days 1-3 · Housing
+              - button "Book or complete Anmeldung Days 1-14 · Registration" [ref=e358] [cursor=pointer]:
+                - img [ref=e360]
+                - generic [ref=e363]:
+                  - generic [ref=e364]: Book or complete Anmeldung
+                  - generic [ref=e365]: Days 1-14 · Registration
+              - button "Confirm German health insurance Week 1 · Healthcare" [ref=e366] [cursor=pointer]:
+                - img [ref=e368]
+                - generic [ref=e371]:
+                  - generic [ref=e372]: Confirm German health insurance
+                  - generic [ref=e373]: Week 1 · Healthcare
+              - button "Open a German bank account Week 1-2 · Finance" [ref=e374] [cursor=pointer]:
+                - img [ref=e376]
+                - generic [ref=e379]:
+                  - generic [ref=e380]: Open a German bank account
+                  - generic [ref=e381]: Week 1-2 · Finance
+              - button "Track your tax ID and payroll setup Week 2-4 · Tax" [ref=e382] [cursor=pointer]:
+                - img [ref=e384]
+                - generic [ref=e387]:
+                  - generic [ref=e388]: Track your tax ID and payroll setup
+                  - generic [ref=e389]: Week 2-4 · Tax
+            - link "Open full checklist" [ref=e390] [cursor=pointer]:
+              - /url: /frankfurt-first-30-days-checklist
+              - text: Open full checklist
+              - img [ref=e391]
+          - complementary [ref=e393]:
+            - generic [ref=e394]:
+              - img [ref=e395]
+              - heading "Suggested next guide" [level=3] [ref=e397]
+              - paragraph [ref=e398]: Frankfurt First 30 Days Checklist
+              - paragraph [ref=e399]: Use the First 30 Days checklist as your first-month setup map.
+              - link "Read next" [ref=e400] [cursor=pointer]:
+                - /url: /frankfurt-first-30-days-checklist
+                - text: Read next
+                - img [ref=e401]
+            - generic [ref=e403]:
+              - img [ref=e404]
+              - heading "Suggested directory category" [level=3] [ref=e407]
+              - paragraph [ref=e408]: Insurance is one of the first decisions most newcomers need to settle before payroll and healthcare access.
+              - link "View insurance brokers" [ref=e409] [cursor=pointer]:
+                - /url: /directory/insurance-brokers-frankfurt
+            - generic [ref=e410]:
+              - generic [ref=e411]:
+                - generic [ref=e412]:
+                  - img [ref=e413]
+                  - heading "First-month reminders" [level=3] [ref=e416]
+                  - paragraph [ref=e417]: Save this preference across devices so first-month reminder emails can use it when scheduling is enabled.
+                - button "Off" [ref=e418] [cursor=pointer]
+              - link "Notification settings" [ref=e419] [cursor=pointer]:
+                - /url: /notification-preferences
+                - text: Notification settings
+                - img [ref=e420]
+        - generic [ref=e422]:
+          - generic [ref=e423]:
+            - generic [ref=e424]:
+              - heading "Monthly Activity (Last 30 Days)" [level=2] [ref=e425]:
+                - img [ref=e426]
+                - text: Monthly Activity (Last 30 Days)
+              - generic [ref=e430]:
+                - generic [ref=e431]:
+                  - img [ref=e433]
+                  - generic [ref=e437]: dashboard
+                - generic [ref=e438]:
+                  - generic [ref=e439]: 1 actions
+                  - generic [ref=e440]: "Last: 4/23/2026"
+            - generic [ref=e441]:
+              - heading "Quick Shortcuts" [level=2] [ref=e442]
+              - generic [ref=e443]:
+                - link "Budget Planner Manage finances" [ref=e444] [cursor=pointer]:
+                  - /url: /cost-calculator
+                  - img [ref=e445]
+                  - heading "Budget Planner" [level=3] [ref=e447]
+                  - paragraph [ref=e448]: Manage finances
+                - link "Community Ask questions" [ref=e449] [cursor=pointer]:
+                  - /url: /forum
+                  - img [ref=e450]
+                  - heading "Community" [level=3] [ref=e452]
+                  - paragraph [ref=e453]: Ask questions
+                - link "Housing Find apartments" [ref=e454] [cursor=pointer]:
+                  - /url: /apartments
+                  - img [ref=e455]
+                  - heading "Housing" [level=3] [ref=e458]
+                  - paragraph [ref=e459]: Find apartments
+                - link "Tutorials Watch guides" [ref=e460] [cursor=pointer]:
+                  - /url: /tutorials
+                  - img [ref=e461]
+                  - heading "Tutorials" [level=3] [ref=e464]
+                  - paragraph [ref=e465]: Watch guides
+            - generic [ref=e466]:
+              - img [ref=e467]
+              - heading "Need a Frankfurt-specific answer?" [level=2] [ref=e469]
+              - paragraph [ref=e470]: Ask the forum when details depend on timing, district, landlord expectations, or appointment availability.
+              - link "Ask the forum" [ref=e471] [cursor=pointer]:
+                - /url: /forum/create
+                - text: Ask the forum
+                - img [ref=e472]
+          - generic [ref=e474]:
+            - generic [ref=e475]:
+              - heading "Account Status" [level=3] [ref=e476]
+              - generic [ref=e477]:
+                - generic [ref=e478]:
+                  - generic [ref=e479]: Plan Tier
+                  - generic [ref=e480]: Free
+                - generic [ref=e481]:
+                  - generic [ref=e482]: Status
+                  - generic [ref=e483]: Active
+            - generic [ref=e484]:
+              - heading "Relocation Plan" [level=3] [ref=e486]
+              - generic [ref=e487]: 0tasks completed
+              - link "Continue Plan" [ref=e488] [cursor=pointer]:
+                - /url: /plan
+                - button "Continue Plan" [ref=e489]
+    - contentinfo [ref=e83]:
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - link "F Frankfurt Expat Services frankfurtexpatservices.com" [ref=e87] [cursor=pointer]:
+              - /url: /
+              - generic [ref=e89]: F
+              - generic [ref=e90]:
+                - paragraph [ref=e91]: Frankfurt Expat Services
+                - paragraph [ref=e92]: frankfurtexpatservices.com
+            - paragraph [ref=e93]: Free account tools and a vetted English-speaking service directory to help newcomers settle into Frankfurt with confidence.
+            - generic [ref=e94]:
+              - link "Create Free Account" [ref=e95] [cursor=pointer]:
+                - /url: /signup
+              - link "Open Free Tools" [ref=e96] [cursor=pointer]:
+                - /url: /tools
+          - generic [ref=e97]:
+            - paragraph [ref=e98]: Tools
+            - list [ref=e99]:
+              - listitem [ref=e100]:
+                - link "Tax Calculator" [ref=e101] [cursor=pointer]:
+                  - /url: /tools#tax
+              - listitem [ref=e102]:
+                - link "Checklist Tracker" [ref=e103] [cursor=pointer]:
+                  - /url: /frankfurt-first-30-days-checklist
+              - listitem [ref=e104]:
+                - link "Currency Converter" [ref=e105] [cursor=pointer]:
+                  - /url: /tools#currency
+              - listitem [ref=e106]:
+                - link "QR Code Generator" [ref=e107] [cursor=pointer]:
+                  - /url: /tools#qr
+              - listitem [ref=e108]:
+                - link "Password Generator" [ref=e109] [cursor=pointer]:
+                  - /url: /tools#password
+          - generic [ref=e110]:
+            - paragraph [ref=e111]: Platform
+            - list [ref=e112]:
+              - listitem [ref=e113]:
+                - link "Service Directory" [ref=e114] [cursor=pointer]:
+                  - /url: /directory
+              - listitem [ref=e115]:
+                - link "Partner Offers" [ref=e116] [cursor=pointer]:
+                  - /url: /partners
+              - listitem [ref=e117]:
+                - link "Apartment Finder" [ref=e118] [cursor=pointer]:
+                  - /url: /apartments
+              - listitem [ref=e119]:
+                - link "Community Forum" [ref=e120] [cursor=pointer]:
+                  - /url: /forum
+              - listitem [ref=e121]:
+                - link "Video Tutorials" [ref=e122] [cursor=pointer]:
+                  - /url: /tutorials
+              - listitem [ref=e123]:
+                - link "Pricing" [ref=e124] [cursor=pointer]:
+                  - /url: /pricing
+              - listitem [ref=e125]:
+                - link "How It Works" [ref=e126] [cursor=pointer]:
+                  - /url: /how-it-works
+          - generic [ref=e127]:
+            - paragraph [ref=e128]: Company
+            - list [ref=e129]:
+              - listitem [ref=e130]:
+                - link "About Us" [ref=e131] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e132]:
+                - link "Contact" [ref=e133] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e134]:
+                - link "FAQ" [ref=e135] [cursor=pointer]:
+                  - /url: /faq
+              - listitem [ref=e136]:
+                - link "Privacy Policy" [ref=e137] [cursor=pointer]:
+                  - /url: /privacy-policy
+              - listitem [ref=e138]:
+                - link "Terms of Service" [ref=e139] [cursor=pointer]:
+                  - /url: /terms
+              - listitem [ref=e140]:
+                - link "Imprint" [ref=e141] [cursor=pointer]:
+                  - /url: /imprint
+        - generic [ref=e142]:
+          - paragraph [ref=e143]: © 2026 Frankfurt Expat Services · Free Tools · Trusted Directory · Community Focused
+          - generic [ref=e144]:
+            - link "Privacy" [ref=e145] [cursor=pointer]:
+              - /url: /privacy-policy
+            - link "Terms" [ref=e146] [cursor=pointer]:
+              - /url: /terms
+            - link "Imprint" [ref=e147] [cursor=pointer]:
+              - /url: /imprint
+            - button "Cookie Settings" [ref=e148] [cursor=pointer]
+    - generic [ref=e150]:
+      - generic [ref=e151]:
+        - img [ref=e153]
+        - generic [ref=e155]:
+          - paragraph [ref=e156]: Privacy choices
+          - paragraph [ref=e157]:
+            - text: We use necessary storage for core site functions and consent records. Analytics, ads, affiliate tracking, or other non-essential cookies stay off unless you allow them. See our
+            - link "Privacy Policy" [ref=e158] [cursor=pointer]:
+              - /url: /privacy-policy
+            - text: .
+      - generic [ref=e159]:
+        - button "Necessary Only" [ref=e160] [cursor=pointer]
+        - button "Allow Analytics & Ads" [ref=e161] [cursor=pointer]:
+          - img [ref=e162]
+          - text: Allow Analytics & Ads
+  - region "Notifications (F8)":
+    - list

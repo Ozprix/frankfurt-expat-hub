@@ -6,6 +6,7 @@ import { motion } from '@/lib/motion';
 import { 
   CheckCircle, 
   FileText, 
+  FileCheck,
   Bell,
   Crown,
   MessageSquare,
@@ -460,6 +461,11 @@ const DashboardPage = () => {
                       <Calculator className="w-6 h-6 text-teal-600 mb-2 group-hover:scale-110 transition-transform" />
                       <h3 className="font-semibold text-gray-900">Budget Planner</h3>
                       <p className="text-xs text-gray-500">Manage finances</p>
+                    </Link>
+                    <Link to="/tax-prep" className="p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:border-emerald-200 hover:shadow-md transition-all group">
+                      <FileCheck className="w-6 h-6 text-emerald-600 mb-2 group-hover:scale-110 transition-transform" />
+                      <h3 className="font-semibold text-gray-900">Tax Prep</h3>
+                      <p className="text-xs text-gray-500">Organize records</p>
                     </Link>
                     <Link to="/forum" className="p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all group">
                       <MessageSquare className="w-6 h-6 text-blue-600 mb-2 group-hover:scale-110 transition-transform" />
