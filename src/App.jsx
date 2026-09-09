@@ -58,6 +58,7 @@ const TasksPage = lazy(() => import('@/pages/TasksPage'));
 const DocumentsPage = lazy(() => import('@/pages/DocumentsPage'));
 const TaxPrepPage = lazy(() => import('@/pages/TaxPrepPage'));
 const CreatorRecordsPage = lazy(() => import('@/pages/CreatorRecordsPage'));
+const CreatorTaxesPage = lazy(() => import('@/pages/CreatorTaxesPage'));
 const AccountPage = lazy(() => import('@/pages/AccountPage'));
 const UserProfilePage = lazy(() => import('@/pages/UserProfilePage'));
 const TasksRegistryEditor = lazy(() => import('@/components/TasksRegistryEditor'));
@@ -113,6 +114,7 @@ function App() {
                 <Route path="/tools" element={<ToolsPage />} />
                 <Route path="/directory" element={<DirectoryPage />} />
                 <Route path="/partners" element={<PartnersPage />} />
+                <Route path="/creator-taxes" element={<CreatorTaxesPage />} />
                 <Route path="/blog" element={<BlogPage />} />
                 <Route path="/blog/:slug" element={<BlogPostPage />} />
                 <Route path="/imprint" element={<ImprintPage />} />
