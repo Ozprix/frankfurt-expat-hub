@@ -44,14 +44,19 @@ Start with **Tier 1** — English site means zero friction and they already mark
 ---
 
 ## Email template
+> Link tip: write the URL once, with the full `https://` prefix, e.g.
+> `https://frankfurtexpatservices.com`. A bare `frankfurtexpatservices.com` gets
+> auto-linked as `http://` and triggers Google's "Redirect Notice" interstitial when
+> clicked from Gmail. Don't repeat the URL in the signature — one clean link is enough.
+
 **Subject:** Sending English-speaking creator clients your way — German taxes
 
 Hi [Name],
 
-I run **frankfurtexpatservices.com**. We have a free tool where content creators in
-Germany organize their income, brand deals, gifted PR samples, and expenses into a
-clean pack — then need a Steuerberater to actually handle the return. That's exactly
-what [Firm] does.
+I run Frankfurt Expat Services (https://frankfurtexpatservices.com). We have a free tool
+where content creators in Germany organize their income, brand deals, gifted PR samples,
+and expenses into a clean pack — then need a Steuerberater to actually handle the return.
+That's exactly what [Firm] does.
 
 I'd like to refer these clients to you. They arrive **pre-organized**, so it's less
 admin on your side. No cost to start — I only ask for a referral fee on clients that
@@ -61,7 +66,6 @@ Open to a quick 15-min call this week? Or I can send the next relevant lead as a
 
 Best,
 Michael
-frankfurtexpatservices.com
 
 ## LinkedIn / short message version
 Hi [Name] — I run frankfurtexpatservices.com. We give creators in Germany a free tool
@@ -77,10 +81,10 @@ you — free to start, referral fee only on closed clients. Open to a quick chat
 
 Hi Sven / UBS team,
 
-I run frankfurtexpatservices.com. We have a free tool where content creators in Germany
-organize their income, brand deals, gifted PR samples, and expenses into a clean pack —
-then they need a Steuerberater to file. Your influencer/creator practice is exactly the
-right home for them.
+I run Frankfurt Expat Services (https://frankfurtexpatservices.com). We have a free tool
+where content creators in Germany organize their income, brand deals, gifted PR samples,
+and expenses into a clean pack — then they need a Steuerberater to file. Your
+influencer/creator practice is exactly the right home for them.
 
 I'd like to refer these clients to you. They arrive pre-organized, so it's less admin on
 your side. No cost to start — I only ask for a referral fee on clients that actually
@@ -90,17 +94,16 @@ Open to a quick 15-min call this week? Or I can send the next lead as a trial.
 
 Best,
 Michael
-frankfurtexpatservices.com
 
 ### → BRUCKMANN Tax Consulting Germany
 **Subject:** Referring English-speaking creator/influencer clients — German taxes
 
 Hi BRUCKMANN team,
 
-I run frankfurtexpatservices.com. English-speaking creators in Germany use our free tool
-to organize income, brand deals, gifted PR samples, and expenses into a prep pack — then
-they need a Steuerberater to handle the return and the international pieces, which is your
-specialty.
+I run Frankfurt Expat Services (https://frankfurtexpatservices.com). English-speaking
+creators in Germany use our free tool to organize income, brand deals, gifted PR samples,
+and expenses into a prep pack — then they need a Steuerberater to handle the return and
+the international pieces, which is your specialty.
 
 I'd like to refer these (pre-organized) clients to you. No cost to start — referral fee
 only on clients that close, so zero risk on your side.
@@ -109,7 +112,6 @@ Open to a quick 15-min call this week? Or I can send the next lead as a trial.
 
 Best,
 Michael
-frankfurtexpatservices.com
 
 ## Once a partner signs — wiring it into the funnel
 The `/creator-taxes` lead form posts through the existing `contact-form` edge function with
