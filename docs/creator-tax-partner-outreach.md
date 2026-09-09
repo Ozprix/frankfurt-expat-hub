@@ -21,12 +21,12 @@ Aim at **owner-run / boutique creator-tax practices** — they want clients and 
 
 ## Tier 2 — creator specialists, German-language site but fully digital
 Great fit for the work; confirm they'll handle English-speaking clients (many do informally).
-| Firm | Why they fit | Site / contact |
-|---|---|---|
-| **Rebekka Groß** | 100% digital; influencers, creators, affiliate, YouTubers; barter deals. | rebekka-gross-stb.com (verify) |
-| **Jan Hens Steuerberatung** | Influencer focus; VAT, barter deals, collaborations, international income. | janhens.de/influencer-content-creator (verify) |
-| **steueragenten.de** | Digital; brand deals, affiliate, PR packages, product placements; has an English freelancer page. | steueragenten.de/en/clients/freelancer (verify) |
-| **TaxCare (Steuerberaterin Kathi)** | Influencers, models, content creators; digital/flexible. | taxcare-stb.de (verify) |
+| Firm | Why they fit | Email (verified from Impressum) | Location |
+|---|---|---|---|
+| **Rebekka Groß** | 100% digital; influencers, creators, affiliate, YouTubers; barter deals. | info@rebekka-gross-stb.com (or rg@rebekka-gross-stb.com) | Untermaßfeld (digital) |
+| **Jan Hens** | WP + Steuerberater; influencer focus; VAT, barter deals, collaborations, international income. | info@janhens.de | Düsseldorf |
+| **steueragenten.de** | Digital; brand deals, affiliate, PR packages, product placements; English freelancer page. | hamburg@steueragenten.de (HQ; also berlin@steueragenten.de) | Hamburg / Berlin (digital) |
+| **TaxCare** | Steuerberaterin Kathrin Bengl; influencers, models, content creators; digital/flexible. | kontakt@taxcare-stb.de | Lauf a.d. Pegnitz (digital) |
 
 ## Tier 3 — Frankfurt-local, English, general (fallback / cross-sell)
 Already on the relocation outreach list (see [relocation-partner-outreach.md](relocation-partner-outreach.md)). Not creator-specialists, but English + local; approach with the creator angle if Tiers 1–2 stall.
