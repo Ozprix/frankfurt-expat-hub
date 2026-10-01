@@ -1,5 +1,199 @@
 export const blogPosts = [
   {
+    slug: 'riester-ruerup-private-pension-germany-expats',
+    title: 'Riester vs Rürup vs private pension: what expats in Germany should know',
+    description:
+      'A plain-English comparison of Riester, Rürup (Basisrente), company pension and private pension plans in Germany, and who each one actually suits.',
+    category: 'Insurance',
+    date: '2026-10-01',
+    readingTime: '6 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1768839721719-c5ed97c1fd58?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Coins dropping into a white piggy bank',
+    sections: [
+      {
+        heading: 'Why Germans save for retirement privately',
+        body: 'The state pension (gesetzliche Rentenversicherung) replaces only part of your last salary, and the gap is expected to widen as the population ages. That is why the government subsidises several private routes: Riester, Rürup (also called Basisrente), the company pension (bAV), and unsubsidised private pension plans. Each has different rules, and the right one depends mostly on your job status and how long you plan to stay in Germany.',
+      },
+      {
+        heading: 'Riester: subsidies for employees',
+        body: 'Riester is aimed at people who pay into the state pension as employees. Under the current rules you receive a basic allowance of €175 per year, plus €300 per year for each child born from 2008 (a lower amount applies to older children), when you pay in 4% of your previous year\'s pensionable income minus the allowances, capped at €2,100 per year. It is attractive for families and lower earners. It is generally not open to freelancers. The Federal Ministry of Finance has announced a reform of subsidised private pensions with new products from 1 January 2027, replacing the flat allowance with one that grows with your contributions. Existing contracts are not affected by the announcement, but check the current status before signing anything.',
+      },
+      {
+        heading: 'Rürup (Basisrente): tax deduction for higher earners and freelancers',
+        body: 'Rürup contributions are tax deductible up to a yearly limit, which makes it popular with self-employed people and higher earners who have no access to Riester. The trade-offs: the money is locked until retirement, it cannot be paid out as a lump sum, and inheritance is very limited. If you may leave Germany within a few years, that inflexibility matters.',
+      },
+      {
+        heading: 'Company pension (bAV)',
+        body: 'Many employers offer a bAV where part of your gross salary goes into a pension plan before tax and social contributions. In many cases your employer must add a contribution when you save social security costs through the conversion. Ask HR what is on offer, because this is often the simplest first step. Check what happens to the plan if you change employers or leave Germany.',
+      },
+      {
+        heading: 'Private pension plans without subsidies',
+        body: 'Fund-based or classic private pension insurance (private Rentenversicherung) is flexible and available to almost everyone, but without subsidies the main benefit is discipline and optional guarantees. Costs and guarantees differ greatly between products, so compare total costs, not just the headline return.',
+      },
+      {
+        heading: 'How to choose',
+        body: 'Start with three questions: Are you an employee or self-employed? How long will you realistically stay in Germany? How much flexibility do you need? A short intro call with an advisor can map your answers to the right mix. There is no single best product, and the cheapest-looking option is not always the best fit for someone who may relocate.',
+      },
+    ],
+    links: [
+      { label: 'Is the German state pension enough?', href: '/blog/german-state-pension-enough-private-rente' },
+      { label: 'Getting pension contributions back when you leave', href: '/blog/german-pension-refund-leaving-germany' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'german-state-pension-enough-private-rente',
+    title: 'Is the German state pension enough? Planning a private Rente as an expat',
+    description:
+      'How the German state pension works, how much it may replace, and how expats can plan the gap with a private pension.',
+    category: 'Insurance',
+    date: '2026-10-01',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1576477987917-9d056d379228?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Two people watching the sunset over the sea',
+    sections: [
+      {
+        heading: 'How the state pension works',
+        body: 'If you work as an employee in Germany you and your employer each pay about 9.3% of your gross salary (18.6% in total) into the Deutsche Rentenversicherung, up to a yearly income ceiling. In return you collect pension points that turn into a monthly pension at retirement age. The standard retirement age is rising step by step from 65 to 67 by 2031. Contributions are only due up to an income ceiling, which is €8,450 per month in 2026.',
+      },
+      {
+        heading: 'The five-year rule',
+        body: 'You generally need at least five years of contributions to qualify for an old-age pension. Expats who stay only a few years may not reach this threshold on German contributions alone, although time in other EU countries can sometimes be added up, and some countries have social security agreements with Germany. This is also why leaving-Germany refunds exist (see our guide on pension refunds).',
+      },
+      {
+        heading: 'What the state pension replaces',
+        body: 'The state pension replaces only a portion of your final net income, and that share depends on your earnings history and years of contributions. High earners above the contribution ceiling will notice the gap most. Check your own numbers: once you have contributed for a while, the Rentenversicherung sends you an annual statement (Renteninformation) with a projection.',
+      },
+      {
+        heading: 'Planning the gap',
+        body: 'Typical building blocks are a company pension, a subsidised plan if you qualify (Riester or Rürup), ETF savings or a private pension insurance. Which mix fits depends on your income, family situation, and how long you plan to stay in Germany. If you expect to leave in under five to ten years, flexible and portable savings often matter more than locked-in German products.',
+      },
+      {
+        heading: 'Talk it through before you buy',
+        body: 'Pension products are long-term contracts with costs that are easy to overlook. Compare several offers, read the cost breakdown, and ask what happens if you move abroad. If you want to discuss your situation, send us a short message and we can set up an intro call.',
+      },
+    ],
+    links: [
+      { label: 'Riester vs Rürup vs private pension', href: '/blog/riester-ruerup-private-pension-germany-expats' },
+      { label: 'Permanent residence and pension contributions', href: '/blog/permanent-residence-germany-basics' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'berufsunfaehigkeitsversicherung-disability-insurance-expats',
+    title: 'Berufsunfähigkeitsversicherung: occupational disability insurance for expats',
+    description:
+      'What Berufsunfähigkeitsversicherung (BU) covers, why the state safety net is thin, and what expats should check before choosing a policy.',
+    category: 'Insurance',
+    date: '2026-10-01',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Doctor in a white coat holding a stethoscope',
+    sections: [
+      {
+        heading: 'What BU insurance is',
+        body: 'A Berufsunfähigkeitsversicherung pays you a monthly pension if illness or injury prevents you from working in your profession to a significant degree (usually at least 50%). It is one of the most recommended insurances in Germany for people who live from their income, because losing the ability to work is a bigger financial risk than most people expect.',
+      },
+      {
+        heading: 'Why the state safety net is thin',
+        body: 'The state offers a reduced-earning-capacity pension (Erwerbsminderungsrente), but it looks at whether you can work in any job, not whether you can continue your own profession. You get the full amount only if you can work less than three hours a day, and half the amount if you can work between three and six hours. The amount is often far below your previous income. A BU policy closes that gap.',
+      },
+      {
+        heading: 'What affects price and eligibility',
+        body: 'Premiums depend on your age, profession, health, and the monthly benefit you choose. You will answer detailed health questions, and pre-existing conditions can lead to exclusions or higher premiums. Because of this, the younger and healthier you are when you apply, the easier and cheaper it is. Answer truthfully: incorrect answers can put future claims at risk.',
+      },
+      {
+        heading: 'Clauses worth checking',
+        body: 'Look at the definition of occupational disability, the rule on being referred to another job, the right to increase cover later without new health checks (Nachversicherungsgarantie), the waiting period, and how the payout is adjusted over time. Contract wording matters more than the headline price.',
+      },
+      {
+        heading: 'Expat-specific points',
+        body: 'Ask what happens to your cover if you move abroad, change profession, or become self-employed. Make sure you understand the contract language and get key terms confirmed in writing in English. If you want help comparing options, send us a message and we can set up an intro call.',
+      },
+    ],
+    links: [
+      { label: 'Haftpflicht insurance explained', href: '/blog/haftpflicht-insurance-germany' },
+      { label: 'Public vs private health insurance', href: '/blog/public-vs-private-health-insurance-germany' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'german-pension-refund-leaving-germany',
+    title: 'Getting your German pension contributions back when you leave',
+    description:
+      'Can you get your German pension contributions refunded after leaving Germany? Who is eligible, how long you must wait, and what you give up.',
+    category: 'Tax',
+    date: '2026-10-01',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1602515088583-56fe06f8238b?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Passenger plane on the airfield at sunset',
+    sections: [
+      {
+        heading: 'The short version',
+        body: 'People who leave Germany can sometimes apply to the Deutsche Rentenversicherung for a refund (Beitragserstattung) of pension contributions. Three conditions decide it: you must have paid in for fewer than five years, you must have left compulsory insurance at least 24 months ago, and you must not live in an EU country. Check your own case with the pension insurer before you assume anything.',
+      },
+      {
+        heading: 'Who may be eligible',
+        body: 'Refunds are meant for people who are no longer obliged to pay into the German system and who live outside Germany. If you live in an EU country, no refund is possible because your contribution periods count towards a pension there. Some countries also have social security agreements with Germany that change the position, so confirm the rules for your nationality and destination.',
+      },
+      {
+        heading: 'Waiting period and what you receive',
+        body: 'At least 24 calendar months must pass after you leave compulsory insurance before you can apply. Only your own share is refunded, which is half of the total contributions, and without interest. All pension claims from the refunded period are lost for good, so think carefully if you might return to Germany later.',
+      },
+      {
+        heading: 'Refund or keep the claim?',
+        body: 'Once you have paid in for five years (60 months) you qualify for a pension from the standard retirement age and a refund is no longer possible. The Deutsche Rentenversicherung gives the example of someone who worked eight years in Germany: no refund, but a German pension later. If you are close to five years, ask whether paying voluntary contributions to reach the minimum is worth it. Request your contribution statement first and compare both options.',
+      },
+      {
+        heading: 'How to apply',
+        body: 'You apply with the Deutsche Rentenversicherung, using their refund form and proof of identity and departure from Germany. Keep copies of your tax ID, your insurance number, and your deregistration (Abmeldung). Processing can take several months.',
+      },
+    ],
+    links: [
+      { label: 'Is the German state pension enough?', href: '/blog/german-state-pension-enough-private-rente' },
+      { label: 'Tax return deadlines in Germany', href: '/blog/german-tax-return-deadlines' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'n26-vs-wise-vs-german-bank-newcomers',
+    title: 'N26 vs Wise vs a traditional German bank: what newcomers should choose',
+    description:
+      'How N26, Wise and traditional German banks differ for newcomers: German IBAN, setup speed, branches, and what employers and landlords expect.',
+    category: 'Banking',
+    date: '2026-10-01',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1681826291722-70bd7e9e6fc3?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Hands holding a phone showing a currency transfer app',
+    sections: [
+      {
+        heading: 'What you actually need in Germany',
+        body: 'Most newcomers need a German IBAN for salary, rent and direct debits (Lastschrift), plus a debit card. Some employers, landlords and utilities reject foreign IBANs, so a German IBAN removes a lot of friction in the first months.',
+      },
+      {
+        heading: 'N26',
+        body: 'N26 is a mobile-first bank with a German licence, English-language app, and a German IBAN. You can usually open an account online in minutes, which makes it practical in your first days, even before you have finished all the paperwork. It has no branches, so complex issues are handled by chat and phone. Fees and features depend on the plan, so check the current price list.',
+      },
+      {
+        heading: 'Wise',
+        body: 'Wise is excellent for international transfers and holding several currencies at low conversion costs. It is usually best as a second account for transfers to and from your home country, rather than as your only salary account, because Wise typically gives EU customers a Belgian IBAN (starting with BE) rather than a German one, and some payers do not accept it.',
+      },
+      {
+        heading: 'Traditional banks',
+        body: 'Sparkasse, Commerzbank, Deutsche Bank, DKB and ING offer branches or full service, overdraft facilities, and wider product choices such as mortgages. Opening can take longer and may require proof of address (Anmeldung). They are a good long-term base once you are settled.',
+      },
+      {
+        heading: 'A sensible setup',
+        body: 'Many newcomers open a quick online account first, add Wise for international transfers, and move to a traditional bank later if they need more services. Compare current fees and conditions before you sign up. Disclosure: we may receive a referral reward if you open an N26 account through our link, at no cost to you.',
+      },
+    ],
+    links: [
+      { label: 'How to open a German bank account', href: '/blog/open-german-bank-account-frankfurt-expats' },
+      { label: 'Open the First 30 Days checklist', href: '/frankfurt-first-30-days-checklist' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
     slug: 'content-creator-taxes-germany-expats',
     title: 'Content creator taxes in Germany: what expats need to track',
     description:

@@ -8,6 +8,7 @@ import { fetchPostBySlug, fetchAllPosts } from '@/services/contentful';
 import { supabaseClient } from '@/config/supabaseClient';
 import PartnerOffersSection from '@/components/PartnerOffersSection';
 import { findPartnerSlugsForText } from '@/utils/partnerReferrals';
+import { getDirectoryCtaForPost } from '@/utils/directoryGuideCtas';
 
 /* ── Related posts: same-category first, up to 4 total ──────────────────── */
 const getRelatedPosts = (post, allPosts, count = 4) => {
@@ -106,6 +107,10 @@ const BlogPostPage = () => {
 
   const relatedPosts = getRelatedPosts(post, allPosts);
   const isChecklist = CHECKLIST_SLUGS.has(post.slug);
+  const directoryCta = getDirectoryCtaForPost(post);
+  // ponytail: keyword match; swap for an explicit post.advisorCta flag if it misfires
+  const showAdvisorCta = /rente|pension|retirement|insurance/i.test(`${post.category} ${post.title}`);
+  const advisorMailto = `mailto:hello@frankfurtexpatservices.com?subject=${encodeURIComponent(`Intro call request: ${post.title}`)}`;
 
   return (
     <>
@@ -189,6 +194,30 @@ const BlogPostPage = () => {
                   </div>
                 </section>
               )}
+
+              {directoryCta ? (
+                <section className="rounded-xl border border-[#99f6e4] bg-[#f0fdfa] p-6">
+                  <p className="text-xs font-black uppercase tracking-[0.16em] text-[#0f766e]">When you need personal help</p>
+                  <h2 className="mt-2 text-xl font-black text-[#0f172a]">Talk to an English-speaking specialist</h2>
+                  <p className="mt-2 text-sm leading-relaxed text-[#475569]">Use our directory to compare service providers serving Frankfurt newcomers. Check credentials, scope, availability, and fees directly before you engage.</p>
+                  <Link to={directoryCta.href} className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-[#0f766e] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#115e59]">{directoryCta.label} <ArrowRight className="h-4 w-4" /></Link>
+                </section>
+              ) : null}
+
+              {showAdvisorCta ? (
+                <section className="rounded-xl border border-[#fde68a] bg-[#fffbeb] p-6">
+                  <p className="text-xs font-black uppercase tracking-[0.16em] text-[#b45309]">Personal guidance</p>
+                  <h2 className="mt-2 text-xl font-black text-[#0f172a]">Book a free intro call</h2>
+                  <p className="mt-2 text-sm leading-relaxed text-[#475569]">Questions about retirement planning, liability or other cover? Send us a short message about your situation and we will set up an intro call on Zoom.</p>
+                  <a href={advisorMailto} className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-[#b45309] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#92400e]">Message us your interest <ArrowRight className="h-4 w-4" /></a>
+                </section>
+              ) : null}
+
+              <section className="rounded-xl border border-[#dbe1d8] bg-white p-6">
+                <h2 className="text-xl font-black text-[#0f172a]">Questions or experiences to share?</h2>
+                <p className="mt-2 text-sm leading-relaxed text-[#475569]">Discuss this guide with other Frankfurt newcomers in our community forum.</p>
+                <Link to="/forum/create" className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-[#0f766e] hover:text-[#115e59]">Start a discussion <ArrowRight className="h-4 w-4" /></Link>
+              </section>
 
               <PartnerOffersSection
                 partners={partners}
