@@ -20,12 +20,13 @@ import { useLocation } from 'react-router-dom';
 const BASE_URL   = 'https://frankfurtexpatservices.com';
 const DEFAULT_OG = `${BASE_URL}/og-image.jpg`;
 const SITE_NAME  = 'Frankfurt Expat Services';
+const DEFAULT_DESCRIPTION = 'Free browser-based tools and a vetted directory of English-speaking tax consultants, housing agents, and financial advisors for expats in Frankfurt, Germany.';
 
 const SEOHead = ({
   /** Page <title>. Keep under 60 chars including site suffix if added. */
   title,
-  /** Meta description. Keep 120–155 chars for best SERP display. */
-  description,
+  /** Meta description. Keep 120–155 chars for best SERP display. Falls back to the site default so every page renders exactly one. */
+  description = DEFAULT_DESCRIPTION,
   /**
    * Canonical path (e.g. "/tools") or full URL.
    * Defaults to current pathname when omitted.

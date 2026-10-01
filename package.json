@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "vite --host :: --port 3000",
-    "build": "node tools/generate-llms.js || true && vite build",
+    "build": "node tools/generate-llms.js || true && vite build && node scripts/prerender-seo.mjs",
     "preview": "vite preview --host :: --port 3000",
     "blog:new": "node scripts/blog-new.mjs",
     "lint": "eslint src --quiet --ignore-pattern src/App.jsx",
@@ -62,6 +62,7 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "globals": "^15.14.0",
     "postcss": "^8.4.49",
+    "puppeteer": "^24.43.1",
     "tailwindcss": "^3.4.17",
     "terser": "^5.37.0",
     "vite": "^4.4.5"
