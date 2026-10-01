@@ -22,7 +22,15 @@ const baseUrl = server.resolvedUrls.local[0].replace(/\/$/, '');
 // headless Chrome tabs concurrently made some pages' async data fetches (and
 // the Helmet tag update that follows) finish late and get snapshotted early.
 // 99 routes take ~2 minutes sequentially — fine for a once-per-deploy step.
-const browser = await puppeteer.launch({ headless: true });
+// ponytail: prerender is an SEO extra; if Chrome is unavailable, ship the SPA shell instead of failing the deploy
+let browser;
+try {
+  browser = await puppeteer.launch({ headless: true });
+} catch (error) {
+  console.warn(`Prerender skipped, could not launch Chrome: ${error.message.split('\n')[0]}`);
+  await server.httpServer.close();
+  process.exit(0);
+}
 const page = await browser.newPage();
 let ok = 0;
 const failed = [];
