@@ -1,5 +1,203 @@
 export const blogPosts = [
   {
+    slug: 'germany-opportunity-card-chancenkarte-guide',
+    title: 'Germany Opportunity Card (Chancenkarte): who qualifies and how the points work',
+    description:
+      'How the Opportunity Card lets non-EU citizens look for work in Germany for up to a year: basic requirements, the six-point system, proof of funds, and what you may do while you search.',
+    category: 'Visa',
+    date: '2026-10-01',
+    readingTime: '6 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1503221043305-f7498f8b7888?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'World map, compass and camera on a wooden table',
+    sections: [
+      {
+        heading: 'What the Opportunity Card is',
+        body: 'The Opportunity Card (Chancenkarte) lets qualified people from outside the EU enter Germany to look for a job without a concrete job offer. It is issued for up to one year. EU citizens do not need it because they can already live and work in Germany freely.',
+      },
+      {
+        heading: 'Two ways to qualify',
+        body: 'If your vocational qualification or degree is already recognised in Germany, you apply as a skilled worker and do not need a minimum number of points. Everyone else applies through the points system and needs at least six points. In both cases you must also meet the basic requirements and show that you can support yourself.',
+      },
+      {
+        heading: 'Basic requirements (no points awarded)',
+        body: 'For the points route you need a degree or at least two years of vocational training that is recognised by the state where you obtained it, plus German at level A1 or English at level B2. These requirements do not earn points themselves. You must fulfil them before you can start collecting points.',
+      },
+      {
+        heading: 'How the points are awarded',
+        body: 'Points come from several areas. German language skills earn one point at A2, two at B1 and three at B2 or higher, with one extra point for English at C1. A partially recognised foreign qualification earns four points. Two years of professional experience and being 35 or younger earn two points each, and being 40 or younger earns one. A previous stay in Germany of at least six months within five years, a qualification in a shortage occupation, and applying together with your partner earn one point each. The government\'s online self-check on Make it in Germany shows your current score.',
+      },
+      {
+        heading: 'Proving you can support yourself',
+        body: 'You must show that you can cover your living costs for the whole stay without public funds. The usual benchmark is at least €1,091 per month, which is why a blocked account of about €13,092 for a year is a common proof. A part-time job contract for up to 20 hours per week signed before you apply can also serve as proof. If you cannot prove funds for the full 12 months, the card may be issued for a shorter period.',
+      },
+      {
+        heading: 'What you can do with the card',
+        body: 'During your search you may work part-time for up to 20 hours per week, and you may do trial jobs of up to two weeks. You apply through the German mission in your country of residence, and the official online portal is the Consular Services Portal of the Federal Foreign Office. Rules and amounts can change, so confirm the current requirements on Make it in Germany or with the embassy before you apply.',
+      },
+    ],
+    links: [
+      { label: 'EU Blue Card Frankfurt guide', href: '/blog/eu-blue-card-frankfurt-guide' },
+      { label: 'Permanent residence in Germany', href: '/blog/permanent-residence-germany-basics' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'german-citizenship-requirements-expats',
+    title: 'German citizenship: the five-year rule, dual nationality and what you need',
+    description:
+      'What the 2024 reform changed, why the three-year fast track is gone, and the main requirements for naturalisation: residence, German level, livelihood, and the citizenship test.',
+    category: 'Visa',
+    date: '2026-10-01',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1744534637344-d6dc1c79fab0?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Hand holding a German passport in an airport',
+    sections: [
+      {
+        heading: 'Where the rules stand',
+        body: 'The 2024 reform shortened the standard residence period for naturalisation from eight years to five and allowed dual citizenship. A faster three-year route for exceptionally well-integrated applicants was introduced at the same time. The government has since abolished that route, so five years of lawful, habitual residence is now the minimum for everyone. Check the current text with your local naturalisation office, because this area has changed several times.',
+      },
+      {
+        heading: 'The main requirements',
+        body: 'After five years of lawful residence you have a right to naturalisation if you meet the other conditions. You must be able to prove your identity and nationality, support yourself and your dependants without social benefits, and have sufficient German (generally level B1). You must also pass the naturalisation test, which covers the legal and social system and living conditions in Germany, and declare your commitment to the free democratic order.',
+      },
+      {
+        heading: 'Dual citizenship',
+        body: 'Since the 2024 reform you generally no longer have to give up your previous citizenship. Your home country may still have its own rules, so check whether it allows you to keep your nationality or restricts holding a second one.',
+      },
+      {
+        heading: 'Residence status matters',
+        body: 'Your years of residence must be lawful and habitual. Time on a Blue Card or work permit counts, but you should keep an unbroken record of your residence titles and registration. Long stays abroad and gaps in your permits can complicate the count.',
+      },
+      {
+        heading: 'Preparing early',
+        body: 'Start gathering documents well before year five: passport, birth certificate, residence permits, proof of income, language certificate and the test confirmation. Naturalisation applications are handled by the local authority, and processing times vary by city, so ask about current waiting times in Frankfurt before you plan travel or job changes around your date.',
+      },
+    ],
+    links: [
+      { label: 'Permanent residence in Germany', href: '/blog/permanent-residence-germany-basics' },
+      { label: 'EU Blue Card Frankfurt guide', href: '/blog/eu-blue-card-frankfurt-guide' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'schufa-explained-newcomers-germany',
+    title: 'SCHUFA explained for newcomers: what it is and how to get your report',
+    description:
+      'What SCHUFA is, why landlords and phone providers ask for it, why newcomers usually start with no record, and how to tell the free data copy from the paid report.',
+    category: 'Banking',
+    date: '2026-10-01',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1707157284454-553ef0a4ed0d?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Desk with a phone calculator, notebook and financial charts',
+    sections: [
+      {
+        heading: 'What SCHUFA is',
+        body: 'SCHUFA is Germany\'s best-known credit bureau. It collects information on bank accounts, loans, contracts and payment behaviour, and companies use it to judge whether you pay your bills on time. Landlords, mobile and internet providers, online shops and banks regularly check it before they sign a contract with you.',
+      },
+      {
+        heading: 'Why newcomers start with an empty file',
+        body: 'If you have never lived in Germany you usually have no SCHUFA record, which is not the same as a bad record. It can still make some providers hesitant, especially landlords in a competitive market like Frankfurt. A positive history builds up over time through a German bank account and contracts that you pay on schedule.',
+      },
+      {
+        heading: 'The free data copy',
+        body: 'You have a legal right to a free copy of the data SCHUFA holds about you under Article 15 of the GDPR. SCHUFA sends this Datenkopie by post. It is useful if you want to see what is stored or correct a mistake.',
+      },
+      {
+        heading: 'The paid report for landlords',
+        body: 'SCHUFA also sells a BonitätsAuskunft, also marketed as the BonitätsCheck, for €29.95. SCHUFA itself advises against giving the free data copy to a landlord, because it contains sensitive details such as your bank accounts and credit contracts. For rental applications the paid report is the one designed to be shown.',
+      },
+      {
+        heading: 'Avoid paying twice',
+        body: 'Some third-party websites charge about €29.95 for the free data copy and present it as a service. Order directly from SCHUFA\'s own sites so you do not pay for something that is free by law. Also check how current a report must be: landlords often want one issued within the last few weeks.',
+      },
+    ],
+    links: [
+      { label: 'Frankfurt renter packet checklist', href: '/blog/frankfurt-renter-packet-checklist-newcomers' },
+      { label: 'How to open a German bank account', href: '/blog/open-german-bank-account-frankfurt-expats' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'rundfunkbeitrag-german-broadcasting-fee-expats',
+    title: 'Rundfunkbeitrag explained: the German TV and radio fee for new residents',
+    description:
+      'What the Rundfunkbeitrag is, why you pay it even without a TV, how much it costs per flat, how flatshares split it, and how exemptions work.',
+    category: 'Bureaucracy',
+    date: '2026-10-01',
+    readingTime: '4 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1697465379722-98040bb9c509?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Shelves of vintage televisions and radios',
+    sections: [
+      {
+        heading: 'What it is',
+        body: 'The Rundfunkbeitrag is a household fee that funds Germany\'s public broadcasters. It is charged per flat, not per person and not per device. You owe it whether or not you own a TV, radio or computer, and it is collected by the Beitragsservice.',
+      },
+      {
+        heading: 'How much it costs',
+        body: 'At the time of writing the fee is €18.36 per month for each flat. You can pay monthly or in advance: €110.16 for six months or €220.32 for a full year. The amount is set by law and has changed in the past, so check the Beitragsservice website for the current figure.',
+      },
+      {
+        heading: 'Who has to register',
+        body: 'Only one adult per flat needs to be registered and pay. In a flatshare, the whole flat pays one fee, and the residents decide who is registered and how to split it. Students and people working from home are not automatically exempt: a self-employed person who works at home still registers the private flat.',
+      },
+      {
+        heading: 'How to register',
+        body: 'You register your flat with the Beitragsservice through their online form. You will receive a nine-digit Beitragsnummer, which you need for any later change or request. Do it soon after you move in and do not ignore letters from the Beitragsservice, because unanswered reminders can turn into formal demands.',
+      },
+      {
+        heading: 'Exemptions and reductions',
+        body: 'An exemption or reduction is not granted automatically. You have to apply with proof, for example if you receive certain social benefits, and people with the disability mark "RF" can apply for a reduced fee. Secondary flats can be exempted under certain conditions. Use the forms on the Beitragsservice website.',
+      },
+    ],
+    links: [
+      { label: 'What happens after Anmeldung', href: '/blog/after-anmeldung-what-happens' },
+      { label: 'Anmeldung in Frankfurt checklist', href: '/blog/anmeldung-frankfurt-checklist' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'kita-frankfurt-childcare-guide-expats',
+    title: 'Kita in Frankfurt: how to find and apply for a childcare place',
+    description:
+      'How childcare works in Frankfurt for newcomers: the city portal, the Infobörse, when fees apply, what Hessen pays for, and what to prepare.',
+    category: 'Bureaucracy',
+    date: '2026-10-01',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1578349035260-9f3d4042f1f7?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Toy cars on a play mat with children in the background',
+    sections: [
+      {
+        heading: 'The basics',
+        body: 'A Kita (Kindertagesstätte) is Germany\'s daycare and kindergarten system for young children. German law gives children a legal entitlement to a childcare place from their first birthday, but that does not guarantee a spot in the facility you want, and demand in Frankfurt is high. Frankfurt has many providers, including the city\'s own Kita Frankfurt with roughly 150 facilities, as well as church, charitable and private operators.',
+      },
+      {
+        heading: 'Where to search and apply',
+        body: 'The City of Frankfurt runs an online childcare portal, KinderNet Frankfurt (kindernetfrankfurt.de), where you can search for places and register your child. For personal advice there is the Infobörse Kindertagesbetreuung at the Stadtschulamt, reachable by phone, email or in person. Check the City of Frankfurt website for the current address and contact details.',
+      },
+      {
+        heading: 'Start early',
+        body: 'Parents often register their child long before they need the place, and you can register with several facilities at once. If you are moving to Frankfurt, begin the search as soon as you know your address, because waiting lists are common and places are often awarded months in advance.',
+      },
+      {
+        heading: 'What it costs',
+        body: 'In Hessen, attendance at a kindergarten is free for six hours per day from the child\'s third birthday until school entry. Fees for younger children, longer hours, meals and extras depend on the provider and the city\'s fee schedule, so ask each facility for its current rates.',
+      },
+      {
+        heading: 'What to prepare',
+        body: 'Typically you will need your child\'s identity documents, your registration certificate (Anmeldung) and proof of your work hours if you are applying for priority. Facilities in Germany also require proof of measles vaccination under national law. Ask each Kita which documents it wants before your visit.',
+      },
+      {
+        heading: 'Language and settling in',
+        body: 'Many Kitas teach in German, and some offer bilingual or international programmes. Visit a few facilities, ask about the settling-in period (Eingewöhnung), and ask how they work with parents who are still learning German.',
+      },
+    ],
+    links: [
+      { label: 'Anmeldung in Frankfurt checklist', href: '/blog/anmeldung-frankfurt-checklist' },
+      { label: 'Public vs private health insurance', href: '/blog/public-vs-private-health-insurance-germany' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
     slug: 'riester-ruerup-private-pension-germany-expats',
     title: 'Riester vs Rürup vs private pension: what expats in Germany should know',
     description:
