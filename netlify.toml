@@ -6,13 +6,6 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Merged duplicate guide: keep the old URL working and pass on its SEO value
-[[redirects]]
-  from   = "/blog/public-vs-private-health-insurance-frankfurt-expats"
-  to     = "/blog/public-vs-private-health-insurance-germany"
-  status = 301
-  force  = true
-
 # SPA fallback — all routes handled by React Router
 [[redirects]]
   from   = "/*"
