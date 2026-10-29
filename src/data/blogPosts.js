@@ -1,5 +1,218 @@
 export const blogPosts = [
   {
+    slug: 'altersvorsorgedepot-2027-private-pension-reform-germany',
+    title: 'Altersvorsorgedepot: Germany\'s new subsidised private pension from 2027',
+    description:
+      'What the planned Altersvorsorgedepot is, how the new state subsidy works, who can use it, how payouts work, and what happens to existing Riester contracts.',
+    category: 'Insurance',
+    date: '2026-10-29',
+    readingTime: '6 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Plant growing out of a glass of coins',
+    sections: [
+      {
+        heading: 'What is changing',
+        body: 'The Federal Ministry of Finance is reforming subsidised private pensions. Providers can offer the new products, including the Altersvorsorgedepot, from 1 January 2027. The ministry\'s FAQ describes the reform as a bill in the parliamentary process, with a first reading in the Bundestag on 26 February 2026, so check the ministry\'s page for the final law before you decide.',
+      },
+      {
+        heading: 'The products',
+        body: 'The new depot is return-oriented and can be offered without any guarantee. Anyone who wants more security can choose a guarantee product with a guarantee level of 100% or 80%. For the standard product, called the Standarddepot Altersvorsorge, the average yearly reduction of your return caused by costs is capped at 1.0%.',
+      },
+      {
+        heading: 'How the subsidy works',
+        body: 'The flat basic allowance of €175 used for Riester is abolished and replaced by a subsidy that grows with your own contributions. For each euro you pay in, up to €360 a year, the state adds 50 cents. For the next euros you pay in, up to €1,440 more, it adds 25 cents each. Parents receive a child allowance of 100% on contributions up to €300 per child per year, which gives up to €300 per child.',
+      },
+      {
+        heading: 'Who can use it',
+        body: 'Eligibility is wider than Riester. It includes employees and trainees in compulsory employment, people caring for someone with care level 2 or higher, parents during the three-year child-raising period, minijobbers who did not opt out of pension insurance, and the self-employed with trade or professional income who have filed a tax return. Civil servants can take part if they consent to the data transfer. Check the ministry\'s FAQ for the complete list.',
+      },
+      {
+        heading: 'Payout phase',
+        body: 'Payouts start at 65 at the earliest and 70 at the latest, or earlier if you already receive a state pension before 65. At the start you choose between a lifelong annuity and a payout plan that runs at least until age 85.',
+      },
+      {
+        heading: 'If you already have a Riester contract',
+        body: 'You can keep it with the existing subsidy. You can also switch to the new subsidy with your existing contract, or move to a new contract on the new terms. Compare costs, guarantees and how long you plan to stay in Germany before you switch, and ask providers what happens to your contract if you leave the country.',
+      },
+    ],
+    links: [
+      { label: 'Riester vs Rürup vs private pension', href: '/blog/riester-ruerup-private-pension-germany-expats' },
+      { label: 'Is the German state pension enough?', href: '/blog/german-state-pension-enough-private-rente' },
+      { label: 'Getting pension contributions back when you leave', href: '/blog/german-pension-refund-leaving-germany' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'company-pension-betriebsrente-germany-expats',
+    title: 'Company pension (Betriebsrente) in Germany: your rights and what to ask HR',
+    description:
+      'How a German company pension works for employees: the legal right to salary conversion, the 15% employer top-up, tax and social-security limits, vesting, and what to ask HR.',
+    category: 'Insurance',
+    date: '2026-10-29',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Colleagues working together on laptops around a table',
+    sections: [
+      {
+        heading: 'What a Betriebsrente is',
+        body: 'A company pension (betriebliche Altersversorgung, bAV) is a retirement plan that runs through your employer. The most common form is salary conversion (Entgeltumwandlung): a part of your gross salary goes into the pension before income tax and social contributions are calculated.',
+      },
+      {
+        heading: 'Your legal right',
+        body: 'Under the Company Pension Act (BetrAVG) employees can ask their employer to convert up to 4% of the contribution ceiling of the statutory pension insurance into a company pension. In 2026 that ceiling is €101,400 a year, so 4% is about €4,056 a year. If your employer works with a Pensionsfonds, a Pensionskasse or a similar pension institution, the plan runs there. Otherwise you can ask the employer to set up a Direktversicherung for you.',
+      },
+      {
+        heading: 'The 15% employer top-up',
+        body: 'If your employer saves social-security contributions because of the conversion, it must add 15% of the converted amount to your pension on top. The extra contribution goes into the same pension institution or insurance as your own. Ask HR to confirm in writing that the top-up is paid.',
+      },
+      {
+        heading: 'Tax and social-security limits',
+        body: 'Contributions are free of income tax up to 8% of the contribution ceiling. They are free of social-security contributions up to 4% of it. Because you pay less in social contributions, your statutory pension claim can grow a little more slowly, so ask HR or an advisor how large the effect is for you. In retirement, health insurance contributions can apply to the payout, with an allowance.',
+      },
+      {
+        heading: 'Vesting and job changes',
+        body: 'Contributions that come from your own salary conversion are yours immediately. Contributions the employer pays on its own account generally vest after three years and from age 21. If you change employer, the law gives you a right to have the value transferred to the new employer, under conditions. If you leave Germany, ask the provider in writing what your options are.',
+      },
+      {
+        heading: 'Questions for HR',
+        body: 'Which provider and tariff does the company use, and what are the costs? Is the 15% top-up paid? Does the employer pay anything more? What happens to the contract if I leave? Can I stop or change the amount? Ask for the answers in writing before you sign.',
+      },
+    ],
+    links: [
+      { label: 'Is the German state pension enough?', href: '/blog/german-state-pension-enough-private-rente' },
+      { label: 'Riester vs Rürup vs private pension', href: '/blog/riester-ruerup-private-pension-germany-expats' },
+      { label: 'German work contract checklist', href: '/blog/work-contract-checklist-germany' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'rental-deposit-mietkaution-germany-expats',
+    title: 'Rental deposit (Mietkaution) in Germany: how much, how to pay and how to get it back',
+    description:
+      'The legal limit on a German rental deposit, paying in instalments, how the landlord must hold it, deposit insurance, and how long you wait for it back.',
+    category: 'Housing',
+    date: '2026-10-29',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1746682975155-ae1cce0853a3?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Hand holding keys near an open apartment door',
+    sections: [
+      {
+        heading: 'How much can the landlord ask for',
+        body: 'The deposit may not exceed three months\' net cold rent (Nettokaltmiete), which is the rent without utility and heating advance payments. If your landlord asks for more, point to section 551 of the Civil Code, and you can claim back anything above the limit.',
+      },
+      {
+        heading: 'Paying in instalments',
+        body: 'You may pay a cash deposit in three equal monthly instalments. The first is due at the start of the tenancy and the others come with the next rent payments. This is useful when you also have moving and set-up costs in your first months.',
+      },
+      {
+        heading: 'How the landlord has to hold it',
+        body: 'The landlord must keep the deposit separate from their own assets and invest it at the usual savings interest rate. The interest belongs to you. Common arrangements are a deposit account, a pledged savings account in your name, or a bank guarantee.',
+      },
+      {
+        heading: 'Deposit insurance',
+        body: 'If you do not want to tie up cash, a rental deposit guarantee (Mietkautionsversicherung) is an alternative. You pay an annual fee instead. A savings bank cites a cost of roughly €45 to €75 a year for each €1,000 of security. Check that your landlord accepts this form before you sign.',
+      },
+      {
+        heading: 'Getting it back',
+        body: 'There is no fixed legal deadline for the repayment. Courts typically accept a review period of three to six months after you move out, and sometimes longer in special cases. The landlord may keep only as much as justified claims require, such as unpaid rent or damage, and may keep a reasonable amount while the utility bill is outstanding. That bill must reach you within twelve months of the end of the billing period. A claim for repayment expires after three years, so do not wait too long.',
+      },
+      {
+        heading: 'Protect yourself',
+        body: 'Take dated photos and a signed handover protocol when you move in and out, keep the deposit receipt, and note the account where the deposit is held. Ask the landlord for the interest statement when the deposit is repaid.',
+      },
+    ],
+    links: [
+      { label: 'Warm rent vs cold rent in Germany', href: '/blog/warm-rent-cold-rent-germany' },
+      { label: 'Frankfurt renter packet checklist', href: '/blog/frankfurt-renter-packet-checklist-newcomers' },
+      { label: 'How to avoid rental scams in Frankfurt', href: '/blog/avoiding-rental-scams-frankfurt' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'internet-mobile-contracts-germany-newcomers',
+    title: 'Internet and mobile contracts in Germany: terms, cancelling and your rights',
+    description:
+      'How long German internet and mobile contracts run, how to cancel after the first term, what happens when you move, and what you can do if your internet is slower than promised.',
+    category: 'Bureaucracy',
+    date: '2026-10-29',
+    readingTime: '4 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1733810763720-4c83af0668ea?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'White wifi router with four antennas in colourful light',
+    sections: [
+      {
+        heading: 'How long contracts run',
+        body: 'The initial term of an internet, phone or mobile contract may not be longer than 24 months. Compare the monthly price with the total cost over the full term, including set-up fees and any hardware you are paying for.',
+      },
+      {
+        heading: 'After the first term',
+        body: 'Once the initial term is over, a contract that renews automatically can be cancelled at any time with one month\'s notice. If you missed the cancellation date and the contract renewed, you are not stuck for another year.',
+      },
+      {
+        heading: 'If you move',
+        body: 'If your provider cannot supply the agreed service at your new address, you have a statutory special right to terminate, with one month\'s notice. This only applies when the provider cannot deliver there. Otherwise tell the provider early and ask whether the contract can continue at the new address and when the line there will be active.',
+      },
+      {
+        heading: 'If the internet is slower than promised',
+        body: 'Since 1 December 2021 you can claim a price reduction or terminate your contract without notice if your fixed-line speed is persistently or frequently well below the speed in the contract. The Federal Network Agency (Bundesnetzagentur) publishes the rules on how to prove it. It does not enforce money claims itself, but its arbitration board can propose a settlement if you could not resolve the matter with the provider.',
+      },
+      {
+        heading: 'Before you sign',
+        body: 'Check the contract term, the notice period, whether the price rises after an introductory period, and the minimum and normal speeds. Keep your confirmation e-mail and a copy of the terms. If you are only here for a short time, choose a flexible or prepaid mobile plan so you are not committed for two years.',
+      },
+    ],
+    links: [
+      { label: 'What happens after Anmeldung', href: '/blog/after-anmeldung-what-happens' },
+      { label: 'Frankfurt apartment search: your first month', href: '/blog/frankfurt-apartment-search-first-month' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'moving-to-frankfurt-checklist-first-month',
+    title: 'Moving to Frankfurt: a checklist for before you arrive and your first month',
+    description:
+      'A step-by-step checklist for newcomers: the right to stay, housing, Anmeldung, bank, health insurance and the other tasks that matter in your first weeks, with links to detailed guides.',
+    category: 'Bureaucracy',
+    date: '2026-10-29',
+    readingTime: '6 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1758523670991-ee93bc48d81d?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Couple carrying a moving box and a plant into a new home',
+    sections: [
+      {
+        heading: 'Before you leave',
+        body: 'Confirm your right to live and work in Germany. EU citizens can move freely. Others need a visa or residence permit, for example an EU Blue Card or an Opportunity Card. Arrange where you will stay on arrival, because you need an address you can register, and keep your documents ready: passport, birth and marriage certificates, degree certificates and your employment contract.',
+      },
+      {
+        heading: 'Housing and the address you can register',
+        body: 'Temporary housing only works if the provider gives you a landlord confirmation (Wohnungsgeberbestätigung) and allows registration. When you search for a flat, prepare a renter packet, know the difference between cold and warm rent, learn how the deposit works, and be alert to rental scams.',
+      },
+      {
+        heading: 'Week one',
+        body: 'Book your registration appointment (Anmeldung) at the Bürgeramt and register your address. Your tax ID is posted to you afterwards. Open a bank account with a German IBAN, because employers and landlords usually want one, and make sure your health insurance is in place before your first payroll.',
+      },
+      {
+        heading: 'Weeks two to four',
+        body: 'Register your flat for the Rundfunkbeitrag soon after you move in, set up internet and mobile contracts, and buy a Deutschlandticket if you commute. Get liability insurance (Haftpflicht) and understand your SCHUFA situation before you apply for contracts that check it. Ask HR about a company pension.',
+      },
+      {
+        heading: 'If you have children or a car',
+        body: 'Apply for Kindergeld as soon as you are registered and start searching for a Kita place early. If your driving licence is from outside the EU, it is valid for six months after you establish residence, so plan the exchange early.',
+      },
+      {
+        heading: 'Within the first months',
+        body: 'Keep a folder with your registration certificate, tax ID, health insurance proof and contracts. Note when your residence permit expires and plan the renewal before the deadline. In the following year, remember your tax return and its deadline.',
+      },
+    ],
+    links: [
+      { label: 'Anmeldung in Frankfurt checklist', href: '/blog/anmeldung-frankfurt-checklist' },
+      { label: 'What happens after Anmeldung', href: '/blog/after-anmeldung-what-happens' },
+      { label: 'First 30 days checklist', href: '/frankfurt-first-30-days-checklist' },
+      { label: 'Temporary housing in Frankfurt', href: '/blog/temporary-housing-frankfurt-new-arrivals' },
+      { label: 'Open a German bank account', href: '/blog/open-german-bank-account-frankfurt-expats' },
+      { label: 'Kindergeld for expats', href: '/blog/kindergeld-child-benefit-germany-expats' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
     slug: 'kindergeld-child-benefit-germany-expats',
     title: 'Kindergeld for expats: how much child benefit you get and how to apply',
     description:
@@ -786,46 +999,6 @@ export const blogPosts = [
     ],
   },
   {
-    slug: 'public-vs-private-health-insurance-frankfurt-expats',
-    title: 'Public vs private health insurance for Frankfurt expats',
-    description:
-      'A short decision guide for newcomers in Frankfurt: how to choose between public and private health insurance before your first payroll, using the 2026 income threshold.',
-    category: 'Healthcare',
-    date: '2026-04-16',
-    readingTime: '5 min read',
-    imageUrl:
-      'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1400&q=80',
-    imageAlt: 'Doctor with medical documents',
-    sections: [
-      {
-        heading: 'Most employees start public',
-        body: 'Most employees begin in the statutory public system. It is accepted everywhere, payroll handles it, and your spouse and children can be covered at no extra cost when their income stays below €603 a month. TK, AOK, Barmer and DAK are common choices for newcomers, and funds differ mainly in their extra contribution rate and service.',
-      },
-      {
-        heading: 'Check your salary against the 2026 threshold',
-        body: 'If your salary is below €77,400 a year you are compulsorily insured in the public system. Above that you can choose between public and private. If you start your first job in Germany above the threshold, you are exempt from compulsory public cover from the start, which makes this choice more visible and harder to reverse.',
-      },
-      {
-        heading: 'Private insurance needs careful review',
-        body: 'Private cover can suit some high earners, self-employed people or specific professional situations, but it is not just a cheaper monthly option. Age, health history, dependants, future income changes and the ability to return to the public system all matter, and returning gets practically impossible from age 55.',
-      },
-      {
-        heading: 'What to decide before payroll',
-        body: 'Your employer needs to know your insurer for payroll. If you are unsure, avoid committing to a long-term private policy based only on the first quoted premium. Ask for a comparison that reflects your family plans, expected stay in Germany and long-term cost.',
-      },
-      {
-        heading: 'Get advice when your case is complex',
-        body: 'International income, self-employment, switching between private and public, spouse coverage and pre-existing conditions are good reasons to speak to an independent broker before choosing. For the full comparison of rates and rules, read our main guide.',
-      },
-    ],
-    links: [
-      { label: 'Full guide: public vs private in Germany', href: '/blog/public-vs-private-health-insurance-germany' },
-      { label: 'Ask the healthcare forum', href: '/forum/healthcare' },
-      { label: 'Browse insurance brokers', href: '/directory/insurance-brokers-frankfurt' },
-      { label: 'Open the First 30 Days checklist', href: '/frankfurt-first-30-days-checklist' },
-    ],
-  },
-  {
     slug: 'blue-card-appointment-document-checklist-frankfurt',
     title: 'Blue Card appointment document checklist in Frankfurt',
     description:
@@ -1323,6 +1496,10 @@ export const blogPosts = [
       {
         heading: 'PKV: the private option',
         body: 'Private premiums depend on your age and health at entry, not on your income. Benefits can be better, with faster appointments and more choice, but premiums tend to rise with age and there is no free family cover. Returning to the public system is only possible in limited cases: if you are under 55 and your salary drops below the threshold, for example because you move to part-time or become unemployed. From age 55 a return is practically ruled out, so model the long-term cost before you commit.',
+      },
+      {
+        heading: 'Before your first payroll',
+        body: 'Your employer needs to know your insurer when you start, so decide before your first payroll run. If you are unsure, do not commit to a long-term private policy on the strength of the first quoted premium. Ask for a comparison that reflects your family plans, how long you expect to stay in Germany, and the long-term cost.',
       },
       {
         heading: 'What to consider as a Frankfurt expat',
