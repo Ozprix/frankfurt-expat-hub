@@ -596,36 +596,37 @@ export const blogPosts = [
     slug: 'public-vs-private-health-insurance-frankfurt-expats',
     title: 'Public vs private health insurance for Frankfurt expats',
     description:
-      'How newcomers should think about public and private health insurance before their first German payroll deadline.',
+      'A short decision guide for newcomers in Frankfurt: how to choose between public and private health insurance before your first payroll, using the 2026 income threshold.',
     category: 'Healthcare',
     date: '2026-04-16',
-    readingTime: '6 min read',
+    readingTime: '5 min read',
     imageUrl:
       'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1400&q=80',
     imageAlt: 'Doctor with medical documents',
     sections: [
       {
         heading: 'Most employees start public',
-        body:
-          'Many employees begin with statutory public health insurance because it is accepted broadly, payroll setup is familiar, and dependants may be covered under family insurance when conditions are met. Providers such as TK, AOK, Barmer, and DAK are common choices for newcomers.',
+        body: 'Most employees begin in the statutory public system. It is accepted everywhere, payroll handles it, and your spouse and children can be covered at no extra cost when their income stays below €603 a month. TK, AOK, Barmer and DAK are common choices for newcomers, and funds differ mainly in their extra contribution rate and service.',
+      },
+      {
+        heading: 'Check your salary against the 2026 threshold',
+        body: 'If your salary is below €77,400 a year you are compulsorily insured in the public system. Above that you can choose between public and private. If you start your first job in Germany above the threshold, you are exempt from compulsory public cover from the start, which makes this choice more visible and harder to reverse.',
       },
       {
         heading: 'Private insurance needs careful review',
-        body:
-          'Private insurance can suit some high earners, self-employed people, or specific professional situations, but it is not just a cheaper monthly option. Age, health history, dependants, future income changes, and the ability to return to public insurance all matter.',
+        body: 'Private cover can suit some high earners, self-employed people or specific professional situations, but it is not just a cheaper monthly option. Age, health history, dependants, future income changes and the ability to return to the public system all matter, and returning gets practically impossible from age 55.',
       },
       {
         heading: 'What to decide before payroll',
-        body:
-          'Your employer needs an insurer for payroll. If you are unsure, avoid rushing into a long-term private decision based only on the first quoted premium. Ask for a comparison that considers your family plans, expected stay in Germany, and long-term cost profile.',
+        body: 'Your employer needs to know your insurer for payroll. If you are unsure, avoid committing to a long-term private policy based only on the first quoted premium. Ask for a comparison that reflects your family plans, expected stay in Germany and long-term cost.',
       },
       {
         heading: 'Get advice when your case is complex',
-        body:
-          'International income, self-employment, private-to-public switching, spouse coverage, and pre-existing conditions are good reasons to speak with a qualified insurance broker or advisor before choosing.',
+        body: 'International income, self-employment, switching between private and public, spouse coverage and pre-existing conditions are good reasons to speak to an independent broker before choosing. For the full comparison of rates and rules, read our main guide.',
       },
     ],
     links: [
+      { label: 'Full guide: public vs private in Germany', href: '/blog/public-vs-private-health-insurance-germany' },
       { label: 'Ask the healthcare forum', href: '/forum/healthcare' },
       { label: 'Browse insurance brokers', href: '/directory/insurance-brokers-frankfurt' },
       { label: 'Open the First 30 Days checklist', href: '/frankfurt-first-30-days-checklist' },
@@ -1103,7 +1104,7 @@ export const blogPosts = [
     slug: 'public-vs-private-health-insurance-germany',
     title: 'Public vs private health insurance in Germany: an expat guide',
     description:
-      'The key differences between GKV and PKV for Frankfurt expats — coverage, cost, dependants, switching rules, and how to choose.',
+      'How statutory (GKV) and private (PKV) health insurance differ for expats in Germany: 2026 income thresholds, contribution rates, family cover, and how hard it is to switch back.',
     category: 'Healthcare',
     date: '2026-04-15',
     readingTime: '7 min read',
@@ -1112,20 +1113,33 @@ export const blogPosts = [
     sections: [
       {
         heading: 'The two systems',
-        body: 'Germany has two parallel health insurance systems. Statutory health insurance (GKV — gesetzliche Krankenversicherung) covers around 90% of residents through providers like TK, AOK, Barmer, and DAK. Private health insurance (PKV — private Krankenversicherung) is available to employees earning above the Versicherungspflichtgrenze (currently approx. €69,300/year in 2025) and the self-employed.',
+        body: 'Germany has two parallel health insurance systems. Statutory health insurance (GKV, gesetzliche Krankenversicherung) covers around 74 million people through funds such as TK, AOK, Barmer and DAK. Private health insurance (PKV, private Krankenversicherung) is open to employees whose salary is above the Versicherungspflichtgrenze, to the self-employed and to civil servants. In 2026 that threshold is €77,400 a year (€6,450 a month), up from €73,800 in 2025.',
       },
       {
-        heading: 'GKV: how it works for expats',
-        body: 'GKV contributions are income-based, currently around 14.6% of gross salary shared between employer and employee (plus a Zusatzbeitrag of ~1.7% depending on provider). Dependants (spouse, children) without their own income are covered for free. Benefits are standardised — all GKV providers cover the same core services. Most Frankfurt GKV providers have English-language registration support.',
+        heading: 'Who has to be in the public system',
+        body: 'Employees earning more than €603 a month but less than the threshold are compulsorily insured in the GKV. If you earn above the threshold you can choose. A special rule helps newcomers: if you take your first job in Germany with a salary above the threshold, you are exempt from compulsory public insurance from the start. That gives you the choice between private cover and voluntary public cover from day one, and the choice is hard to undo, so take it slowly.',
+      },
+      {
+        heading: 'GKV: what it costs',
+        body: 'The general contribution rate is fixed by law at 14.6% of gross salary, shared between you and your employer. On top of that each fund charges its own Zusatzbeitrag, which is also shared. Comparison sites put the average across funds at around 3.4% in 2026, which brings the typical total to roughly 18%, but the rate differs by fund and has been rising, so check the current figure for the fund you pick. Contributions are only charged on income up to €69,750 a year (€5,812.50 a month), and benefits are standardised, so all funds cover the same core services.',
+      },
+      {
+        heading: 'Family cover',
+        body: 'Your spouse and children can be insured at no extra cost under family insurance (Familienversicherung) if they live in Germany and their own income stays below €603 a month in 2026, and they are not insured some other way. Private insurance works differently: each family member needs their own policy and their own premium, so a family changes the maths a lot.',
       },
       {
         heading: 'PKV: the private option',
-        body: 'PKV premiums are risk-based (age, health history) rather than income-based. Benefits can be better — shorter appointment waits, more specialist access, private hospital rooms. However: premiums rise significantly with age, dependants are not free, and switching back to GKV is difficult once enrolled in PKV. Thoroughly model long-term costs before choosing.',
+        body: 'Private premiums depend on your age and health at entry, not on your income. Benefits can be better, with faster appointments and more choice, but premiums tend to rise with age and there is no free family cover. Returning to the public system is only possible in limited cases: if you are under 55 and your salary drops below the threshold, for example because you move to part-time or become unemployed. From age 55 a return is practically ruled out, so model the long-term cost before you commit.',
       },
       {
         heading: 'What to consider as a Frankfurt expat',
-        body: 'Key questions: Are you planning to stay in Germany long-term? Do you have dependants without their own income? Is your income above the threshold? What is your current health status? Most expats on mid-range salaries, or planning to start a family, find GKV simpler and more cost-effective overall. An independent insurance broker can model both for your situation.',
+        body: 'Ask yourself how long you plan to stay, whether you have dependants without their own income, where your salary sits against the threshold, and your health history. The Versicherungspflichtgrenze is expected to rise to about €84,150 in 2027, according to the private insurers\' association, so someone just above the line today may become compulsorily insured again. Most expats on mid-range salaries, or planning a family, find the public system simpler and cheaper overall. An independent broker can model both options for your situation.',
       },
+    ],
+    links: [
+      { label: 'How to use your health insurance card', href: '/blog/how-to-use-health-insurance-card-germany' },
+      { label: 'Ask the healthcare forum', href: '/forum/healthcare' },
+      { label: 'Open the First 30 Days checklist', href: '/frankfurt-first-30-days-checklist' },
     ],
   },
   {
@@ -1190,7 +1204,7 @@ export const blogPosts = [
     slug: 'how-to-use-health-insurance-card-germany',
     title: 'How to use your health insurance card in Germany',
     description:
-      'What your Krankenversicherungskarte does, how to find a doctor who accepts it, and what happens if you need urgent care in Frankfurt.',
+      'What your electronic health card does, how the electronic patient file (ePA) works since 2025, how to find a doctor, and who to call out of hours in Frankfurt.',
     category: 'Healthcare',
     date: '2026-04-09',
     readingTime: '4 min read',
@@ -1199,20 +1213,29 @@ export const blogPosts = [
     sections: [
       {
         heading: 'What the card contains',
-        body: 'Your electronic health card (eGK — elektronische Gesundheitskarte) contains your name, date of birth, insurance number, and insurer details. From 2024 onwards it includes a chip with expanded data capabilities. You present it at every GKV-accepting doctor visit — it replaces the old paper referral system.',
+        body: 'Your electronic health card (eGK, elektronische Gesundheitskarte) carries your name, date of birth, insurance number and insurer details. You hand it over at the reception of every practice that accepts public insurance, and it proves your cover for the visit. Your fund sends it to you after you join, so make sure the address on file is correct.',
       },
       {
-        heading: 'Finding a GKV-accepting doctor',
-        body: 'Not all doctors accept all GKV providers. Use the Kassenärztliche Vereinigung Hessen (KVH) doctor finder at kvhessen.de or your insurer\'s online portal to find GKV-accepting practices near you. Many Frankfurt practices also note English-speaking staff on their websites.',
+        heading: 'The electronic patient file (ePA)',
+        body: 'Since January 2025 the public funds have set up an electronic patient file (ePA) for every insured person who did not object. Since 1 October 2025 practices, hospitals and pharmacies are required to use it, and it holds items such as your medication list, findings and doctor letters. You can see it in your fund\'s app, and you can object to it at any time through your insurer, which deletes the file. Doctors must also tell you what they store.',
+      },
+      {
+        heading: 'Finding a doctor who accepts it',
+        body: 'Not every practice treats every insured person in the same way, so use the doctor finder of the Kassenärztliche Vereinigung Hessen (kvhessen.de) or your fund\'s online portal to find practices near you. Many Frankfurt practices list English-speaking staff on their websites.',
       },
       {
         heading: 'What the card does not cover',
-        body: 'Dental treatments beyond basic care, glasses, most cosmetic procedures, and some alternative therapies are not fully covered by GKV. You will pay a portion or the full cost of these. Supplemental dental or vision insurance fills these gaps.',
+        body: 'Dental work beyond basic care, glasses, most cosmetic procedures and some alternative therapies are not fully covered by the public system, so you pay part or all of the cost. Supplemental dental or vision insurance can fill these gaps.',
       },
       {
         heading: 'If you need urgent care',
-        body: 'For emergencies: call 112 (ambulance/fire) or 110 (police). For urgent but non-emergency situations outside normal clinic hours, call 116117 — the national out-of-hours medical service that can direct you to the nearest duty doctor or clinic in Frankfurt.',
+        body: 'For emergencies call 112 for an ambulance or the fire service, and 110 for the police. For urgent but non-emergency problems outside normal clinic hours, call 116117, the national out-of-hours medical service that can direct you to the nearest on-duty doctor or clinic in Frankfurt.',
       },
+    ],
+    links: [
+      { label: 'Public vs private health insurance in Germany', href: '/blog/public-vs-private-health-insurance-germany' },
+      { label: 'Ask the healthcare forum', href: '/forum/healthcare' },
+      { label: 'Open the First 30 Days checklist', href: '/frankfurt-first-30-days-checklist' },
     ],
   },
 
