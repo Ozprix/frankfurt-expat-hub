@@ -1,5 +1,198 @@
 export const blogPosts = [
   {
+    slug: 'kindergeld-child-benefit-germany-expats',
+    title: 'Kindergeld for expats: how much child benefit you get and how to apply',
+    description:
+      'How German child benefit works for newcomers: the 2026 amount, who is eligible, how residence permits affect it, and how to apply with the Familienkasse.',
+    category: 'Bureaucracy',
+    date: '2026-10-29',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1747207322679-1fb5089678b2?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'A parent and child holding hands while walking',
+    sections: [
+      {
+        heading: 'What Kindergeld is',
+        body: 'Kindergeld is the monthly child benefit paid by the Familienkasse of the Federal Employment Agency. Since January 2026 it is €259 per child per month, up from €255 in 2025. It is paid for each eligible child, and the amount per child does not depend on your income.',
+      },
+      {
+        heading: 'Who is eligible',
+        body: 'Parents and guardians of children up to age 18 can claim it, and in some situations the entitlement continues beyond 18, for example while a child is in education. The child generally needs to live with you in Germany or in another EU or EEA country, and the Familienkasse checks regularly that the conditions still apply.',
+      },
+      {
+        heading: 'What your residence status means',
+        body: 'For citizens of EU and EEA countries who live in Germany the rules are usually straightforward. For citizens of other countries the Federal Employment Agency says that a residence permit can establish an entitlement, but not every type of permit does. Check the information sheet (Merkblatt Kindergeld) for your permit type or ask the Familienkasse before you assume either way.',
+      },
+      {
+        heading: 'How to apply',
+        body: 'You apply online with the Familienkasse. Have ready your tax identification number and your child\'s, your child\'s birth certificate, and your registration (Anmeldung) details. Only one person is paid per child, so decide which parent applies. Payment can usually only be backdated by about six months, so apply as soon as you are registered.',
+      },
+      {
+        heading: 'After you apply',
+        body: 'The Familienkasse sends a notice with the amount and payment date and may ask for updates or proof later, for example school or training certificates for older children. Report changes such as a move, a new address or a child leaving education, so payments are not stopped or reclaimed.',
+      },
+    ],
+    links: [
+      { label: 'Anmeldung in Frankfurt checklist', href: '/blog/anmeldung-frankfurt-checklist' },
+      { label: 'What happens after Anmeldung', href: '/blog/after-anmeldung-what-happens' },
+      { label: 'Kita in Frankfurt: finding a childcare place', href: '/blog/kita-frankfurt-childcare-guide-expats' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'exchange-foreign-driving-licence-germany',
+    title: 'Exchanging your foreign driving licence in Germany: deadlines and exams',
+    description:
+      'How long your foreign licence stays valid in Germany, who has to exchange it, when you need to sit exams, and what happens if you miss the deadline.',
+    category: 'Bureaucracy',
+    date: '2026-10-29',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1524114051012-0a2aa8dae4e1?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Hands on a wooden steering wheel inside a car',
+    sections: [
+      {
+        heading: 'EU and EEA licences',
+        body: 'If your licence was issued in an EU or EEA country it generally stays valid in Germany until it expires, even after you move here. It must be a national licence, because an international driving permit alone is not enough. When it expires you renew it through the German authority.',
+      },
+      {
+        heading: 'Licences from other countries',
+        body: 'If your licence is from a country outside the EU and EEA, it is valid for six months after you establish your ordinary residence in Germany. After that you need a German licence. The authority can extend the six months once, by up to six months, if you can show that your total stay in Germany will not exceed twelve months.',
+      },
+      {
+        heading: 'Translations in the first six months',
+        body: 'During the first six months you must carry a translation of your national licence unless you hold an international driving permit or your licence meets the standard set out in the 1968 Road Traffic Convention. Germany waives the translation for licences from a short list of countries, including Switzerland, New Zealand, Hong Kong, Monaco, Andorra, San Marino and Senegal.',
+      },
+      {
+        heading: 'Do you have to take exams?',
+        body: 'In most cases an exchange means sitting the theory and the practical test, without compulsory driving lessons. You are exempt if your issuing country is on the German list of countries whose standards are accepted, which is usually based on an agreement. Licences from the United Kingdom can currently be exchanged without exams, although the authority may ask for an eye test. A licence from outside the EU that you already exchanged in another EU country is accepted in Germany.',
+      },
+      {
+        heading: 'Why the deadline matters',
+        body: 'Driving with a licence that is no longer valid in Germany is treated as driving without a licence, which is a criminal offence. Check your country\'s status with the driving licence authority (Fahrerlaubnisbehörde) as soon as you register, and book your exchange well before the six months end.',
+      },
+    ],
+    links: [
+      { label: 'What happens after Anmeldung', href: '/blog/after-anmeldung-what-happens' },
+      { label: 'Anmeldung in Frankfurt checklist', href: '/blog/anmeldung-frankfurt-checklist' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'deutschlandticket-guide-newcomers-frankfurt',
+    title: 'Deutschlandticket in Frankfurt: price, how to buy it and who gets a discount',
+    description:
+      'What the Deutschlandticket costs in 2026 and from January 2027, how to buy it from RMV, how cancelling works, and the job ticket and student options.',
+    category: 'Bureaucracy',
+    date: '2026-10-29',
+    readingTime: '4 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1622988785840-181310c97aaa?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Red regional train at a station platform',
+    sections: [
+      {
+        heading: 'What it covers',
+        body: 'The Deutschlandticket is a monthly subscription for local and regional public transport across Germany. It works on buses, trams, metros, S-Bahn and regional trains operated by participating companies, which covers most of what you need around Frankfurt and the RMV area. It does not cover long-distance trains.',
+      },
+      {
+        heading: 'What it costs',
+        body: 'The price is €63 a month in 2026. The RMV has announced that it rises to €66.80 a month from January 2027, which is about €2.23 a day. The ticket is personal and cannot be passed on, and in the RMV area you cannot take other adults with you on it.',
+      },
+      {
+        heading: 'How to buy and cancel',
+        body: 'You can buy it in the RMV TicketShop or the RMVgo app, or order it at an RMV sales point. The ticket starts on the first of a month and renews automatically until you cancel. You can cancel monthly: cancel by the 10th of a month to end it at the end of that month. The phone ticket in the RMVgo app has no order deadline and can start in the current month. For a chip card ticket, order online by the 20th of the month before it starts, or in person by the 10th.',
+      },
+      {
+        heading: 'Job ticket',
+        body: 'If your employer offers the Deutschlandticket as a job ticket, the RMV job ticket scheme requires an employer subsidy of at least 25% of the price, so ask HR before you buy a standard ticket.',
+      },
+      {
+        heading: 'Students and reduced price',
+        body: 'Students can get the Deutschlandsemesterticket, which costs 60% of the regular price and is offered through your university. People with the Hessenpass mobil entitlement card can buy a reduced-price ticket from the RMV. Check the RMV website for the current price and eligibility rules.',
+      },
+    ],
+    links: [
+      { label: 'What happens after Anmeldung', href: '/blog/after-anmeldung-what-happens' },
+      { label: 'First 30 days in Frankfurt checklist', href: '/frankfurt-first-30-days-checklist' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'german-tax-return-expats-elster-how-to',
+    title: 'How to file a German tax return as an expat: ELSTER, deadlines and who can help',
+    description:
+      'How filing works step by step: when your return is due, how to register with ELSTER, why you should start early, and when to use an advisor.',
+    category: 'Tax',
+    date: '2026-10-29',
+    readingTime: '6 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1746792613213-c154e2891449?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Laptop, coffee cup and glasses on a wooden desk',
+    sections: [
+      {
+        heading: 'Do you have to file?',
+        body: 'Many employees on a normal payroll are not required to file, but filing voluntarily can get you a refund. Some situations make filing compulsory, such as certain tax-class combinations for couples, income from more than one source, or freelance income. If you are unsure, ask the tax office or an advisor. Our tax class and freelancer guides explain the common cases.',
+      },
+      {
+        heading: 'Deadlines',
+        body: 'For tax year 2025 the deadline for filing on your own was 31 July 2026, which has passed. If a tax advisor or an income tax assistance association (Lohnsteuerhilfeverein) files for you, the deadline is 1 March 2027. For tax year 2026 the deadline is 2 August 2027 if you file yourself and the end of February 2028 with an advisor. Voluntary returns can generally be filed for up to four years, so a 2025 return can still be filed until the end of 2029.',
+      },
+      {
+        heading: 'Register with ELSTER early',
+        body: 'ELSTER is the tax office\'s online portal. You register once, and the process includes an activation code that is posted to you. Expect it to take about five to ten days to arrive, so register well before a deadline. Your certificate, whether stored as a file or on a security stick, is valid for three years from issue. The portal is mainly in German, so ask a German-speaking friend or an advisor to help if you are not confident.',
+      },
+      {
+        heading: 'The simplified route',
+        body: 'ELSTER offers a simplified form called einfachELSTERplus. It suits people who live in Germany, file on their own, have a valid ELSTER certificate and employment income, and do not need to enter details about children. For tax year 2025 it also supports information on pensions and retirement income.',
+      },
+      {
+        heading: 'When to use an advisor',
+        body: 'An advisor is worth it if you have income abroad, a freelance business, property, children to claim, or a year in which you moved in or out of Germany. A Steuerberater or Lohnsteuerhilfeverein also gives you the longer deadline. Check which of our directory\'s English-speaking advisors serve Frankfurt.',
+      },
+    ],
+    links: [
+      { label: 'Tax return deadlines in Germany', href: '/blog/german-tax-return-deadlines' },
+      { label: 'German tax class basics', href: '/blog/german-tax-class-frankfurt-expats' },
+      { label: 'Freelancer tax basics', href: '/blog/freelancer-tax-basics-frankfurt' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'renew-residence-permit-germany-frankfurt-guide',
+    title: 'Renewing your residence permit in Frankfurt: when to apply and what protects you',
+    description:
+      'When to apply for an extension, how the Fiktionswirkung keeps your permit valid while you wait, what the Fiktionsbescheinigung allows, and what happens if you apply late.',
+    category: 'Visa',
+    date: '2026-10-29',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1787062421104-ef07371ef394?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Open diary with year calendar and grid notepads',
+    sections: [
+      {
+        heading: 'Apply before the permit expires',
+        body: 'The most important rule is to apply for the extension before your current permit runs out. If you do, your existing permit is treated as continuing until the immigration authority decides on your application. This is called Fiktionswirkung and it comes from section 81 of the Residence Act. It applies automatically and includes any permission to work that your old permit had.',
+      },
+      {
+        heading: 'How early is early enough?',
+        body: 'Processing times in Frankfurt vary, so apply as soon as the authority allows. Advisors commonly suggest starting eight to ten weeks before expiry. Check the City of Frankfurt\'s immigration pages for how to book an appointment or submit your application, and see our appointment guide for what to bring.',
+      },
+      {
+        heading: 'The Fiktionsbescheinigung',
+        body: 'While your application is processed, the authority can issue a Fiktionsbescheinigung, a certificate that confirms your right to stay. Together with your expired card it proves your status. It is usually valid for two to six months and can be extended if processing continues. It is not a passport, so you still need your national passport.',
+      },
+      {
+        heading: 'Travelling and working while you wait',
+        body: 'You may leave and re-enter Germany with the certificate and your passport, but check the entry rules of your destination before you travel. Your employer can keep you employed as long as you can prove the continued validity, so give them the expiry date of your certificate. If you cannot get an appointment to extend the certificate in time, the Hessian interior ministry says it is enough to have booked one before the deadline and to keep the proof.',
+      },
+      {
+        heading: 'If you apply late',
+        body: 'If you miss the date, you lose the automatic continuation of your old permit. Your stay is no longer protected in the same way and your right to work can be affected, so act immediately and speak to the authority or a lawyer. Always apply before the end date.',
+      },
+    ],
+    links: [
+      { label: 'Preparing for your Ausländerbehörde appointment', href: '/blog/residence-permit-appointment-frankfurt' },
+      { label: 'EU Blue Card Frankfurt guide', href: '/blog/eu-blue-card-frankfurt-guide' },
+      { label: 'Permanent residence in Germany', href: '/blog/permanent-residence-germany-basics' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
     slug: 'germany-opportunity-card-chancenkarte-guide',
     title: 'Germany Opportunity Card (Chancenkarte): who qualifies and how the points work',
     description:
