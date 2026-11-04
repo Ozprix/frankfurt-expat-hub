@@ -1,5 +1,220 @@
 export const blogPosts = [
   {
+    slug: 'household-contents-insurance-hausrat-germany-expats',
+    title: 'Household contents insurance (Hausratversicherung) in Germany: what it covers and how much cover you need',
+    description:
+      'What German household contents insurance covers, what it does not, how the sum insured is calculated, and what to check before you buy.',
+    category: 'Insurance',
+    date: '2026-11-04',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1759109220887-6768eda42293?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Living room with sofas, a wood stove and warm lighting',
+    sections: [
+      {
+        heading: 'What it covers',
+        body: 'Household contents insurance (Hausratversicherung) pays for your belongings if they are damaged or lost. That means furniture, clothes, electronics and other things you own. The standard risks are fire, tap water damage (Leitungswasser), burglary, hail and storm damage, which is usually counted from wind force 8. It covers what is inside your home, not the building itself, which is insured by the owner.',
+      },
+      {
+        heading: 'What it does not cover',
+        body: 'It does not cover damage you cause to other people. That is the job of personal liability insurance (Haftpflicht), which is the more essential cover for most newcomers. Damage from flooding and heavy rain (Elementarschäden) is generally a separate add-on that you have to choose, so check whether it is included.',
+      },
+      {
+        heading: 'How much cover you need',
+        body: 'The sum insured should reflect what it would cost to replace your belongings at today\'s prices. Insurers commonly use a minimum of about €650 per square metre of living space as a rule of thumb. If your sum insured is lower than the real value, you are underinsured, and after a loss the insurer pays only part of the damage while you bear the rest. Many insurers offer a waiver of this reduction (Unterversicherungsverzicht) if you choose at least their required sum per square metre, for example €650. Ask whether your tariff includes it and what sum it requires.',
+      },
+      {
+        heading: 'What to check before you buy',
+        body: 'Ask whether bicycles, jewellery, cash, glass breakage and items on a balcony or in a cellar are covered and up to what limit. Check whether damage from a burglary that happens while you are travelling is included, and what the policy requires for locks and doors. Compare the excess, the premium and the cancellation terms.',
+      },
+      {
+        heading: 'Do you need it?',
+        body: 'It is not a legal requirement. It is worth considering if replacing your furniture, clothes and electronics would be a real financial burden. If you only have a few belongings, start with liability cover. If you move, tell your insurer your new address and check that the sum insured still fits your new home.',
+      },
+    ],
+    links: [
+      { label: 'Haftpflicht insurance explained', href: '/blog/haftpflicht-insurance-germany' },
+      { label: 'Legal expenses insurance (Rechtsschutz)', href: '/blog/legal-expenses-insurance-rechtsschutz-germany-expats' },
+      { label: 'Moving to Frankfurt checklist', href: '/blog/moving-to-frankfurt-checklist-first-month' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'legal-expenses-insurance-rechtsschutz-germany-expats',
+    title: 'Legal expenses insurance (Rechtsschutz) in Germany: modules, waiting periods and what is not covered',
+    description:
+      'What legal expenses insurance pays for, the four main modules, the typical three-month waiting period, what it does not cover, and when it is worth it.',
+    category: 'Insurance',
+    date: '2026-11-04',
+    readingTime: '6 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1774898988393-5c752e4d55e9?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Statue of justice with a gavel and an open book',
+    sections: [
+      {
+        heading: 'What it pays for',
+        body: 'Legal expenses insurance (Rechtsschutzversicherung) pays your lawyer, court and expert costs in a covered dispute. It does not pay damages, fines or penalties. For a traffic fine, for example, it covers your defence, not the fine itself. It is not compulsory, so the question is whether the disputes you are likely to face justify the premium.',
+      },
+      {
+        heading: 'The four main modules',
+        body: 'Contracts are built from modules: Privat, Beruf (work), Wohnen (housing) and Verkehr (traffic). The private module alone does not cover disputes about your job, your rental or traffic. These are separate modules. Match them to your life: employees usually need the job module, tenants the housing module, and drivers the traffic module.',
+      },
+      {
+        heading: 'Waiting periods',
+        body: 'For most areas there is a waiting period, usually three months and in some tariffs six. The cause of the dispute must arise after the contract starts and after the waiting period. In many tariffs there is no waiting period for traffic damage claims and for defence in criminal or administrative-offence cases. Check each module. You cannot insure a dispute that has already started.',
+      },
+      {
+        heading: 'What it does not cover',
+        body: 'Standard terms exclude many areas, including disputes about building a house, capital investments, defending against damage claims and disputes with your own insurer. Divorce and inheritance disputes are generally limited to a first consultation. Ask whether disputes with immigration authorities are covered, because that is a question many newcomers have.',
+      },
+      {
+        heading: 'Cost and excess',
+        body: 'Premiums depend on the modules you choose, your age, your family situation and the excess, so compare offers that use the same modules and the same excess. A higher excess lowers the premium but means you pay more yourself in a dispute. Also check how the policy handles a refusal of cover: a Stichentscheid clause lets a lawyer assess whether your case has a chance, and one consumer guide recommends it over an arbitration-style expert opinion (Schiedsgutachten).',
+      },
+      {
+        heading: 'Alternatives',
+        body: 'Without insurance you can pay a lawyer yourself, and a first consultation for consumers is capped at about €226 without an agreement. If your income is low, state-funded advice (Beratungshilfe) or legal aid (Prozesskostenhilfe) may be available. Under the industry\'s model terms (ARB 2021), both you and the insurer can cancel early if two insured cases occur within twelve months, so read the termination clause in your own contract.',
+      },
+    ],
+    links: [
+      { label: 'Rental deposit (Mietkaution) explained', href: '/blog/rental-deposit-mietkaution-germany-expats' },
+      { label: 'German work contract checklist', href: '/blog/work-contract-checklist-germany' },
+      { label: 'Household contents insurance', href: '/blog/household-contents-insurance-hausrat-germany-expats' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'dental-cover-germany-zahnersatz-subsidy-2027',
+    title: 'Dental cover in Germany: what public insurance pays for crowns and dentures, and the 2027 cut',
+    description:
+      'How the public subsidy for dentures, crowns and bridges works, how the bonus booklet raises it, what changes on 1 January 2027, and when supplementary dental insurance helps.',
+    category: 'Insurance',
+    date: '2026-11-04',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Dentist using a mirror and a probe on a patient\'s teeth',
+    sections: [
+      {
+        heading: 'What public insurance covers',
+        body: 'Public health insurance covers check-ups and basic dental care. For crowns, bridges and dentures (Zahnersatz) it does not pay the actual bill. It pays a fixed subsidy (Festzuschuss) towards the standard treatment (Regelversorgung). If you choose a higher-quality solution, you pay the difference yourself.',
+      },
+      {
+        heading: 'The subsidy in 2026',
+        body: 'In 2026 the subsidy is 60% of the standard treatment cost. It rises to 70% if your bonus booklet (Bonusheft) shows regular check-ups for five years and to 75% after ten years. In hardship cases the subsidy covers the whole standard treatment. The booklet needs a gap-free record of dental check-ups for the relevant years.',
+      },
+      {
+        heading: 'What changes on 1 January 2027',
+        body: 'From 1 January 2027 the subsidy falls. Without a bonus booklet it becomes 50% instead of 60%. With five years\' stamps it becomes 60% instead of 70%, and with ten years\' stamps 65% instead of 75%. The hardship rules remain. According to Finanztip, a treatment plan approved before the change keeps the old subsidy even if the work is done in 2027, so ask your insurer if you are planning treatment.',
+      },
+      {
+        heading: 'Keep your bonus booklet up to date',
+        body: 'Regular dental check-ups raise your subsidy, so make and record your appointments. If you recently moved to Germany, ask your insurer whether check-ups abroad count towards the booklet.',
+      },
+      {
+        heading: 'Supplementary dental insurance',
+        body: 'A supplementary policy (Zahnzusatzversicherung) is a private add-on that pays part of the cost above the public subsidy. Compare the share it reimburses, the annual limits, waiting periods in the early years, and whether it excludes treatment that is already planned. It makes most sense for people who want more than the standard treatment, and you usually need it before problems start.',
+      },
+      {
+        heading: 'Ways to save',
+        body: 'Ask your dentist to explain the standard option and the alternatives in the treatment plan (Heil- und Kostenplan) and compare quotes. A university dental clinic can also be cheaper, though sessions often take longer.',
+      },
+    ],
+    links: [
+      { label: 'Public vs private health insurance in Germany', href: '/blog/public-vs-private-health-insurance-germany' },
+      { label: 'How to use your health insurance card', href: '/blog/how-to-use-health-insurance-card-germany' },
+      { label: 'Ask the healthcare forum', href: '/forum/healthcare' },
+    ],
+  },
+  {
+    slug: 'pension-gap-germany-how-much-will-you-need',
+    title: 'The pension gap in Germany: how to estimate what you will be missing',
+    description:
+      'What the German pension level really means, why expats often face a bigger gap, and four steps to estimate what you will need in retirement.',
+    category: 'Insurance',
+    date: '2026-11-04',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1640609432611-f4e2ae26898c?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Hourglass with blue sand standing in the sand',
+    sections: [
+      {
+        heading: 'What the pension gap is',
+        body: 'The pension gap (Rentenlücke) is the difference between the income you want in retirement and what the state pension and your other sources will provide. It is a planning figure, not a fixed number, and it is different for everyone.',
+      },
+      {
+        heading: 'What the 48% pension level means',
+        body: 'You will often read that the pension level (Rentenniveau) is 48%. The Deutsche Rentenversicherung explains that this is a model figure: it compares the pension of someone who worked 45 years at average earnings with the average income, after social contributions and before tax. It does not mean you will receive 48% of your own last salary. The 2025 pension package guarantees the 48% floor until 2031 and requires the federal government to report in 2029 on how to strengthen the pension system beyond 2031, so plan with some uncertainty for the later years.',
+      },
+      {
+        heading: 'Why expats often face a bigger gap',
+        body: 'The standard pension assumes 45 years of contributions. If you spend only part of your working life in Germany, your German pension will be lower. Contributions are also only paid up to an income ceiling, which is €101,400 a year in 2026, so higher earners replace a smaller share of their salary. A minimum of five years of contributions is needed for a pension, which is why a refund can be an option if you leave early.',
+      },
+      {
+        heading: 'Four steps to estimate your gap',
+        body: 'First, get your pension statement (Renteninformation) from the Deutsche Rentenversicherung to see your expected state pension. Second, decide how much monthly income you want in retirement. Third, add other sources, such as a company pension, pensions from other countries and savings. Fourth, subtract: the difference is your gap. Repeat the exercise if your plans change.',
+      },
+      {
+        heading: 'Ways to close it',
+        body: 'The usual building blocks are a company pension, the new Altersvorsorgedepot or an existing Riester or Rürup contract, your own savings, and private pension insurance. How long you plan to stay in Germany decides which of them make sense. This article is general information, not personal advice, and a short conversation with an advisor can help you compare options.',
+      },
+    ],
+    links: [
+      { label: 'Is the German state pension enough?', href: '/blog/german-state-pension-enough-private-rente' },
+      { label: 'Company pension (Betriebsrente)', href: '/blog/company-pension-betriebsrente-germany-expats' },
+      { label: 'Altersvorsorgedepot from 2027', href: '/blog/altersvorsorgedepot-2027-private-pension-reform-germany' },
+      { label: 'Getting pension contributions back when you leave', href: '/blog/german-pension-refund-leaving-germany' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
+    slug: 'term-life-insurance-risikolebensversicherung-germany-expats',
+    title: 'Term life insurance (Risikolebensversicherung) in Germany: who needs it and how much',
+    description:
+      'What term life insurance pays, who it makes sense for, how to choose the sum and the term, and why a separate policy is usually better than loan protection insurance.',
+    category: 'Insurance',
+    date: '2026-11-04',
+    readingTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1770191351727-e9954b63d910?auto=format&fit=crop&w=1400&q=80',
+    imageAlt: 'Red umbrella held up against a rainy city view',
+    sections: [
+      {
+        heading: 'What it pays',
+        body: 'Term life insurance (Risikolebensversicherung) pays the full sum insured in one payment to your named beneficiaries if you die during the term. It has no savings component, which is why it is usually cheap compared with other life insurance. The money is not tied to a purpose, so your family decides how to use it.',
+      },
+      {
+        heading: 'Who needs it',
+        body: 'It makes sense when someone depends on your income, such as a partner or children, or when you have a loan or mortgage that your family would otherwise have to repay. If nobody depends on your income, you may not need it.',
+      },
+      {
+        heading: 'Choosing the sum',
+        body: 'The sum is set according to your income and wealth situation, and you should include outstanding loans. One way to think about it is how many years of your income your family would need to cover living costs, education and debts, minus the assets they would already have. Ask for a calculation in writing instead of a rough guess.',
+      },
+      {
+        heading: 'Constant or falling sum',
+        body: 'A constant sum suits family protection because the need stays about the same. A falling sum suits protection for a loan, because the remaining debt shrinks and the insurance shrinks with it.',
+      },
+      {
+        heading: 'How long it should run',
+        body: 'If the policy secures a loan, choose a term until the loan is repaid. If it protects children, choose at least until they are adults, ideally until your youngest child can support themselves.',
+      },
+      {
+        heading: 'Costs and health questions',
+        body: 'The premium depends on the sum, the term and the purpose, and typically also on your age, health and whether you smoke. You answer health questions when you apply, and you must answer them truthfully, because wrong answers can put a later payout at risk.',
+      },
+      {
+        heading: 'Better than loan protection',
+        body: 'Consumer advocates warn that payment protection insurance (Restschuldversicherung) is expensive and pays out little. A separate term life policy is usually the better way to secure a loan. For many working people, disability insurance covers the more likely risk, so consider it first.',
+      },
+      {
+        heading: 'Expat points',
+        body: 'Ask what happens to your cover if you move abroad, and make sure your beneficiaries are named correctly and that you understand the contract language. Get key terms confirmed in writing in English.',
+      },
+    ],
+    links: [
+      { label: 'Disability insurance (Berufsunfähigkeit)', href: '/blog/berufsunfaehigkeitsversicherung-disability-insurance-expats' },
+      { label: 'Haftpflicht insurance explained', href: '/blog/haftpflicht-insurance-germany' },
+      { label: 'Public vs private health insurance', href: '/blog/public-vs-private-health-insurance-germany' },
+      { label: 'Ask the community forum', href: '/forum' },
+    ],
+  },
+  {
     slug: 'altersvorsorgedepot-2027-private-pension-reform-germany',
     title: 'Altersvorsorgedepot: Germany\'s new subsidised private pension from 2027',
     description:
