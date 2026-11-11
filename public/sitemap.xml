@@ -2,159 +2,501 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://frankfurtexpatservices.com/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/frankfurt-first-30-days-checklist</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/directory</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://frankfurtexpatservices.com/jobs</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/for-providers</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://frankfurtexpatservices.com/tools</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/partners</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/apartments</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/forum</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/blog</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/answers</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/answers/methodology</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/pricing</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/faq</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/about</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/contact</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/features</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/tutorials</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/directory/tax-advisors-frankfurt</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/directory/housing-relocation-frankfurt</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/directory/banking-financial-advisors-frankfurt</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/directory/immigration-lawyers-frankfurt</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/directory/insurance-brokers-frankfurt</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/directory/english-speaking-doctors-frankfurt</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/tax-and-accounting-taxmain</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/tax-and-accounting-hofmann-klafsky-and-fertig</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/tax-and-accounting-steuergo</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/tax-and-accounting-wundertax</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/tax-and-accounting-taxfix</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/housing-and-relocation-citylink-relocation</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/housing-and-relocation-bs-relocation-services</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/housing-and-relocation-mariya-relocation-consulting</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/housing-and-relocation-fidelio-relocation-frankfurt</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/housing-and-relocation-xpat24</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/banking-and-financial-planning-lex-wealth</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/banking-and-financial-planning-torc-wealth</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/banking-and-financial-planning-perfinex</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/banking-and-financial-planning-horizon65</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/banking-and-financial-planning-mw-expat-solution-services</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/legal-and-visa-support-fragomen-frankfurt</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/legal-and-visa-support-winheller</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/legal-and-visa-support-schlun-and-elseven-rechtsanw-lte</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/legal-and-visa-support-rose-and-partner</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/legal-and-visa-support-vpmk-rechtsanw-lte</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/insurance-bechstein-insurance-broker-frankfurt</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/insurance-neodirect</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/insurance-klforexpats</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/insurance-feather</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/insurance-ottonova</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/healthcare-and-wellbeing-medical-practice-frankfurt</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/healthcare-and-wellbeing-private-practice-deifilia</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/healthcare-and-wellbeing-alldent-frankfurt</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/healthcare-and-wellbeing-international-psychotherapy-frankfurt</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/directory/provider/healthcare-and-wellbeing-doctolib-frankfurt-english-speaking-doctors</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://frankfurtexpatservices.com/tools/german-tax-calculator-frankfurt</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/tools/currency-converter-frankfurt</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/tools/qr-code-generator</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/tools/password-generator</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/household-contents-insurance-hausrat-germany-expats</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/legal-expenses-insurance-rechtsschutz-germany-expats</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/dental-cover-germany-zahnersatz-subsidy-2027</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/pension-gap-germany-how-much-will-you-need</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/term-life-insurance-risikolebensversicherung-germany-expats</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/altersvorsorgedepot-2027-private-pension-reform-germany</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/company-pension-betriebsrente-germany-expats</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/rental-deposit-mietkaution-germany-expats</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/internet-mobile-contracts-germany-newcomers</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/moving-to-frankfurt-checklist-first-month</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/kindergeld-child-benefit-germany-expats</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/exchange-foreign-driving-licence-germany</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/deutschlandticket-guide-newcomers-frankfurt</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/german-tax-return-expats-elster-how-to</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/renew-residence-permit-germany-frankfurt-guide</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/germany-opportunity-card-chancenkarte-guide</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/german-citizenship-requirements-expats</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/schufa-explained-newcomers-germany</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/rundfunkbeitrag-german-broadcasting-fee-expats</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/kita-frankfurt-childcare-guide-expats</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/riester-ruerup-private-pension-germany-expats</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/german-state-pension-enough-private-rente</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/berufsunfaehigkeitsversicherung-disability-insurance-expats</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/german-pension-refund-leaving-germany</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://frankfurtexpatservices.com/blog/n26-vs-wise-vs-german-bank-newcomers</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/blog/content-creator-taxes-germany-expats</loc>
@@ -183,12 +525,6 @@
   <url>
     <loc>https://frankfurtexpatservices.com/blog/open-german-bank-account-frankfurt-expats</loc>
     <lastmod>2026-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://frankfurtexpatservices.com/blog/public-vs-private-health-insurance-frankfurt-expats</loc>
-    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -386,19 +722,19 @@
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/privacy-policy</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/terms</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://frankfurtexpatservices.com/imprint</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

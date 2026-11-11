@@ -10,6 +10,7 @@ export const ArrowRightLeft = LucideIcons.ArrowRightLeft;
 export const Award = LucideIcons.Award;
 export const BadgeCheck = LucideIcons.BadgeCheck;
 export const Banknote = LucideIcons.Banknote;
+export const BarChart3 = LucideIcons.BarChart3;
 export const Bell = LucideIcons.Bell;
 export const Bolt = LucideIcons.Bolt;
 export const Book = LucideIcons.Book;

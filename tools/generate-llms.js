@@ -10,6 +10,16 @@ import { reviewedKnowledgePages } from '../src/data/knowledgeTopics.js';
 const BASE_URL = 'https://frankfurtexpatservices.com';
 const OUTPUT_DIR = path.join(process.cwd(), 'public');
 const TODAY = new Date().toISOString().slice(0, 10);
+const directoryProviders = JSON.parse(
+  fs.readFileSync(path.join(process.cwd(), 'src/data/scraped/directory.json'), 'utf8'),
+);
+
+const providerSlug = (provider) =>
+  `${provider.category || 'provider'}-${provider.name || 'listing'}`
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
 
 const corePages = [
   {
@@ -32,6 +42,20 @@ const corePages = [
     description: 'Curated English-speaking tax, housing, banking, immigration, insurance, and healthcare providers for Frankfurt newcomers.',
     changefreq: 'weekly',
     priority: '0.9',
+  },
+  {
+    path: '/jobs',
+    title: 'International Jobs in Frankfurt',
+    description: 'A curated, trust-led starting point for international professionals seeking English-friendly jobs in Frankfurt and the Rhine-Main region.',
+    changefreq: 'weekly',
+    priority: '0.8',
+  },
+  {
+    path: '/for-providers',
+    title: 'Join the Frankfurt Expat Services Directory',
+    description: 'Apply for directory review as an English-speaking professional serving Frankfurt newcomers.',
+    changefreq: 'monthly',
+    priority: '0.6',
   },
   {
     path: '/tools',
@@ -181,6 +205,16 @@ function getPublicPages() {
     priority: category.id === 'tax' || category.id === 'housing' || category.id === 'legal' ? '0.9' : '0.8',
   }));
 
+  const providerPages = directoryProviders
+    .filter((provider) => provider.name && provider.category)
+    .map((provider) => ({
+      path: `/directory/provider/${providerSlug(provider)}`,
+      title: `${provider.name} | ${provider.category}`,
+      description: provider.summary || `English-speaking ${provider.category} support for Frankfurt newcomers.`,
+      changefreq: 'monthly',
+      priority: '0.6',
+    }));
+
   const toolPages = toolLandingPages.map((tool) => ({
     path: `/tools/${tool.slug}`,
     title: tool.heading || tool.title,
@@ -215,14 +249,14 @@ function getPublicPages() {
     answer: topic,
   }));
 
-  return [...corePages, ...directoryPages, ...toolPages, ...blogPages, ...answerPages, ...legalPages];
+  return [...corePages, ...directoryPages, ...providerPages, ...toolPages, ...blogPages, ...answerPages, ...legalPages];
 }
 
 function writeLlmsTxt(pages) {
   const priorityGroups = [
     {
       heading: 'Core Pages',
-      pages: pages.filter((page) => ['/', '/frankfurt-first-30-days-checklist', '/directory', '/tools', '/partners', '/blog', '/answers', '/forum', '/apartments'].includes(page.path)),
+      pages: pages.filter((page) => ['/', '/frankfurt-first-30-days-checklist', '/directory', '/jobs', '/tools', '/partners', '/blog', '/answers', '/forum', '/apartments'].includes(page.path)),
     },
     {
       heading: 'Directory Categories',
@@ -249,7 +283,7 @@ function writeLlmsTxt(pages) {
   const content = [
     '# Frankfurt Expat Services',
     '',
-    'Frankfurt Expat Services helps international residents settle in Frankfurt with practical guides, free account tools, a curated provider directory, a public-read forum, and clearly labelled partner offers.',
+    'Frankfurt Expat Services helps international residents settle in Frankfurt with practical guides, free account tools, a curated provider directory, a trust-led international jobs hub, a public-read forum, and clearly labelled partner offers.',
     '',
     ...priorityGroups.flatMap((group) => [
       `## ${group.heading}`,

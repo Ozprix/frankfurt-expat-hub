@@ -22,6 +22,8 @@ const footerLinks = [
     heading: 'Platform',
     links: [
       { label: 'Service Directory', to: '/directory' },
+      { label: 'International Jobs', to: '/jobs' },
+      { label: 'List Your Service', to: '/for-providers' },
       { label: 'Partner Offers', to: '/partners' },
       { label: 'Apartment Finder', to: '/apartments' },
       { label: 'Community Forum', to: '/forum' },

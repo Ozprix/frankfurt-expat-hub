@@ -30,7 +30,8 @@ export const AuthProvider = ({ children }) => {
 	      updateUser: auth.updateUser,
 	      resendVerificationEmail: auth.resendVerificationEmail,
       isAuthenticated: !!auth.user,
-      isAdmin: auth.user?.app_metadata?.role === 'admin' || auth.user?.user_metadata?.role === 'admin'
+      // app_metadata only: user_metadata is writable by the user themselves
+      isAdmin: auth.user?.app_metadata?.role === 'admin'
     }}>
       {children}
     </AuthContext.Provider>

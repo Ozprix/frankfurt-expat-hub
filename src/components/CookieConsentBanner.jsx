@@ -35,6 +35,7 @@ const CookieConsentBanner = () => {
         savedAt: new Date().toISOString(),
       }),
     );
+    window.dispatchEvent(new CustomEvent('fes:consent-updated', { detail: choices }));
     setVisible(false);
   };
 

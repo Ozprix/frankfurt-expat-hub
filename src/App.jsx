@@ -4,9 +4,11 @@ import { AuthProvider, useAuth } from '@/context/AuthContext';
 import { Toaster } from '@/components/ui/toaster';
 import Layout from '@/components/layout/Layout';
 import ProtectedRoute from '@/components/ProtectedRoute';
+import ProtectedAdminRoute from '@/components/layout/ProtectedAdminRoute';
 import ScrollToTop from '@/components/ScrollToTop';
 import AnswerAttributionTracker from '@/components/AnswerAttributionTracker';
 import DatabaseErrorBoundary from '@/components/DatabaseErrorBoundary';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 // Public Pages
 const HomePage = lazy(() => import('@/pages/HomePage'));
@@ -18,6 +20,8 @@ const AboutPage = lazy(() => import('@/pages/AboutPage'));
 const ContactPage = lazy(() => import('@/pages/ContactPage'));
 const ToolsPage = lazy(() => import('@/pages/ToolsPage'));
 const DirectoryPage = lazy(() => import('@/pages/DirectoryPage'));
+const DirectoryProviderPage = lazy(() => import('@/pages/DirectoryProviderPage'));
+const ForProvidersPage = lazy(() => import('@/pages/ForProvidersPage'));
 const PartnersPage = lazy(() => import('@/pages/PartnersPage'));
 const BlogPage = lazy(() => import('@/pages/BlogPage'));
 const BlogPostPage = lazy(() => import('@/pages/BlogPostPage'));
@@ -29,6 +33,7 @@ const PrivacyPolicyPage = lazy(() => import('@/pages/PrivacyPolicyPage'));
 const TermsPage = lazy(() => import('@/pages/TermsPage'));
 const DatabaseStatusPage = lazy(() => import('@/pages/DatabaseStatusPage'));
 const First30DaysChecklistPage = lazy(() => import('@/pages/First30DaysChecklistPage'));
+const JobsPage = lazy(() => import('@/pages/JobsPage'));
 
 // Feature Pages
 const ForumPage = lazy(() => import('@/pages/ForumPage'));
@@ -95,6 +100,7 @@ function App() {
     <DatabaseErrorBoundary>
       <AuthProvider>
         <Router>
+          <GoogleAnalytics />
           <AnswerAttributionTracker />
           <ScrollToTop />
           <Suspense fallback={<PageFallback />}>
@@ -113,7 +119,10 @@ function App() {
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/tools" element={<ToolsPage />} />
                 <Route path="/directory" element={<DirectoryPage />} />
+                <Route path="/jobs" element={<JobsPage />} />
+                <Route path="/directory/provider/:providerSlug" element={<DirectoryProviderPage />} />
                 <Route path="/partners" element={<PartnersPage />} />
+                <Route path="/for-providers" element={<ForProvidersPage />} />
                 <Route path="/creator-taxes" element={<CreatorTaxesPage />} />
                 <Route path="/blog" element={<BlogPage />} />
                 <Route path="/blog/:slug" element={<BlogPostPage />} />
@@ -185,9 +194,9 @@ function App() {
                 <Route path="/calendar/settings" element={<ProtectedRoute><CalendarIntegrationPage /></ProtectedRoute>} />
                 
                 {/* Admin Routes */}
-                <Route path="/admin/tasks-registry" element={<ProtectedRoute><TasksRegistryEditor /></ProtectedRoute>} />
-                <Route path="/admin/testing" element={<ProtectedRoute><TestingDashboardPage /></ProtectedRoute>} />
-                <Route path="/admin/analytics" element={<ProtectedRoute><AnalyticsDashboardPage /></ProtectedRoute>} />
+                <Route path="/admin/tasks-registry" element={<ProtectedAdminRoute><TasksRegistryEditor /></ProtectedAdminRoute>} />
+                <Route path="/admin/testing" element={<ProtectedAdminRoute><TestingDashboardPage /></ProtectedAdminRoute>} />
+                <Route path="/admin/analytics" element={<ProtectedAdminRoute><AnalyticsDashboardPage /></ProtectedAdminRoute>} />
 
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Route>

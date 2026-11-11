@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import SEOHead from '@/components/SEOHead';
 import {
   Banknote,
@@ -27,6 +27,7 @@ import { trackConversionEvent } from '@/utils/conversionTracking';
 import { supabaseClient } from '@/config/supabaseClient';
 import PartnerOffersSection from '@/components/PartnerOffersSection';
 import { partnerCategoriesForDirectory } from '@/utils/partnerReferrals';
+import { providerSlug } from '@/utils/directoryProfiles';
 
 /* ─── DATA ─────────────────────────────────────────────────────────────────── */
 const categoryIcons = {
@@ -186,6 +187,14 @@ const PartnerCard = ({ partner }) => {
         </div>
       )}
 
+      <Link
+        to={`/directory/provider/${providerSlug(partner)}`}
+        onClick={() => trackConversionEvent('directory_provider_profile_view', { provider_name: partner.name, provider_category: partner.category })}
+        className="mt-5 inline-flex items-center text-xs font-bold text-[#0f766e] hover:text-[#115e59]"
+      >
+        View profile <ChevronRight className="ml-1 h-3.5 w-3.5" />
+      </Link>
+
       {partner.url && (
         <div className="mt-5 border-t border-[#e2e8f0] pt-4">
           <a
@@ -264,7 +273,9 @@ const PartnerDirectorySection = ({ partners, selectedCategory, referralPartners,
 /* ─── MAIN PAGE ────────────────────────────────────────────────────────────── */
 const DirectoryPage = () => {
   const [search, setSearch] = useState('');
-  const [selectedCategoryId, setSelectedCategoryId] = useState('');
+  const [searchParams] = useSearchParams();
+  const requestedCategoryId = searchParams.get('category') || '';
+  const [selectedCategoryId, setSelectedCategoryId] = useState(requestedCategoryId);
   const [referralPartners, setReferralPartners] = useState([]);
   const resultsRef = useRef(null);
 
@@ -272,6 +283,10 @@ const DirectoryPage = () => {
     () => categories.find((category) => category.id === selectedCategoryId) || null,
     [selectedCategoryId],
   );
+
+  React.useEffect(() => {
+    setSelectedCategoryId(categories.some((category) => category.id === requestedCategoryId) ? requestedCategoryId : '');
+  }, [requestedCategoryId]);
 
   const filtered = categories.filter(
     (c) =>
@@ -478,17 +493,17 @@ const DirectoryPage = () => {
                 <div className="rounded-xl bg-[#fff7ed] p-3 text-[#c2410c] w-fit">
                   <Handshake className="h-5 w-5" />
                 </div>
-                <h2 className="mt-4 text-2xl font-black text-[#0f172a]">Apply for Directory Placement</h2>
+                <h2 className="mt-4 text-2xl font-black text-[#0f172a]">Join the directory</h2>
                 <p className="mt-2 text-sm leading-relaxed text-[#475569]">
                   Are you an English-speaking professional serving Frankfurt's expat community? Apply to
-                  join our vetted directory. Early partners receive featured placement while the first
-                  cohorts are curated.
+                  join our vetted directory. Listing eligibility is reviewed independently from any paid,
+                  clearly labelled visibility options.
                 </p>
                 <ul className="mt-5 space-y-3">
                   {[
                     'Discovery call arranged within 2 business days',
-                    'Featured placement for early partners',
-                    'Newsletter spotlight opportunities',
+                    'A clear review standard before inclusion',
+                    'Optional, labelled visibility opportunities after approval',
                     'Annual re-verification to maintain trust signal',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-[#334155]">
@@ -509,6 +524,7 @@ const DirectoryPage = () => {
                 messageLabel="Service Details"
                 messagePlaceholder="Describe your Frankfurt expat services, languages supported, pricing model, and ideal client profile."
               />
+              <p className="-mt-3 text-right text-sm"><Link to="/for-providers" className="font-bold text-[#0f766e] hover:underline">See our provider review standard →</Link></p>
             </div>
           </div>
         </section>

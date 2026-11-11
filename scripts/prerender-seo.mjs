@@ -42,7 +42,9 @@ for (const route of routes) {
     // blind delay, since render time varies per route.
     await page.waitForSelector('link[rel="canonical"]', { timeout: 20000 });
     const html = `<!doctype html>\n${await page.evaluate(() => document.documentElement.outerHTML)}`;
-    const output = path.join(dist, route === '/' ? '' : route.slice(1), 'index.html');
+    // Write /blog/x as blog/x.html, not blog/x/index.html: Netlify 301s the
+    // folder form to a trailing slash, which made every sitemap URL redirect.
+    const output = path.join(dist, route === '/' ? 'index.html' : `${route.slice(1)}.html`);
     await mkdir(path.dirname(output), { recursive: true });
     await writeFile(output, html);
     ok += 1;

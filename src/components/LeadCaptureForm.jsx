@@ -22,6 +22,12 @@ const LeadCaptureForm = ({
   compact = false,
   showCompany = false,
   showCategory = false,
+  companyLabel = 'Business Name',
+  categoryLabel = 'Category',
+  categoryOptions = null,
+  context = '',
+  leadMetadata = {},
+  showMatchDetails = false,
   messageLabel = 'What should we know?',
   messagePlaceholder = 'Tell us what you need...',
 }) => {
@@ -49,11 +55,17 @@ const LeadCaptureForm = ({
       email: fields.email,
       subject,
       message: [
+        context ? `Context: ${context}` : '',
         fields.company ? `Company: ${fields.company}` : '',
         fields.category ? `Category: ${fields.category}` : '',
         fields.message ? `Message: ${fields.message}` : '',
       ].filter(Boolean).join('\n') || intent,
       source: intent,
+      metadata: {
+        ...leadMetadata,
+        providerName: fields.company || leadMetadata.providerName,
+        providerCategory: fields.category || leadMetadata.providerCategory,
+      },
     });
 
     if (!result.success) {
@@ -91,22 +103,23 @@ const LeadCaptureForm = ({
         ) : null}
         {showCompany ? (
           <div>
-            <label htmlFor={`${intent}-company`} className="mb-1 block text-sm font-semibold text-[#0f172a]">Business Name</label>
+            <label htmlFor={`${intent}-company`} className="mb-1 block text-sm font-semibold text-[#0f172a]">{companyLabel}</label>
             <input id={`${intent}-company`} name="company" type="text" value={fields.company} onChange={updateField} className={inputClass} autoComplete="organization" />
           </div>
         ) : null}
         {showCategory ? (
           <div>
-            <label htmlFor={`${intent}-category`} className="mb-1 block text-sm font-semibold text-[#0f172a]">Category</label>
+            <label htmlFor={`${intent}-category`} className="mb-1 block text-sm font-semibold text-[#0f172a]">{categoryLabel}</label>
             <select id={`${intent}-category`} name="category" value={fields.category} onChange={updateField} className={inputClass}>
               <option value="">Select a category</option>
-              <option value="Tax & Accounting">Tax & Accounting</option>
-              <option value="Housing & Relocation">Housing & Relocation</option>
-              <option value="Banking & Financial Planning">Banking & Financial Planning</option>
-              <option value="Legal & Visa Support">Legal & Visa Support</option>
-              <option value="Healthcare & Insurance">Healthcare & Insurance</option>
+              {(categoryOptions || ['Tax & Accounting', 'Housing & Relocation', 'Banking & Financial Planning', 'Legal & Visa Support', 'Healthcare & Insurance']).map((option) => <option key={option} value={option}>{option}</option>)}
               <option value="Other">Other</option>
             </select>
+          </div>
+        ) : null}
+        {showMatchDetails ? (
+          <div className="sm:col-span-2 rounded-lg border border-[#ccfbf1] bg-[#f0fdfa] p-3 text-sm leading-relaxed text-[#334155]">
+            We only use the details below to understand your request and make an appropriate introduction. Please do not include passport numbers, health records, or other sensitive documents.
           </div>
         ) : null}
         {!compact ? (

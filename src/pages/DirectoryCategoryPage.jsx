@@ -8,6 +8,7 @@ import { trackConversionEvent } from '@/utils/conversionTracking';
 import { supabaseClient } from '@/config/supabaseClient';
 import PartnerOffersSection from '@/components/PartnerOffersSection';
 import { partnerCategoriesForDirectory } from '@/utils/partnerReferrals';
+import { providerSlug } from '@/utils/directoryProfiles';
 
 /* ── Partner card (reused from DirectoryPage aesthetics) ─────────────────── */
 const PartnerCard = ({ partner, categorySlug }) => (
@@ -50,6 +51,12 @@ const PartnerCard = ({ partner, categorySlug }) => (
         Visit website <ExternalLink className="h-3.5 w-3.5" />
       </a>
     )}
+    <Link
+      to={`/directory/provider/${providerSlug(partner)}`}
+      className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[#0f766e] hover:text-[#115e59]"
+    >
+      View profile <ChevronRight className="h-3.5 w-3.5" />
+    </Link>
   </article>
 );
 

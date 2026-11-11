@@ -15,6 +15,7 @@ import {
   Home,
   Wrench as Tools,
   BookOpen,
+  BriefcaseBusiness,
   ChevronDown,
 } from '@/lib/icons';
 import { useAuth } from '@/context/AuthContext';
@@ -40,6 +41,7 @@ const Header = ({ onOpenMobileMenu }) => {
   const navItems = [
     { name: 'Dashboard', path: '/dashboard' },
     { name: 'Plan', path: '/plan' },
+    { name: 'Jobs', path: '/jobs', icon: BriefcaseBusiness },
     { name: 'Forum', path: '/forum', icon: MessageSquare },
     { name: 'Blog', path: '/blog', icon: BookOpen },
     { name: 'Videos', path: '/tutorials', icon: Video },
@@ -187,6 +189,14 @@ const Header = ({ onOpenMobileMenu }) => {
                   }`}>
                   <BookOpen className="h-4 w-4" />
                   Directory
+                </Link>
+
+                <Link to="/jobs"
+                  className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+                    isActive('/jobs') ? 'bg-[#ecfdf5] text-[#0f766e]' : 'text-[#475569] hover:bg-[#f8fafc] hover:text-[#0f172a]'
+                  }`}>
+                  <BriefcaseBusiness className="h-4 w-4" />
+                  Jobs
                 </Link>
 
                 <Link to="/partners"

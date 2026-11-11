@@ -13,6 +13,11 @@ type ContactPayload = {
   message?: string;
   source?: string;
   website?: string;
+  metadata?: {
+    providerName?: string;
+    providerCategory?: string;
+    applicationType?: string;
+  };
 };
 
 const clean = (value: unknown) => String(value ?? '').trim();
@@ -49,6 +54,10 @@ Deno.serve(async (req) => {
     const subject = clean(payload.subject);
     const message = clean(payload.message);
     const source = clean(payload.source) || 'contact-page';
+    const metadata = payload.metadata || {};
+    // Auto-replies go to whatever address was typed, so nothing the sender wrote may
+    // appear in them: letters-only greeting, no subject, no message echo.
+    const greetingName = name.replace(/[^\p{L}\p{M}' -]/gu, '').trim().slice(0, 60) || 'there';
 
     if (!name || !email || !subject || !message) {
       return new Response(JSON.stringify({ message: 'Missing required fields' }), {
@@ -137,14 +146,14 @@ Deno.serve(async (req) => {
       });
     }
 
-    const { error: insertError } = await supabase.from('contact_messages').insert({
+    const { data: contactMessage, error: insertError } = await supabase.from('contact_messages').insert({
       name,
       email,
       subject,
       message,
       source,
       ip_address: ipAddress,
-    });
+    }).select('id').single();
 
     if (insertError) {
       console.error('contact-form insert error:', insertError);
@@ -152,6 +161,52 @@ Deno.serve(async (req) => {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
+    }
+
+    const isIntroductionRequest = source === 'directory-introduction';
+    const isProviderApplication = source === 'directory-provider-application';
+    if (isIntroductionRequest || isProviderApplication) {
+      const providerName = clean(metadata.providerName);
+      const providerCategory = clean(metadata.providerCategory);
+      const { error: directoryLeadError } = await supabase.from('directory_leads').insert({
+        contact_message_id: contactMessage?.id ?? null,
+        lead_type: isIntroductionRequest ? 'introduction_request' : 'provider_application',
+        provider_name: providerName || null,
+        provider_category: providerCategory || null,
+        requester_name: name,
+        requester_email: email,
+        enquiry_summary: message,
+      });
+
+      if (directoryLeadError) {
+        console.error('contact-form directory lead insert error:', directoryLeadError);
+        return new Response(JSON.stringify({ message: 'Failed to store directory request' }), {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
+    }
+
+    const isJobAlert = source === 'job-alert';
+    const isEmployerSubmission = source === 'job-employer-submission';
+    if (isJobAlert || isEmployerSubmission) {
+      const { error: jobLeadError } = await supabase.from('job_leads').insert({
+        contact_message_id: contactMessage?.id ?? null,
+        lead_type: isJobAlert ? 'job_alert' : 'employer_submission',
+        employer_name: isEmployerSubmission ? clean(metadata.providerName) || null : null,
+        role_area: clean(metadata.providerCategory) || null,
+        requester_name: name,
+        requester_email: email,
+        details: message,
+      });
+
+      if (jobLeadError) {
+        console.error('contact-form job lead insert error:', jobLeadError);
+        return new Response(JSON.stringify({ message: 'Failed to store job request' }), {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
     }
 
     const resendApiKey = Deno.env.get('RESEND_API_KEY');
@@ -187,7 +242,7 @@ Deno.serve(async (req) => {
     <h1 style="margin:0;font-size:20px;font-weight:900;color:#fff;">You're on the list.</h1>
   </td></tr>
   <tr><td style="padding:24px;">
-    <p style="margin:0 0 16px;font-size:14px;line-height:1.7;color:#475569;">Hi ${name},</p>
+    <p style="margin:0 0 16px;font-size:14px;line-height:1.7;color:#475569;">Hi ${greetingName},</p>
     <p style="margin:0 0 16px;font-size:14px;line-height:1.7;color:#475569;">Thanks for signing up. We'll send you practical Frankfurt guides — covering topics like Anmeldung, tax setup, housing, and banking — as we publish them.</p>
     <p style="margin:0 0 20px;font-size:14px;line-height:1.7;color:#475569;">While you wait, start with our free First 30 Days Checklist and the tools below:</p>
     <table width="100%" cellpadding="0" cellspacing="0">
@@ -206,13 +261,13 @@ Deno.serve(async (req) => {
     <p style="margin:0;font-size:12px;color:#94a3b8;text-align:center;">Frankfurt Expat Services · <a href="https://frankfurtexpatservices.com" style="color:#94a3b8;">frankfurtexpatservices.com</a></p>
   </td></tr>
 </table></body></html>`,
-            text: `Hi ${name},\n\nThanks for signing up. We'll send you practical Frankfurt guides as we publish them.\n\nIn the meantime:\n- First 30 Days Checklist: https://frankfurtexpatservices.com/frankfurt-first-30-days-checklist\n- Free Tools: https://frankfurtexpatservices.com/tools\n- Service Directory: https://frankfurtexpatservices.com/directory\n\n— Frankfurt Expat Services`,
+            text: `Hi ${greetingName},\n\nThanks for signing up. We'll send you practical Frankfurt guides as we publish them.\n\nIn the meantime:\n- First 30 Days Checklist: https://frankfurtexpatservices.com/frankfurt-first-30-days-checklist\n- Free Tools: https://frankfurtexpatservices.com/tools\n- Service Directory: https://frankfurtexpatservices.com/directory\n\n— Frankfurt Expat Services`,
           }
         : {
             from: contactFromEmail,
             to: [email],
             reply_to: contactToEmail,
-            subject: `We received your message — ${subject}`,
+            subject: 'We received your message',
             html: `<!DOCTYPE html><html><body style="margin:0;padding:32px 16px;background:#f3f4ef;font-family:Inter,Arial,sans-serif;">
 <table width="600" style="max-width:600px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #dbe1d8;">
   <tr><td style="background:#0f766e;padding:24px;">
@@ -220,16 +275,14 @@ Deno.serve(async (req) => {
     <h1 style="margin:0;font-size:20px;font-weight:900;color:#fff;">Message received.</h1>
   </td></tr>
   <tr><td style="padding:24px;">
-    <p style="margin:0 0 16px;font-size:14px;line-height:1.7;color:#475569;">Hi ${name},</p>
+    <p style="margin:0 0 16px;font-size:14px;line-height:1.7;color:#475569;">Hi ${greetingName},</p>
     <p style="margin:0 0 16px;font-size:14px;line-height:1.7;color:#475569;">Thanks for reaching out. We've received your message and will get back to you within 24–48 business hours.</p>
-    <p style="margin:0 0 4px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#94a3b8;">Your message</p>
-    <p style="margin:0;font-size:13px;line-height:1.6;color:#64748b;border-left:3px solid #0f766e;padding-left:12px;">${message.replace(/\n/g, '<br>')}</p>
   </td></tr>
   <tr><td style="padding:16px 24px;border-top:1px solid #e2e8f0;">
     <p style="margin:0;font-size:12px;color:#94a3b8;text-align:center;">Frankfurt Expat Services · <a href="https://frankfurtexpatservices.com" style="color:#94a3b8;">frankfurtexpatservices.com</a></p>
   </td></tr>
 </table></body></html>`,
-            text: `Hi ${name},\n\nThanks for reaching out. We've received your message and will respond within 24–48 business hours.\n\nYour message:\n${message}\n\n— Frankfurt Expat Services`,
+            text: `Hi ${greetingName},\n\nThanks for reaching out. We've received your message and will respond within 24–48 business hours.\n\n— Frankfurt Expat Services`,
           };
 
       const userReply = fetch('https://api.resend.com/emails', {
