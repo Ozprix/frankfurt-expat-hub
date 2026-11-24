@@ -165,15 +165,19 @@ export const blogPosts = [
   },
   {
     slug: 'term-life-insurance-risikolebensversicherung-germany-expats',
-    title: 'Term life insurance (Risikolebensversicherung) in Germany: who needs it and how much',
+    title: 'Life insurance in Germany for expats: term life cover, costs and how to get a quote',
     description:
-      'What term life insurance pays, who it makes sense for, how to choose the sum and the term, and why a separate policy is usually better than loan protection insurance.',
+      'How life insurance works in Germany: term life (Risikolebensversicherung) vs savings policies, who needs it, how much cover to buy, what drives the price, and how to compare quotes and buy as an expat.',
     category: 'Insurance',
     date: '2026-11-04',
-    readingTime: '5 min read',
+    readingTime: '8 min read',
     imageUrl: 'https://images.unsplash.com/photo-1770191351727-e9954b63d910?auto=format&fit=crop&w=1400&q=80',
     imageAlt: 'Red umbrella held up against a rainy city view',
     sections: [
+      {
+        heading: 'Types of life insurance in Germany',
+        body: 'German insurers sell three main kinds of life insurance. Term life insurance (Risikolebensversicherung) is pure protection: it pays only if you die during the term. Endowment life insurance (Kapitallebensversicherung) and unit-linked policies (fondsgebundene Lebensversicherung) combine protection with saving or investing, so premiums are much higher and costs eat into returns. Consumer advocates such as the Verbraucherzentralen generally recommend keeping the two apart: buy cheap term cover for protection and save or invest separately. The rest of this guide is about term life insurance.',
+      },
       {
         heading: 'What it pays',
         body: 'Term life insurance (Risikolebensversicherung) pays the full sum insured in one payment to your named beneficiaries if you die during the term. It has no savings component, which is why it is usually cheap compared with other life insurance. The money is not tied to a purpose, so your family decides how to use it.',
@@ -199,6 +203,22 @@ export const blogPosts = [
         body: 'The premium depends on the sum, the term and the purpose, and typically also on your age, health and whether you smoke. You answer health questions when you apply, and you must answer them truthfully, because wrong answers can put a later payout at risk.',
       },
       {
+        heading: 'What it costs',
+        body: 'Term life is the cheapest kind of life insurance. For a young, healthy non-smoker, a six-figure sum over 20 years can cost only a few hundred euros a year, and sometimes less. Smokers often pay roughly double, and premiums rise steeply with age at entry, a long term or a high sum. Insurers usually count you as a non-smoker only if you have not smoked for at least a year, so check their definition. Prices for the same cover vary a lot between insurers, which is why comparing several quotes matters more than for most other insurance.',
+      },
+      {
+        heading: 'How to get a quote and buy',
+        body: 'Decide the sum, the term and whether the sum should stay constant or fall before you ask for quotes, so you compare like with like. You can get quotes from comparison portals, directly from insurers or through an independent broker (Versicherungsmakler), who compares many insurers and is paid by commission. Prepare your date of birth, job, smoking status, height and weight, and your medical history for the last few years. Read the health questions yourself before signing, even if a broker fills in the form. After you sign you can withdraw from a life insurance contract within 30 days without giving a reason.',
+      },
+      {
+        heading: 'Can expats buy life insurance in Germany?',
+        body: 'Yes. Most German insurers require you to live in Germany and be registered at a German address (Anmeldung). Some ask about your residence permit or how long you plan to stay. Contracts and health questionnaires are usually only in German, so work with an English-speaking broker or get a translation of the key terms before signing. If you already have a policy from your home country, check whether it stays valid while you live in Germany and how a payout would be taxed.',
+      },
+      {
+        heading: 'Tax on the payout',
+        body: 'The payout is free of income tax, but it can be subject to German inheritance tax. Spouses and registered partners have a large allowance (€500,000), children €400,000, but unmarried partners only €20,000. Unmarried couples often avoid the problem with cross-insurance (Überkreuzversicherung): each partner takes out the policy on the other\'s life and pays the premiums, so the payout goes to the policyholder and is not inherited.',
+      },
+      {
         heading: 'Better than loan protection',
         body: 'Consumer advocates warn that payment protection insurance (Restschuldversicherung) is expensive and pays out little. A separate term life policy is usually the better way to secure a loan. For many working people, disability insurance covers the more likely risk, so consider it first.',
       },
@@ -206,11 +226,15 @@ export const blogPosts = [
         heading: 'Expat points',
         body: 'Ask what happens to your cover if you move abroad, and make sure your beneficiaries are named correctly and that you understand the contract language. Get key terms confirmed in writing in English.',
       },
+      {
+        heading: 'Is life insurance mandatory in Germany?',
+        body: 'No. Life insurance is voluntary in Germany. Some banks ask for it, or for loan protection insurance, when you take out a mortgage, but you can usually offer your own term life policy instead of the bank\'s product.',
+      },
     ],
     links: [
+      { label: 'Public vs private health insurance', href: '/blog/public-vs-private-health-insurance-germany' },
       { label: 'Disability insurance (Berufsunfähigkeit)', href: '/blog/berufsunfaehigkeitsversicherung-disability-insurance-expats' },
       { label: 'Haftpflicht insurance explained', href: '/blog/haftpflicht-insurance-germany' },
-      { label: 'Public vs private health insurance', href: '/blog/public-vs-private-health-insurance-germany' },
       { label: 'Ask the community forum', href: '/forum' },
     ],
   },
@@ -1683,12 +1707,12 @@ export const blogPosts = [
   /* ── CLUSTER 4: Insurance & Healthcare ───────────────────────────────── */
   {
     slug: 'public-vs-private-health-insurance-germany',
-    title: 'Public vs private health insurance in Germany: an expat guide',
+    title: 'Private health insurance in Germany vs public: a 2026 guide for expats',
     description:
-      'How statutory (GKV) and private (PKV) health insurance differ for expats in Germany: 2026 income thresholds, contribution rates, family cover, and how hard it is to switch back.',
+      'Who can get private health insurance (PKV) in Germany, what it costs compared with public cover (GKV), the 2026 income threshold, family cover, deductibles, pre-existing conditions and how hard it is to switch back.',
     category: 'Healthcare',
     date: '2026-04-15',
-    readingTime: '7 min read',
+    readingTime: '10 min read',
     imageUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=80',
     imageAlt: 'Doctor consultation',
     sections: [
@@ -1713,6 +1737,26 @@ export const blogPosts = [
         body: 'Private premiums depend on your age and health at entry, not on your income. Benefits can be better, with faster appointments and more choice, but premiums tend to rise with age and there is no free family cover. Returning to the public system is only possible in limited cases: if you are under 55 and your salary drops below the threshold, for example because you move to part-time or become unemployed. From age 55 a return is practically ruled out, so model the long-term cost before you commit.',
       },
       {
+        heading: 'Who can get private health insurance in Germany',
+        body: 'Three main groups can choose private health insurance: employees whose salary is above the Versicherungspflichtgrenze (€77,400 in 2026), self-employed people and freelancers at any income, and civil servants (Beamte), whose employer covers part of their costs through Beihilfe. Students can opt out of public insurance at the start of their studies, but that decision binds them for the whole degree. Everyone else on a normal salary stays in the public system.',
+      },
+      {
+        heading: 'What private health insurance costs',
+        body: 'There is no income-based rate in the PKV. Each insurer prices you individually by your age at entry, your health and the plan you pick: single or shared rooms in hospital, dental cover, and how high your deductible (Selbstbeteiligung) is. Part of each premium goes into ageing reserves (Altersrückstellungen) meant to dampen increases later in life, which is one reason young entrants are quoted low premiums. As an employee your employer pays half of the premium, capped at the maximum it would pay towards public insurance. Self-employed people pay the full premium themselves. Many plans refund some premiums (Beitragsrückerstattung) in years you make no claims.',
+      },
+      {
+        heading: 'Pre-existing conditions and health questions',
+        body: 'Private insurers ask detailed health questions, usually covering the last few years of treatment. Depending on your answers they can accept you normally, add a risk surcharge, exclude a condition, or refuse you. Answer completely and truthfully: wrong or missing answers can let the insurer cancel the contract or refuse to pay later. Public insurance never asks about your health and cannot refuse you if you qualify.',
+      },
+      {
+        heading: 'Paying the doctor and getting reimbursed',
+        body: 'With public insurance you show your card and the practice bills the fund. With private insurance you usually get an invoice yourself, pay it, and claim the money back from your insurer. Hospitals and expensive treatment are often billed directly. Doctors may charge private patients a higher rate under the official fee scale (GOÄ), which is one reason private patients can get appointments faster.',
+      },
+      {
+        heading: 'If premiums become too high',
+        body: 'Premiums often rise noticeably as you get older and medical costs grow. You have a legal right to switch to another plan with the same insurer (Tarifwechsel) and keep your ageing reserves, which can lower the premium. Every private insurer must also offer a basic plan (Basistarif) with public-level benefits, and a capped premium, for people who can no longer afford their plan. Switching to a different private insurer usually means losing most of your ageing reserves, so it is rarely worth it after the first few years.',
+      },
+      {
         heading: 'Before your first payroll',
         body: 'Your employer needs to know your insurer when you start, so decide before your first payroll run. If you are unsure, do not commit to a long-term private policy on the strength of the first quoted premium. Ask for a comparison that reflects your family plans, how long you expect to stay in Germany, and the long-term cost.',
       },
@@ -1723,6 +1767,7 @@ export const blogPosts = [
     ],
     links: [
       { label: 'How to use your health insurance card', href: '/blog/how-to-use-health-insurance-card-germany' },
+      { label: 'Life insurance in Germany', href: '/blog/term-life-insurance-risikolebensversicherung-germany-expats' },
       { label: 'Ask the healthcare forum', href: '/forum/healthcare' },
       { label: 'Open the First 30 Days checklist', href: '/frankfurt-first-30-days-checklist' },
     ],
